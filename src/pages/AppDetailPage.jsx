@@ -7,6 +7,9 @@ import { Badge } from '@/components/ui/badge'
 import { Textarea } from '@/components/ui/textarea'
 import { Input } from '@/components/ui/input'
 
+// Placeholder for authentication state
+const isAuthenticated = false; // Replace with real auth logic
+
 export function AppDetailPage() {
   const { id } = useParams()
   const [app, setApp] = useState(null)
@@ -72,6 +75,10 @@ export function AppDetailPage() {
   }, [id])
 
   const handleVote = () => {
+    if (!isAuthenticated) {
+      window.location.href = '/signin';
+      return;
+    }
     if (!hasVoted && app?.is_active) {
       setApp(prev => ({ ...prev, vote_count: prev.vote_count + 1 }))
       setHasVoted(true)

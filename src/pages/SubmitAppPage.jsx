@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Upload, Calendar, DollarSign, Info } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -9,6 +9,9 @@ import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Alert, AlertDescription } from '@/components/ui/alert'
+
+// Placeholder for authentication state
+const isAuthenticated = false; // Replace with real auth logic
 
 export function SubmitAppPage() {
   const [formData, setFormData] = useState({
@@ -26,6 +29,17 @@ export function SubmitAppPage() {
   const [availableWeeks, setAvailableWeeks] = useState([])
   const [loading, setLoading] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Only redirect if not already on /signin or /signup
+    if (
+      !isAuthenticated &&
+      window.location.pathname === '/submit'
+    ) {
+      navigate('/signin');
+    }
+  }, [navigate]);
 
   // Mock available weeks
   useEffect(() => {

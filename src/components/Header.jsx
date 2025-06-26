@@ -4,6 +4,9 @@ import { Plane, Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
 
+// Placeholder for authentication state
+const isAuthenticated = false; // Replace with real auth logic
+
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -33,14 +36,23 @@ export function Header() {
             </Link>
           </nav>
 
-          {/* Submit Button & Mobile Menu */}
+          {/* Submit Button & Auth Buttons & Mobile Menu */}
           <div className="flex items-center space-x-4">
             <Link to="/submit">
-              <Button className="bg-blue-600 hover:bg-blue-700">
-                Submit App
-              </Button>
+                <Button className="bg-blue-600 hover:bg-blue-700">
+                  Submit App
+                </Button>
             </Link>
-            
+            {!isAuthenticated && (
+              <div className="hidden md:flex items-center space-x-2">
+                <Link to="/signup">
+                  <Button variant="outline">Sign Up</Button>
+                </Link>
+                <Link to="/signin">
+                  <Button>Sign In</Button>
+                </Link>
+              </div>
+            )}
             {/* Mobile Menu Button */}
             <button
               className="md:hidden"
@@ -83,6 +95,23 @@ export function Header() {
               >
                 Contact
               </Link>
+              <div className="pt-2 mt-2 border-t border-gray-200 space-y-2">
+                  <Link to="/submit" onClick={() => setIsMenuOpen(false)}>
+                    <Button className="bg-blue-600 hover:bg-blue-700 w-full">
+                      Submit App
+                    </Button>
+                  </Link>
+                {!isAuthenticated && (
+                  <>
+                    <Link to="/signup" onClick={() => setIsMenuOpen(false)}>
+                      <Button variant="outline" className="w-full">Sign Up</Button>
+                    </Link>
+                    <Link to="/signin" onClick={() => setIsMenuOpen(false)}>
+                      <Button className="w-full">Sign In</Button>
+                    </Link>
+                  </>
+                )}
+              </div>
             </nav>
           </div>
         )}
