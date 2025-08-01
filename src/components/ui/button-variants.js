@@ -1,27 +1,21 @@
 import { cva } from "class-variance-authority";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all cursor-pointer disabled:cursor-default disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+  "block text-center rounded-lg py-3 font-semibold text-sm no-underline mt-2 transition duration-300", // base styles
   {
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+          "cursor-pointer bg-white text-gray-900 border-2 border-gray-900 hover:-translate-y-1 hover:shadow-[0_4px_0_rgba(0,0,0,1)]",
+        primary:
+          "cursor-pointer bg-gray-900 text-white border-2 border-gray-900 hover:-translate-y-1 hover:shadow-[0_4px_0_rgba(0,0,0,1)]",
         outline:
-          "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
-        secondary:
-          "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
-        ghost:
-          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
-        link: "text-primary underline-offset-4 hover:underline",
+          "cursor-pointer bg-transparent text-gray-900 border-2 border-transparent hover:border-gray-900",
       },
       size: {
-        default: "h-9 px-4 py-2 has-[>svg]:px-3",
-        sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
-        lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
-        icon: "size-9",
+        default: "",
+        sm: "py-2 px-4 text-sm",
+        lg: "py-4 px-8 text-lg",
       },
     },
     defaultVariants: {
@@ -31,4 +25,4 @@ const buttonVariants = cva(
   }
 );
 
-export { buttonVariants }; 
+export { buttonVariants };
