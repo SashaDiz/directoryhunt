@@ -1,6 +1,7 @@
 import React from "react";
 import PricingCard from "../components/ui/PricingCard";
 import FAQ from "../components/ui/FAQ";
+import rocketIcon from "@/assets/rocket.svg";
 
 const plans = [
   {
@@ -81,7 +82,7 @@ function PricingPage() {
       <section className="py-8 flex flex-col items-center">
         <span className="flex items-center border px-4 py-2 rounded-lg mb-4 text-sm">
           <img
-            src="../src/assets/rocket.svg"
+            src={rocketIcon}
             alt="Rocket Icon"
             className="inline w-5 h-5 mr-1"
           />

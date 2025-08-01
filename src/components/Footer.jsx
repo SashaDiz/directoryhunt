@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Plane, Twitter, Github, Mail } from "lucide-react";
+import logoWhite from "@/assets/logo-white.svg";
 
 export function Footer() {
   return (
@@ -10,11 +11,7 @@ export function Footer() {
           {/* Logo & Description */}
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="block mb-4">
-              <img
-                src="/src/assets/logo-white.svg"
-                alt="Directory Hunt Logo"
-                className="h-10"
-              />
+              <img src={logoWhite} alt="Directory Hunt Logo" className="h-10" />
             </Link>
             <p className="text-gray-400 mb-4">
               The premier platform for showcasing travel-related apps, services,

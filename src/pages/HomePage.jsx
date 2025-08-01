@@ -6,6 +6,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import GuidePromoCard from "@/components/ui/GuidePromoCard";
 import SponsorCard from "@/components/ui/SponsorCard";
+import aiFaviIcon from "@/assets/ai-favi.png";
+import crownIcon from "@/assets/crown.svg";
+import crownBlackIcon from "@/assets/crown-black.svg";
+import johnIcon from "@/assets/john.svg";
 
 // Placeholder for authentication state
 const isAuthenticated = false; // Replace with real auth logic
@@ -32,7 +36,7 @@ export function HomePage() {
           name: "TravelMate Navigator",
           short_description:
             "AI-powered travel planning with real-time updates and local insights",
-          logo_url: "/src/assets/ai-favi.png",
+          logo_url: aiFaviIcon,
           vote_count: 42,
           is_paid: false,
           is_winner: false,
@@ -44,7 +48,7 @@ export function HomePage() {
           name: "StayFinder Pro",
           short_description:
             "Find and book unique accommodations worldwide with instant confirmation",
-          logo_url: "/src/assets/ai-favi.png",
+          logo_url: aiFaviIcon,
           vote_count: 38,
           is_paid: true,
           is_winner: false,
@@ -56,7 +60,7 @@ export function HomePage() {
           name: "LocalEats Discovery",
           short_description:
             "Discover authentic local restaurants and hidden culinary gems",
-          logo_url: "/src/assets/ai-favi.png",
+          logo_url: aiFaviIcon,
           vote_count: 35,
           is_paid: false,
           is_winner: false,
@@ -68,7 +72,7 @@ export function HomePage() {
           name: "TripBudget Manager",
           short_description:
             "Comprehensive travel expense tracking and budgeting",
-          logo_url: "/src/assets/ai-favi.png",
+          logo_url: aiFaviIcon,
           vote_count: 28,
           is_paid: false,
           is_winner: false,
@@ -80,7 +84,7 @@ export function HomePage() {
           name: "WeatherWise Travel",
           short_description:
             "Weather-based travel planning and packing suggestions",
-          logo_url: "/src/assets/ai-favi.png",
+          logo_url: aiFaviIcon,
           vote_count: 19,
           is_paid: false,
           is_winner: false,
@@ -92,7 +96,7 @@ export function HomePage() {
           name: "PackSmart",
           short_description:
             "Smart packing lists based on destination and weather",
-          logo_url: "/src/assets/ai-favi.png",
+          logo_url: aiFaviIcon,
           vote_count: 64,
           is_paid: false,
           is_winner: false,
@@ -104,7 +108,7 @@ export function HomePage() {
           name: "CityGuide AI",
           short_description:
             "AI-powered city exploration and local recommendations",
-          logo_url: "/src/assets/ai-favi.png",
+          logo_url: aiFaviIcon,
           vote_count: 7,
           is_paid: false,
           is_winner: false,
@@ -116,7 +120,7 @@ export function HomePage() {
           name: "HotelFinder Elite",
           short_description:
             "Premium hotel booking with exclusive member rates",
-          logo_url: "/src/assets/ai-favi.png",
+          logo_url: aiFaviIcon,
           vote_count: 3,
           is_paid: false,
           is_winner: false,
@@ -315,7 +319,7 @@ export function HomePage() {
                           `}
                             >
                               <img
-                                src="/src/assets/crown.svg"
+                                src={crownIcon}
                                 alt="Badge"
                                 className={`w-4 mr-0.5
                               ${index === 0 ? "inline" : ""}
@@ -325,7 +329,7 @@ export function HomePage() {
                               />
 
                               <img
-                                src="/src/assets/crown-black.svg"
+                                src={crownBlackIcon}
                                 alt="Badge"
                                 className={`w-4 mr-0.5
                               ${index === 0 ? "hidden" : ""}
@@ -465,7 +469,7 @@ export function HomePage() {
               Directory guide
             </h2>
             <GuidePromoCard
-              imageSrc="/src/assets/john.svg"
+              imageSrc={johnIcon}
               name="John Rush"
               subtitle="Creator of MarsX (uniting AI, NoCode, and Code)"
               title="Want to build your own directory?"

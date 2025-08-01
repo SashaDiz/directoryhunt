@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import logoSvg from "@/assets/logo.svg";
 
 // Placeholder for authentication state
 const isAuthenticated = false; // Replace with real auth logic
@@ -19,11 +20,7 @@ export function Header() {
             to="/"
             className="flex items-center space-x-2 text-xl font-bold text-gray-900"
           >
-            <img
-              src="/src/assets/logo.svg"
-              alt="Directory Hunt Logo"
-              className="h-10"
-            />
+            <img src={logoSvg} alt="Directory Hunt Logo" className="h-10" />
           </Link>
 
           {/* Desktop Navigation */}
