@@ -497,7 +497,7 @@ export function HomePage() {
           </div>
           <div className="flex flex-col items-center gap-4">
             <a
-              href="https://frogdr.com/directoryhunt.org?utm_source=directoryhunt.org"
+              to="https://frogdr.com/directoryhunt.org?utm_source=directoryhunt.org"
               target="_blank"
               rel="noopener noreferrer"
             >

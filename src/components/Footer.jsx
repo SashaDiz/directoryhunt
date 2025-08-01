@@ -20,19 +20,19 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
+                to="#"
                 className="text-gray-400 hover:text-blue-400 transition-colors"
               >
                 <Twitter className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                to="#"
                 className="text-gray-400 hover:text-blue-400 transition-colors"
               >
                 <Github className="h-5 w-5" />
               </a>
               <a
-                href="mailto:hello@travellaunch.com"
+                to="mailto:hello@travellaunch.com"
                 className="text-gray-400 hover:text-blue-400 transition-colors"
               >
                 <Mail className="h-5 w-5" />

@@ -43,46 +43,41 @@ export function Header() {
             >
               Pricing
             </Link>
-            <Link
-              to="/submit"
-              className="flex items-center gap-1.5 leading-0 font-semibold text-gray-900 transition duration-300 mr-8 submit-button"
-            >
-              <svg
-                width="20px"
-                height="20px"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                color="#111827"
-              >
-                <path
-                  d="M8 12H12M16 12H12M12 12V8M12 12V16"
-                  stroke="#111827"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></path>
-                <path
-                  d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                  stroke="#111827"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                ></path>
-              </svg>
-              Submit Directory
-            </Link>
           </nav>
 
           {/* Submit Button & Auth Buttons & Mobile Menu */}
           <div className="flex items-center space-x-2">
             {!isAuthenticated && (
               <div className="hidden md:flex items-center space-x-2">
-                <Link to="/signup">
-                  <Button className="px-6 mt-0" variant="outline">
-                    Sign Up
-                  </Button>
+                <Link
+                  to="/submit"
+                  className="flex items-center gap-1.5 leading-0 font-semibold text-gray-900 transition duration-300 mr-8 submit-button"
+                >
+                  <svg
+                    width="20px"
+                    height="20px"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    color="#111827"
+                  >
+                    <path
+                      d="M8 12H12M16 12H12M12 12V8M12 12V16"
+                      stroke="#111827"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                      stroke="#111827"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                  Submit Directory
                 </Link>
                 <Link to="/signin">
                   <Button className="px-6 mt-0" variant={"default"}>

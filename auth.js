@@ -1,7 +1,15 @@
-import NextAuth from "next-auth";
-
-const config = {
-  providers: [],
+// Client-side auth configuration for Vercel deployment
+export const authConfig = {
+  pages: {
+    signIn: "/signin",
+    verifyRequest: "/verify-request",
+  },
+  callbacks: {
+    async session({ session, user }) {
+      if (session?.user) {
+        session.user.id = user.id;
+      }
+      return session;
+    },
+  },
 };
-
-export const { handlers, signIn, signOut, auth } = NextAuth(config);
