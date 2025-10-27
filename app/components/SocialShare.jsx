@@ -33,11 +33,11 @@ export function SocialShare({
   }, []);
 
   const shareUrl = url || (isClient ? window.location.href : "");
-  const shareTitle = title || "Check out this AI project on AI Launch Space!";
-  const shareDescription =
-    description || "Discover amazing AI projects and tools on AI Launch Space";
-  const shareHashtags =
-    hashtags.length > 0 ? hashtags : ["AILaunchSpace", "AI", "ArtificialIntelligence"];
+  const shareTitle = title || "Check out this project on Directory Hunt!";
+  const shareDescription = 
+    description || "Discover amazing directories and projects on Directory Hunt";
+  const shareHashtags = 
+    hashtags.length > 0 ? hashtags : ["DirectoryHunt", "Directory", "Projects"];
 
   const shareData = {
     url: shareUrl,
@@ -318,17 +318,17 @@ export function SocialFollow({
   const socialLinks = [
     {
       name: "X",
-      url: "https://x.com/ailaunchspace",
+      url: "https://x.com/directoryhunt",
       icon: X,
       color: "text-white",
-      bgColor: "hover:bg-[#ED0D79]",
+      bgColor: "hover:bg-black hover:border-white",
     },
     {
       name: "GitHub",
-      url: "https://github.com/SashaDiz/ailaunch-space",
+      url: "https://github.com/SashaDiz/directory-hunt",
       icon: Github,
       color: "text-white",
-      bgColor: "hover:bg-[#ED0D79]",
+      bgColor: "hover:bg-black hover:border-white",
     },
   ];
 

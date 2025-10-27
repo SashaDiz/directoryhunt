@@ -1,45 +1,11 @@
-@font-face {
-  font-family: 'Nohemi';
-  src: url('/assets/Nohemi-Light.woff2') format('woff2'),
-       url('/assets/Nohemi-Light.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Nohemi';
-  src: url('/assets/Nohemi-Regular.woff2') format('woff2'),
-       url('/assets/Nohemi-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Nohemi';
-  src: url('/assets/Nohemi-Medium.woff2') format('woff2'),
-       url('/assets/Nohemi-Medium.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Nohemi';
-  src: url('/assets/Nohemi-Medium.woff2') format('woff2'),
-       url('/assets/Nohemi-Medium.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
+/* TikTok Sans font is loaded via Google Fonts in layout.js */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --font-family-sans: "Nohemi", ui-sans-serif, system-ui, sans-serif;
+  --font-family-sans: "TikTok Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
 * {
@@ -154,7 +120,7 @@ select:focus-visible,
 }
 
 .category-ai {
-  background-color: #ED0D79;
+  background-color: #000000;
   color: #ffffff; /* Pure white for maximum contrast */
 }
 .category-business {
@@ -221,12 +187,12 @@ select:focus-visible,
 
 /* Custom radio button styles */
 .radio.radio-primary {
-  border-color: #ED0D79;
+  border-color: #000000;
 }
 
 .radio.radio-primary:checked {
-  background-color: #ED0D79;
-  border-color: #ED0D79;
+  background-color: #000000;
+  border-color: #000000;
 }
 
 .radio.radio-primary:checked::before {
@@ -236,28 +202,28 @@ select:focus-visible,
 /* Ensure all form elements use primary color consistently */
 input[type="checkbox"]:checked,
 input[type="radio"]:checked {
-  accent-color: #ED0D79;
+  accent-color: #000000;
 }
 
 /* Custom styling for native checkboxes and radio buttons */
 input[type="checkbox"]:not(.checkbox):not(.radio),
 input[type="radio"]:not(.checkbox):not(.radio) {
-  accent-color: #ED0D79;
+  accent-color: #000000;
 }
 
 /* Custom icon colors */
 .text-primary {
-  color: #ED0D79 !important;
+  color: #000000 !important;
 }
 
 /* Iconoir icons specifically */
 [class*="iconoir-"] {
-  color: #ED0D79 !important;
+  color: #000000 !important;
 }
 
 /* SVG icons with primary color */
 svg.text-primary {
-  color: #ED0D79 !important;
+  color: #000000 !important;
 }
 
 /* Hero section */
@@ -353,14 +319,14 @@ svg.text-primary {
 
 /* Enhanced button contrast */
 .btn-primary {
-  background-color: #ED0D79;
+  background-color: black;
   color: #ffffff;
-  border: 1px solid #ED0D79;
+  border: 1px solid black;
 }
 
 .btn-primary:hover {
-  background-color: #c40d66; /* Darker shade for hover state */
-  border-color: #c40d66;
+  background-color: black; /* Darker shade for hover state */
+  border-color: black;
 }
 
 /* Enhanced focus states for better accessibility */
@@ -371,9 +337,9 @@ textarea:focus-visible,
 select:focus-visible,
 [role="button"]:focus-visible,
 [tabindex]:not([tabindex="-1"]):focus-visible {
-  outline: 3px solid #ED0D79; /* Thicker outline for better visibility */
+  outline: 3px solid black; /* Thicker outline for better visibility */
   outline-offset: 2px;
-  box-shadow: 0 0 0 6px rgba(237, 13, 121, 0.2); /* Enhanced shadow for focus */
+  box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.2); /* Enhanced shadow for focus */
 }
 
 /* Ensure sufficient contrast for disabled states */
@@ -383,84 +349,4 @@ button:disabled {
   color: #ffffff !important;
   border-color: #9ca3af !important;
   opacity: 1 !important; /* Remove opacity to maintain contrast */
-}
-
-/* Decorative asymmetric shape */
-.decorative-blob {
-  position: absolute;
-  top: -200px;
-  left: -200px;
-  width: 400px;
-  height: 300px;
-  background: linear-gradient(135deg, #ED0D79 0%, #FF942A 100%);
-  border-radius: 60% 40% 70% 30% / 40% 60% 30% 70%;
-  opacity: 0.6;
-  filter: blur(40px);
-  z-index: 1;
-  pointer-events: none;
-  animation: blob-morph 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  will-change: transform;
-}
-
-/* Larger blob on desktop */
-@media (min-width: 768px) {
-  .decorative-blob {
-    top: -265.3px;
-    left: -406.14px;
-    width: 850.32px;
-    height: 629.3px;
-  }
-}
-
-/* Noise texture overlay for the blob */
-.decorative-blob::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    radial-gradient(circle at 20% 50%, transparent 20%, rgba(255, 255, 255, 0.1) 21%, rgba(255, 255, 255, 0.1) 22%, transparent 23%),
-    radial-gradient(circle at 80% 20%, transparent 20%, rgba(0, 0, 0, 0.1) 21%, rgba(0, 0, 0, 0.1) 22%, transparent 23%),
-    radial-gradient(circle at 40% 80%, transparent 20%, rgba(255, 255, 255, 0.05) 21%, rgba(255, 255, 255, 0.05) 22%, transparent 23%),
-    radial-gradient(circle at 90% 90%, transparent 20%, rgba(0, 0, 0, 0.05) 21%, rgba(0, 0, 0, 0.05) 22%, transparent 23%);
-  background-size: 50px 50px, 30px 30px, 70px 70px, 40px 40px;
-  border-radius: inherit;
-  opacity: 0.3;
-}
-
-/* Blob morphing animation - optimized for smoothness */
-@keyframes blob-morph {
-  0%, 100% {
-    border-radius: 30% 70% 40% 60% / 40% 60% 30% 70%;
-    transform: rotate(0deg) scale(1);
-  }
-  25% {
-    border-radius: 70% 30% 60% 40% / 60% 40% 70% 30%;
-    transform: rotate(90deg) scale(1.02);
-  }
-  50% {
-    border-radius: 60% 40% 70% 30% / 30% 70% 60% 40%;
-    transform: rotate(180deg) scale(0.98);
-  }
-  75% {
-    border-radius: 40% 60% 30% 70% / 70% 30% 40% 60%;
-    transform: rotate(270deg) scale(1.01);
-  }
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  
-  .decorative-blob {
-    animation: none;
-  }
 }

@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 /**
  * WinnerEmbed Component
  * Displays embed code for winners with dofollow backlink
- * Based on the provided design with AI Launch Space branding
+ * Based on the provided design with Directory Hunt branding
  */
 export default function WinnerEmbed({
   position,
@@ -26,32 +26,32 @@ export default function WinnerEmbed({
   const getPositionText = (pos) => {
     switch (pos) {
       case 1:
-        return "#1 AI Product on AILaunch.space";
+        return "#1 Project on DirectoryHunt.org";
       case 2:
-        return "#2 AI Product on AILaunch.space";
+        return "#2 Project on DirectoryHunt.org";
       case 3:
-        return "#3 AI Product on AILaunch.space";
+        return "#3 Project on DirectoryHunt.org";
       default:
-        return "Featured on AILaunch.space";
+        return "Featured on DirectoryHunt.org";
     }
   };
 
   const embedCode = isDarkTheme 
-    ? `<a href="https://ailaunch.space/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: inline-block;">
+    ? `<a href="https://directoryhunt.org/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: inline-block;">
 <div style="width: auto; min-width: 225px; height: 52px; display: flex; align-items: center; justify-content: flex-start; background: #1f2937; gap: 8px; border: 1px solid #374151; border-radius: 8px; padding: 8px 16px 8px 8px; font-family: system-ui, -apple-system, sans-serif;">
-  <img src="https://ailaunch.space/assets/ailaunch-embed-white.svg" alt="#${position} AI Product on AILaunch.space" width="42" height="42" style="flex-shrink: 0;" />
+  <img src="https://directoryhunt.org/assets/ailaunch-embed-white.svg" alt="#${position} Project on DirectoryHunt.org" width="42" height="42" style="flex-shrink: 0;" />
   <div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; font-size: 14px; font-weight: 700; line-height: 1.2; color: #f9fafb;">
-    #${position} AI Product of the Week
-    <span style="color: #ED0D79; font-size: 12px;">AILaunch.space</span>
+    #${position} Project of the Week
+    <span style="color: #000000; font-size: 12px;">DirectoryHunt.org</span>
   </div>
 </div>
 </a>`
-    : `<a href="https://ailaunch.space/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: inline-block;">
+    : `<a href="https://directoryhunt.org/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: inline-block;">
 <div style="width: auto; min-width: 225px; height: 52px; display: flex; align-items: center; justify-content: flex-start; background: white; gap: 8px; border: 1px solid #d1d5db; border-radius: 8px; padding: 8px 16px 8px 8px; font-family: system-ui, -apple-system, sans-serif;">
-  <img src="https://ailaunch.space/assets/ailaunch-embed.svg" alt="#${position} AI Product on AILaunch.space" width="42" height="42" style="flex-shrink: 0;" />
+  <img src="https://directoryhunt.org/assets/ailaunch-embed.svg" alt="#${position} Project on DirectoryHunt.org" width="42" height="42" style="flex-shrink: 0;" />
   <div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; font-size: 14px; font-weight: 700; line-height: 1.2; color: #111827;">
-    #${position} AI Product of the Week
-    <span style="color: #ED0D79; font-size: 12px;">AILaunch.space</span>
+    #${position} Project of the Week
+    <span style="color: #000000; font-size: 12px;">DirectoryHunt.org</span>
   </div>
 </div>
 </a>`;
@@ -73,10 +73,10 @@ export default function WinnerEmbed({
       {/* Header */}
       <div className="mb-6">
         <h3 className="text-xl font-bold text-gray-900 mb-2">
-          Featured on AILaunch.space
+          Featured on DirectoryHunt.org
         </h3>
         <p className="text-gray-600">
-          Place the downloaded badge on your website with a link back to AILaunch.space.
+          Place the downloaded badge on your website with a link back to DirectoryHunt.org.
         </p>
       </div>
 
@@ -92,7 +92,7 @@ export default function WinnerEmbed({
               onClick={() => setIsDarkTheme(false)}
               className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors duration-200 ${
                 !isDarkTheme 
-                  ? 'bg-[#ED0D79] text-white' 
+                  ? 'bg-[#000000] text-white' 
                   : 'bg-white text-gray-600 border border-gray-300 hover:bg-gray-50'
               }`}
             >
@@ -102,7 +102,7 @@ export default function WinnerEmbed({
               onClick={() => setIsDarkTheme(true)}
               className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors duration-200 ${
                 isDarkTheme 
-                  ? 'bg-[#ED0D79] text-white' 
+                  ? 'bg-[#000000] text-white' 
                   : 'bg-white text-gray-600 border border-gray-300 hover:bg-gray-50'
               }`}
             >
@@ -130,7 +130,7 @@ export default function WinnerEmbed({
         {/* Copy Button */}
         <button
           onClick={handleCopyCode}
-          className="absolute top-3 right-3 p-2 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 hover:border-[#ED0D79] transition-colors duration-200 shadow-sm"
+          className="absolute top-3 right-3 p-2 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 hover:border-[#000000] transition-colors duration-200 shadow-sm"
           title="Copy embed code"
         >
           {copied ? (
@@ -146,14 +146,14 @@ export default function WinnerEmbed({
         <p className="text-gray-700 font-medium mb-4">Badge preview:</p>
         <div className="inline-block p-4 bg-gray-50 rounded-xl border border-gray-200">
           <a
-            href="https://ailaunch.space/"
+            href="https://directoryhunt.org/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <div 
               width="225" 
               height="52" 
-              className={`flex items-center justify-start gap-2 border rounded-lg p-2 pr-4 hover:border-[#ED0D79] hover:scale-105 transition-transform duration-200 ${
+              className={`flex items-center justify-start gap-2 border rounded-lg p-2 pr-4 hover:border-[#000000] hover:scale-105 transition-transform duration-200 ${
                 isDarkTheme 
                   ? 'bg-gray-800 border-gray-600' 
                   : 'bg-white border-gray-300'
@@ -161,15 +161,15 @@ export default function WinnerEmbed({
             >
             <img
                src={isDarkTheme ? "/assets/ailaunch-embed-white.svg" : "/assets/ailaunch-embed.svg"}
-               alt={`#${position} AI Product on AILaunch.space`}
+               alt={`#${position} Project on DirectoryHunt.org`}
                width="42"
                height="42"
              />
               <div className={`flex flex-col items-start justify-start text-md font-medium leading-tight ${
                 isDarkTheme ? 'text-gray-100' : 'text-gray-900'
               }`}> 
-                #{position} AI Product of the Week
-                <span className="text-[#ED0D79] text-sm">AILaunch.space</span>
+                #{position} Project of the Week
+                <span className="text-[#000000] text-sm">DirectoryHunt.org</span>
               </div>
             </div>
           </a>
@@ -177,9 +177,9 @@ export default function WinnerEmbed({
       </div>
 
       {/* Additional Info */}
-      <div className="p-4 bg-[#ED0D79]/5 border border-[#ED0D79]/20 rounded-xl">
-        <p className="text-sm text-[#ED0D79] font-medium">
-          <strong>💡 Pro Tip:</strong> This embed includes a dofollow backlink to AILaunch.space.
+      <div className="p-4 bg-[#000000]/5 border border-[#000000]/20 rounded-xl">
+        <p className="text-sm text-[#000000] font-medium">
+          <strong>💡 Pro Tip:</strong> This embed includes a dofollow backlink to DirectoryHunt.org.
           Make sure to place it on your website to receive the SEO benefits and boost your domain authority.
         </p>
       </div>
@@ -299,7 +299,7 @@ export function WinnerEmbedButton({
     <>
       <button
         onClick={() => setShowModal(true)}
-        className={`inline-flex items-center gap-1.5 px-3 py-2 bg-white text-gray-700 font-semibold rounded-lg border border-gray-200 hover:border-[#ED0D79] hover:bg-gray-50 transition duration-300 ease-in-out hover:scale-[1.02] shadow-sm text-sm ${className}`}
+        className={`inline-flex items-center gap-1.5 px-3 py-2 bg-white text-gray-700 font-semibold rounded-lg border border-gray-200 hover:border-[#000000] hover:bg-gray-50 transition duration-300 ease-in-out hover:scale-[1.02] shadow-sm text-sm ${className}`}
         title="Get embed code for your website"
       >
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

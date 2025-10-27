@@ -44,7 +44,7 @@ const CustomDropdown = ({
         type="button"
         onClick={() => !disabled && setIsOpen(!isOpen)}
         disabled={disabled}
-        className={`w-full py-3 pl-3 pr-8 border border-gray-300 rounded-xl focus-visible:border-[#ED0D79] focus-visible:ring-2 focus-visible:ring-[#ED0D79]/20 focus-visible:outline-none transition-all duration-200 bg-white hover:border-gray-400 text-left flex items-center justify-between ${
+        className={`w-full py-3 pl-3 pr-8 border border-gray-300 rounded-xl focus-visible:border-[#000000] focus-visible:ring-2 focus-visible:ring-[#000000]/20 focus-visible:outline-none transition-all duration-200 bg-white hover:border-gray-400 text-left flex items-center justify-between ${
           disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
         }`}
       >
@@ -67,7 +67,7 @@ const CustomDropdown = ({
               type="button"
               onClick={() => handleOptionClick(option.value)}
               className={`w-full px-3 py-3 text-left hover:bg-gray-50 transition-colors flex items-center justify-between ${
-                value === option.value ? "bg-[#ED0D79]/10" : ""
+                value === option.value ? "bg-[#000000]/10" : ""
               }`}
             >
               <span className="flex items-center gap-2">
@@ -75,7 +75,7 @@ const CustomDropdown = ({
                 <span>{option.label}</span>
               </span>
               {value === option.value && (
-                <Check className="w-4 h-4 text-[#ED0D79]" />
+                <Check className="w-4 h-4 text-[#000000]" />
               )}
             </button>
           ))}

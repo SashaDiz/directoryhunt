@@ -116,7 +116,7 @@ export default function PublicProfilePage() {
             <div className="flex items-center space-x-4 mb-4 sm:mb-0">
               <Link 
                 href="/projects" 
-                className="inline-flex items-center gap-2 px-4 py-2 bg-white text-gray-700 font-medium rounded-lg border border-gray-200 hover:border-[#ED0D79] hover:bg-gray-50 transition duration-300 ease-in-out hover:scale-[1.02] shadow-sm"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-white text-gray-700 font-medium rounded-lg border border-gray-200 hover:border-[#000000] hover:bg-gray-50 transition duration-300 ease-in-out hover:scale-[1.02] shadow-sm"
               >
                 <NavArrowLeft className="w-4 h-4" />
                 Back to Projects
@@ -154,7 +154,7 @@ export default function PublicProfilePage() {
                           const parent = e.target.parentElement;
                           if (parent) {
                             parent.innerHTML = `
-                              <div class="bg-[#ED0D79] text-white w-full h-full flex items-center justify-center text-xl font-bold">
+                              <div class="bg-[#000000] text-white w-full h-full flex items-center justify-center text-xl font-bold">
                                 ${profile.name[0]?.toUpperCase() || "U"}
                               </div>
                             `;
@@ -162,7 +162,7 @@ export default function PublicProfilePage() {
                         }}
                       />
                     ) : (
-                      <div className="bg-[#ED0D79] text-white w-full h-full flex items-center justify-center text-xl font-bold">
+                      <div className="bg-[#000000] text-white w-full h-full flex items-center justify-center text-xl font-bold">
                         {profile.name[0]?.toUpperCase() || "U"}
                       </div>
                     )}
@@ -190,7 +190,7 @@ export default function PublicProfilePage() {
 
                 <div className="grid grid-cols-2 gap-4 text-center w-full">
                   <div>
-                    <div className="text-xl font-bold text-[#ED0D79] mb-1">
+                    <div className="text-xl font-bold text-[#000000] mb-1">
                       {userStats.totalSubmissions}
                     </div>
                     <div className="text-xs text-gray-500 font-medium">
@@ -198,7 +198,7 @@ export default function PublicProfilePage() {
                     </div>
                   </div>
                   <div>
-                    <div className="text-xl font-bold text-[#ED0D79] mb-1">
+                    <div className="text-xl font-bold text-[#000000] mb-1">
                       {userStats.totalVotes}
                     </div>
                     <div className="text-xs text-gray-500 font-medium">
@@ -252,7 +252,7 @@ export default function PublicProfilePage() {
                         href={`https://twitter.com/${profile.twitter.replace('@', '')}`}
                         target="_blank"
                         rel="noopener noreferrer nofollow"
-                        className="text-[#ED0D79] hover:text-[#ED0D79]/80 transition-colors font-medium text-sm"
+                        className="text-[#000000] hover:text-[#000000]/80 transition-colors font-medium text-sm"
                       >
                         @{profile.twitter.replace('@', '')}
                       </a>
@@ -270,7 +270,7 @@ export default function PublicProfilePage() {
                         href={profile.website.startsWith('http') ? profile.website : `https://${profile.website}`}
                         target="_blank"
                         rel="noopener noreferrer nofollow"
-                        className="text-[#ED0D79] hover:text-[#ED0D79]/80 transition-colors font-medium text-sm break-all"
+                        className="text-[#000000] hover:text-[#000000]/80 transition-colors font-medium text-sm break-all"
                       >
                         {profile.website}
                       </a>
@@ -305,7 +305,7 @@ export default function PublicProfilePage() {
                   
                   try {
                     const url = new URL(project.website_url);
-                    url.searchParams.set('ref', 'ailaunchspace');
+                    url.searchParams.set('ref', 'directoryhunt');
                     
                     // Use link_type field from database
                     const isDofollow = project.link_type === "dofollow";
@@ -325,14 +325,14 @@ export default function PublicProfilePage() {
                   <Link
                     key={project.id}
                     href={`/project/${project.slug}`}
-                    className="relative block p-4 rounded-lg border border-gray-200 hover:border-[#ED0D79] hover:bg-gray-50 transition-all duration-200 group"
+                    className="relative block p-4 rounded-lg border border-gray-200 hover:border-[#000000] hover:bg-gray-50 transition-all duration-200 group"
                   >
                     {/* External Link - Top Right Corner */}
                     <a
                       href={websiteLink.url}
                       target="_blank"
                       rel={websiteLink.rel}
-                      className="absolute top-3 right-3 p-1 text-gray-400 hover:text-[#ED0D79] transition-colors"
+                      className="absolute top-3 right-3 p-1 text-gray-400 hover:text-[#000000] transition-colors"
                       onClick={(e) => e.stopPropagation()}
                     >
                       <OpenNewWindow className="w-4 h-4" />

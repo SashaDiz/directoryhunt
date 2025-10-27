@@ -212,7 +212,7 @@ export function Header() {
             <Link href="/">
               <Image
                 src="/assets/logo.svg"
-                alt="AI Launch Space"
+                alt="Directory Hunt"
                 height={44}
                 width={140}
                 priority
@@ -224,13 +224,12 @@ export function Header() {
           <div className="flex items-center space-x-3">
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-1">
-              {/* Pricing link temporarily hidden - keeping for future use */}
-              {/* <Link
+              <Link
                 href="/pricing"
-                className="px-3 py-2 text-sm font-medium text-base-content hover:text-[#ED0D79] transition-colors"
+                className="px-3 py-2 text-sm font-medium text-base-content hover:text-[#000000] transition-colors"
               >
                 Pricing
-              </Link> */}
+              </Link>
               <div className="dropdown dropdown-hover">
                 <div
                   tabIndex={0}
@@ -244,9 +243,9 @@ export function Header() {
                   <div className="p-3 border-b border-base-300">
                     <Link
                       href="/projects"
-                      className="flex items-center font-medium text-sm text-[#ED0D79] hover:text-[#ED0D79}/80"
+                      className="flex items-center font-medium text-sm text-black hover:text-black/80"
                     >
-                      <span className="w-2 h-2 bg-[#ED0D79] rounded-full mr-2"></span>
+                      <span className="w-2 h-2 bg-black rounded-full mr-2"></span>
                       View all AI projects
                     </Link>
                   </div>
@@ -268,7 +267,7 @@ export function Header() {
                               href={`/projects?categories=${
                                 category.slug || category.name
                               }`}
-                              className="flex items-center px-6 py-2 text-sm text-base-content hover:bg-base-200 hover:text-[#ED0D79] transition-colors"
+                              className="flex items-center px-6 py-2 text-sm text-base-content hover:bg-base-200 hover:text-black transition-colors"
                             >
                               <span
                                 className={`w-2 h-2 ${getCategoryDotColor(
@@ -288,7 +287,7 @@ export function Header() {
             {/* Launch AI Project Button */}
             <Link
               href="/submit?plan=standard"
-              className="text-center bg-[#ED0D79] text-white rounded-lg px-4 py-3 font-semibold text-sm no-underline transition duration-300 hover:scale-105 hidden sm:flex items-center gap-2"
+              className="text-center bg-black text-white rounded-lg px-4 py-3 font-semibold text-sm no-underline transition duration-300 hover:scale-105 hidden sm:flex items-center gap-2"
               onMouseEnter={handlePlusIconHover}
               onMouseLeave={handlePlusIconLeave}
             >
@@ -311,7 +310,7 @@ export function Header() {
                   className="cursor-pointer"
                 >
                   <div className="avatar">
-                    <div className="w-12 h-12 rounded-full border-2 border-base-300 transition-all duration-200 hover:border-[#ED0D79] hover:scale-105">
+                    <div className="w-12 h-12 rounded-full border-2 border-base-300 transition-all duration-200 hover:border-black hover:scale-105">
                       {(() => {
                         const avatarUrl = userProfile?.avatar_url || user.user_metadata?.avatar_url;
                         return avatarUrl ? (
@@ -328,7 +327,7 @@ export function Header() {
                               const parent = e.target.parentElement;
                               if (parent) {
                                 parent.innerHTML = `
-                                  <div class="bg-[#ED0D79] text-white w-full h-full flex items-center justify-center text-xs font-medium">
+                                  <div class="bg-black text-white w-full h-full flex items-center justify-center text-xs font-medium">
                                     ${(user.user_metadata?.full_name?.[0] || user.email?.[0] || "U").toUpperCase()}
                                   </div>
                                 `;
@@ -336,7 +335,7 @@ export function Header() {
                             }}
                           />
                         ) : (
-                          <div className="bg-[#ED0D79] text-white w-full h-full flex items-center justify-center text-xs font-medium">
+                          <div className="bg-black text-white w-full h-full flex items-center justify-center text-xs font-medium">
                             {(user.user_metadata?.full_name?.[0] || user.email?.[0] || "U").toUpperCase()}
                           </div>
                         );
@@ -425,7 +424,7 @@ export function Header() {
               <div className="flex items-center">
                 <Image
                   src="/assets/logo.svg"
-                  alt="AI Launch Space"
+                  alt="Directory Hunt"
                   height={40}
                   width={40}
                   className="h-10"
@@ -444,19 +443,18 @@ export function Header() {
             <div className="p-6">
               {/* Navigation Links */}
               <div className="space-y-4 mb-8">
-                {/* Pricing link temporarily hidden - keeping for future use */}
-                {/* <Link
+                <Link
                   href="/pricing"
                   onClick={closeMobileMenu}
-                  className="block text-lg font-medium text-gray-900 hover:text-[#ED0D79] transition-colors"
+                  className="block text-lg font-medium text-gray-900 hover:text-[#000000] transition-colors"
                 >
                   Pricing
-                </Link> */}
+                </Link>
                 
                 <Link
                   href="/projects"
                   onClick={closeMobileMenu}
-                  className="block text-lg font-medium text-gray-900 hover:text-[#ED0D79] transition-colors"
+                  className="block text-lg font-medium text-gray-900 hover:text-black transition-colors"
                 >
                   Browse AI Projects
                 </Link>
@@ -467,7 +465,7 @@ export function Header() {
                 <Link
                   href="/submit?plan=standard"
                   onClick={closeMobileMenu}
-                  className="flex items-center justify-center w-full bg-[#ED0D79] text-white rounded-lg px-6 py-4 font-semibold text-lg no-underline transition duration-300 hover:scale-105"
+                  className="flex items-center justify-center w-full bg-black text-white rounded-lg px-6 py-4 font-semibold text-lg no-underline transition duration-300 hover:scale-105"
                 >
                   <PlusCircle className="h-6 w-6 mr-2" strokeWidth={2} />
                   Launch your AI project
@@ -496,7 +494,7 @@ export function Header() {
                                 const parent = e.target.parentElement;
                                 if (parent) {
                                   parent.innerHTML = `
-                                    <div class="bg-[#ED0D79] text-white w-full h-full flex items-center justify-center text-lg font-medium">
+                                    <div class="bg-black text-white w-full h-full flex items-center justify-center text-lg font-medium">
                                       ${(user.user_metadata?.full_name?.[0] || user.email?.[0] || "U").toUpperCase()}
                                     </div>
                                   `;
@@ -504,7 +502,7 @@ export function Header() {
                               }}
                             />
                           ) : (
-                            <div className="bg-[#ED0D79] text-white w-full h-full flex items-center justify-center text-lg font-medium">
+                            <div className="bg-black text-white w-full h-full flex items-center justify-center text-lg font-medium">
                               {(user.user_metadata?.full_name?.[0] || user.email?.[0] || "U").toUpperCase()}
                             </div>
                           );
@@ -523,21 +521,21 @@ export function Header() {
                     <Link
                       href="/profile"
                       onClick={closeMobileMenu}
-                      className="block py-2 text-base text-gray-700 hover:text-[#ED0D79] transition-colors"
+                      className="block py-2 text-base text-gray-700 hover:text-black transition-colors"
                     >
                       My Profile
                     </Link>
                     <Link
                       href="/dashboard"
                       onClick={closeMobileMenu}
-                      className="block py-2 text-base text-gray-700 hover:text-[#ED0D79] transition-colors"
+                      className="block py-2 text-base text-gray-700 hover:text-black transition-colors"
                     >
                       Dashboard
                     </Link>
                     <Link
                       href="/settings"
                       onClick={closeMobileMenu}
-                      className="block py-2 text-base text-gray-700 hover:text-[#ED0D79] transition-colors"
+                      className="block py-2 text-base text-gray-700 hover:text-black transition-colors"
                     >
                       Account Settings
                     </Link>
@@ -548,7 +546,7 @@ export function Header() {
                         router.push("/");
                         router.refresh();
                       }}
-                      className="block py-2 text-base text-gray-700 hover:text-[#ED0D79] transition-colors"
+                      className="block py-2 text-base text-gray-700 hover:text-black transition-colors"
                     >
                       Sign out
                     </button>

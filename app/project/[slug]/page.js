@@ -180,7 +180,7 @@ function ProjectDetailPageContent() {
     
     try {
       const url = new URL(project.website_url);
-      url.searchParams.set('ref', 'ailaunchspace');
+      url.searchParams.set('ref', 'directoryhunt');
       
       // Use link_type field from database
       const isDofollow = project.link_type === "dofollow";
@@ -305,7 +305,7 @@ function ProjectDetailPageContent() {
                     <WinnerBadge position={project.weekly_position} size="md" />
                     
                     {project.premium_badge && (
-                      <span className="inline-flex leading-none items-center gap-1 px-1 py-0.5 text-[11px] font-medium text-white rounded-sm" style={{backgroundColor: '#ED0D79'}}>
+                      <span className="inline-flex leading-none items-center gap-1 px-1 py-0.5 text-[11px] font-medium text-white rounded-sm" style={{backgroundColor: '#000000'}}>
                         <Crown className="w-4 h-4" strokeWidth={1.5} />
                         <span className="mt-0.5">Premium</span>
                       </span>
@@ -343,7 +343,7 @@ function ProjectDetailPageContent() {
                           userName={project.user.name}
                           userAvatar={project.user.avatar}
                           size="sm"
-                          className="text-base-content hover:text-[#ED0D79]"
+                          className="text-base-content hover:text-[#000000]"
                         />
                       </div>
                     </div>
@@ -363,7 +363,7 @@ function ProjectDetailPageContent() {
                       project.category
                         ? project.category.replace(/[^a-zA-Z0-9]/g, "")
                         : "",
-                      "AILaunchSpace",
+                      "DirectoryHunt",
                     ]}
                     className="inline"
                   />
@@ -389,8 +389,8 @@ function ProjectDetailPageContent() {
                             !isVotingAllowed()
                               ? "bg-gray-400 text-white border-1 border-gray-300 pointer-events-none cursor-not-allowed opacity-60"
                               : project.userVoted
-                              ? "bg-[#ED0D79] text-white translate-0"
-                              : "bg-white text-black border border-gray-200 hover:border-[#ED0D79] hover:outline hover:outline-4 hover:outline-[#ed0d7912]"
+                              ? "bg-[#000000] text-white translate-0"
+                              : "bg-white text-black border border-gray-200 hover:border-[#000000] hover:outline hover:outline-4 hover:outline-[#ed0d7912]"
                           }
                           ${
                             isVoting
@@ -455,7 +455,7 @@ function ProjectDetailPageContent() {
         <SocialShare
           projectId={project.id}
           slug={project.slug}
-          title={`🚀 Discover ${project.name} - Featured AI Project on AI Launch Space`}
+          title={`🚀 Discover ${project.name} - Featured Project on Directory Hunt`}
           description={project.tagline || project.description}
           hashtags={[
             project.category
@@ -522,7 +522,7 @@ function ProjectDetailPageContent() {
                   </h2>
                   <p className="text-base-content/70 mb-6">
                     Congratulations on winning {project.weekly_position === 1 ? '1st' : project.weekly_position === 2 ? '2nd' : '3rd'} place! 
-                    Add this badge to your website to showcase your achievement and get a dofollow backlink to AILaunch.space.
+                    Add this badge to your website to showcase your achievement and get a dofollow backlink to DirectoryHunt.org.
                   </p>
                   <WinnerEmbed 
                     position={project.weekly_position}
@@ -563,7 +563,7 @@ function ProjectDetailPageContent() {
                         <Link
                           key={related.id}
                           href={`/project/${related.slug}`}
-                          className="relative block p-4 rounded-lg border border-gray-200 hover:border-[#ED0D79] hover:bg-gray-50 transition-all duration-200 group"
+                          className="relative block p-4 rounded-lg border border-gray-200 hover:border-[#000000] hover:bg-gray-50 transition-all duration-200 group"
                         >
                           <div className="flex items-start space-x-3">
                             {/* Project Logo */}

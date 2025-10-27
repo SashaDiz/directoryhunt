@@ -136,7 +136,7 @@ function SignInContent() {
             className="inline-flex items-center text-sm text-base-content/60 hover:text-primary mb-6"
           >
             <NavArrowLeft className="w-4 h-4 mr-1" />
-            Back to AI Launch Space
+            Back to Directory Hunt
           </Link>
 
           <h2 className="text-3xl font-bold text-base-content mb-2">

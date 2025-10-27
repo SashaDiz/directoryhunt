@@ -27,7 +27,7 @@ const plans = [
       { text: "Live on homepage for 7 days", icon: Home },
       { text: "15 slots weekly (limited availability)", icon: Crown },
       { text: "Badge for top 3 ranking products", icon: Trophy },
-      // { text: "High authority lifetime backlink (only for Top 3 rankings)", icon: LinkIcon }, // Commented for future
+      { text: "High authority lifetime backlink (only for Top 3 rankings)", icon: LinkIcon },
       { text: "Standard launch queue", icon: Clock },
       { text: "Basic community exposure", icon: Megaphone },
     ],
@@ -47,7 +47,7 @@ const plans = [
       { text: "Extended homepage exposure (7 days)", icon: Home },
       { text: "Priority placement in top categories", icon: Crown },
       { text: "Badge for top 3 ranking products", icon: Trophy },
-      // { text: "3+ Guaranteed high authority lifetime backlink", icon: LinkIcon }, // Commented for future
+      { text: "3+ Guaranteed high authority lifetime backlink", icon: LinkIcon },
       { text: "Skip the queue - instant launch", icon: Clock },
       { text: "Enhanced social media promotion", icon: Megaphone },
       { text: "Premium badge for credibility", icon: Star },
@@ -119,8 +119,8 @@ function PricingCard({ plan, index }) {
         <Link href={`/submit?plan=${plan.id}`} className="w-full mt-auto">
           <button className={`w-full py-4 px-6 rounded-lg font-semibold text-base transition duration-300 outline outline-4 outline-transparent ${
             plan.popular 
-              ? "bg-[#ED0D79] hover:bg-[#ED0D79]/90 text-white border-[#ED0D79] hover:scale-105" 
-              : "bg-white hover:bg-[#ED0D79] text-black border border-gray-200 hover:text-white hover:border-[#ED0D79] hover:outline-[#ed0d7924]"
+              ? "bg-[#000000] hover:bg-[#000000]/90 text-white border-[#000000] hover:scale-105" 
+              : "bg-white hover:bg-[#000000] text-black border border-gray-200 hover:text-white hover:border-[#000000] hover:outline-[#ed0d7924]"
           }`}>
             {plan.cta}
           </button>
@@ -138,7 +138,7 @@ export default function PricingPage() {
       <div className="bg-white py-8 pt-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-8">
-            <Link href="/submit" className="inline-flex items-center px-6 py-3 bg-[#ED0D79] text-white rounded-lg font-semibold text-sm no-underline transition duration-300 hover:scale-105 hover:bg-[#ED0D79]/90">
+            <Link href="/submit" className="inline-flex items-center px-6 py-3 bg-[#000000] text-white rounded-lg font-semibold text-sm no-underline transition duration-300 hover:scale-105 hover:bg-[#000000]/90">
               <Rocket className="w-4 h-4 mr-2" strokeWidth={2} />
               Launch your directory
             </Link>

@@ -13,24 +13,24 @@ const getResend = () => {
 export const emailTemplates = {
   // Account notifications
   accountCreation: {
-    subject: () => `Welcome to AI Launch Space! 🎉`,
+    subject: () => `Welcome to Directory Hunt! 🎉`,
     html: (data) => `
       <!DOCTYPE html>
       <html>
         <head>
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1">
-          <title>Welcome to AI Launch Space</title>
+          <title>Welcome to Directory Hunt</title>
         </head>
         <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #f8fafc;">
           <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
             <div style="background: white; border-radius: 12px; padding: 40px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
               <div style="text-align: center; margin-bottom: 30px;">
-                <div style="display: inline-block; background: linear-gradient(135deg, #ED0D79, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
+                <div style="display: inline-block; background: linear-gradient(135deg, #000000, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
                   ALS
                 </div>
                 <h1 style="color: #1f2937; margin: 0; font-size: 28px; font-weight: 700;">
-                  Welcome to AI Launch Space! 🎉
+                  Welcome to Directory Hunt! 🎉
                 </h1>
               </div>
               
@@ -55,7 +55,7 @@ export const emailTemplates = {
 
               <div style="text-align: center; margin: 30px 0;">
                 <a href="${process.env.NEXT_PUBLIC_APP_URL}/submit" 
-                   style="display: inline-block; background: #ED0D79; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 12px;">
+                   style="display: inline-block; background: #000000; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 12px;">
                   Submit Your Project
                 </a>
                 <a href="${process.env.NEXT_PUBLIC_APP_URL}/dashboard" 
@@ -66,8 +66,8 @@ export const emailTemplates = {
 
               <div style="border-top: 1px solid #e5e7eb; padding-top: 20px; text-align: center;">
                 <p style="color: #6b7280; font-size: 14px; margin: 0;">
-                  Need help? Contact us at hello@ailaunch.space<br>
-                  The AI Launch Space Team
+                  Need help? Contact us at hello@directoryhunt.org<br>
+                  The Directory Hunt Team
                 </p>
               </div>
             </div>
@@ -78,7 +78,7 @@ export const emailTemplates = {
   },
 
   accountDeletion: {
-    subject: () => `Your AI Launch Space account has been deleted`,
+    subject: () => `Your Directory Hunt account has been deleted`,
     html: (data) => `
       <!DOCTYPE html>
       <html>
@@ -101,7 +101,7 @@ export const emailTemplates = {
               
               <div style="text-align: center; margin-bottom: 30px;">
                 <p style="color: #6b7280; margin: 0; font-size: 16px;">
-                  Your AI Launch Space account and all associated data have been permanently deleted as requested.
+                  Your Directory Hunt account and all associated data have been permanently deleted as requested.
                 </p>
               </div>
 
@@ -118,13 +118,13 @@ export const emailTemplates = {
               <div style="text-align: center; margin: 30px 0;">
                 <p style="color: #6b7280; font-size: 14px; margin: 0;">
                   If you change your mind, you can always create a new account.<br>
-                  Thank you for being part of AI Launch Space.
+                  Thank you for being part of Directory Hunt.
                 </p>
               </div>
 
               <div style="border-top: 1px solid #e5e7eb; padding-top: 20px; text-align: center;">
                 <p style="color: #6b7280; font-size: 14px; margin: 0;">
-                  The AI Launch Space Team
+                  The Directory Hunt Team
                 </p>
               </div>
             </div>
@@ -149,7 +149,7 @@ export const emailTemplates = {
           <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
             <div style="background: white; border-radius: 12px; padding: 40px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
               <div style="text-align: center; margin-bottom: 30px;">
-                <div style="display: inline-block; background: linear-gradient(135deg, #ED0D79, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
+                <div style="display: inline-block; background: linear-gradient(135deg, #000000, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
                   ALS
                 </div>
                 <h1 style="color: #1f2937; margin: 0; font-size: 28px; font-weight: 700;">
@@ -192,7 +192,7 @@ export const emailTemplates = {
 
               <div style="text-align: center; margin: 30px 0;">
                 <a href="${process.env.NEXT_PUBLIC_APP_URL}/project/${data.slug}" 
-                   style="display: inline-block; background: #ED0D79; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 12px;">
+                   style="display: inline-block; background: #000000; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 12px;">
                   View Your Project
                 </a>
                 <a href="${process.env.NEXT_PUBLIC_APP_URL}/dashboard" 
@@ -204,7 +204,7 @@ export const emailTemplates = {
               <div style="border-top: 1px solid #e5e7eb; padding-top: 20px; text-align: center;">
                 <p style="color: #6b7280; font-size: 14px; margin: 0;">
                   Good luck with your launch!<br>
-                  The AI Launch Space Team
+                  The Directory Hunt Team
                 </p>
               </div>
             </div>
@@ -229,7 +229,7 @@ export const emailTemplates = {
           <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
             <div style="background: white; border-radius: 12px; padding: 40px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
               <div style="text-align: center; margin-bottom: 30px;">
-                <div style="display: inline-block; background: linear-gradient(135deg, #ED0D79, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
+                <div style="display: inline-block; background: linear-gradient(135deg, #000000, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
                   ALS
                 </div>
                 <h1 style="color: #1f2937; margin: 0; font-size: 28px; font-weight: 700;">
@@ -262,7 +262,7 @@ export const emailTemplates = {
                 <ul style="margin: 0; padding-left: 20px; color: #4b5563;">
                   ${Array.isArray(data.projects) ? data.projects.map(p => `
                     <li style="margin-bottom: 10px;">
-                      <a href="${process.env.NEXT_PUBLIC_APP_URL}/project/${p.slug}" style="color: #ED0D79; text-decoration: none; font-weight: 600;">${p.name}</a>
+                      <a href="${process.env.NEXT_PUBLIC_APP_URL}/project/${p.slug}" style="color: #000000; text-decoration: none; font-weight: 600;">${p.name}</a>
                     </li>
                   `).join('') : ''}
                 </ul>
@@ -288,7 +288,7 @@ export const emailTemplates = {
               <div style="border-top: 1px solid #e5e7eb; padding-top: 20px; text-align: center;">
                 <p style="color: #6b7280; font-size: 14px; margin: 0;">
                   Good luck with your launches!<br>
-                  The AI Launch Space Team
+                  The Directory Hunt Team
                 </p>
               </div>
             </div>
@@ -312,7 +312,7 @@ export const emailTemplates = {
           <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
             <div style="background: white; border-radius: 12px; padding: 40px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
               <div style="text-align: center; margin-bottom: 30px;">
-                <div style="display: inline-block; background: linear-gradient(135deg, #ED0D79, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
+                <div style="display: inline-block; background: linear-gradient(135deg, #000000, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
                   ALS
                 </div>
                 <div style="font-size: 48px; margin-bottom: 10px;">🏆</div>
@@ -350,7 +350,7 @@ export const emailTemplates = {
 
               <div style="text-align: center; margin: 30px 0;">
                 <a href="${process.env.NEXT_PUBLIC_APP_URL}/project/${data.slug}" 
-                   style="display: inline-block; background: #ED0D79; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 12px;">
+                   style="display: inline-block; background: #000000; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 12px;">
                   View Project
                 </a>
                 <a href="${process.env.NEXT_PUBLIC_APP_URL}/dashboard" 
@@ -362,7 +362,7 @@ export const emailTemplates = {
               <div style="border-top: 1px solid #e5e7eb; padding-top: 20px; text-align: center;">
                 <p style="color: #6b7280; font-size: 14px; margin: 0;">
                   Keep up the excellent work!<br>
-                  The AI Launch Space Team
+                  The Directory Hunt Team
                 </p>
               </div>
             </div>
@@ -386,7 +386,7 @@ export const emailTemplates = {
           <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
             <div style="background: white; border-radius: 12px; padding: 40px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
               <div style="text-align: center; margin-bottom: 30px;">
-                <div style="display: inline-block; background: linear-gradient(135deg, #ED0D79, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
+                <div style="display: inline-block; background: linear-gradient(135deg, #000000, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
                   ALS
                 </div>
                 <div style="font-size: 48px; margin-bottom: 10px;">🔗</div>
@@ -423,7 +423,7 @@ export const emailTemplates = {
 
               <div style="text-align: center; margin: 30px 0;">
                 <a href="${process.env.NEXT_PUBLIC_APP_URL}/dashboard" 
-                   style="display: inline-block; background: #ED0D79; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 12px;">
+                   style="display: inline-block; background: #000000; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 12px;">
                   Get Embed Code
                 </a>
                 <a href="${process.env.NEXT_PUBLIC_APP_URL}/project/${data.slug}" 
@@ -434,8 +434,8 @@ export const emailTemplates = {
 
               <div style="border-top: 1px solid #e5e7eb; padding-top: 20px; text-align: center;">
                 <p style="color: #6b7280; font-size: 14px; margin: 0;">
-                  Need help? Contact us at hello@ailaunch.space<br>
-                  The AI Launch Space Team
+                  Need help? Contact us at hello@directoryhunt.org<br>
+                  The Directory Hunt Team
                 </p>
               </div>
             </div>
@@ -447,7 +447,7 @@ export const emailTemplates = {
 
   // Submission notifications
   submissionApproval: {
-    subject: (projectName) => `🎉 ${projectName} has been approved on AI Launch Space!`,
+    subject: (projectName) => `🎉 ${projectName} has been approved on Directory Hunt!`,
     html: (data) => `
       <!DOCTYPE html>
       <html>
@@ -460,7 +460,7 @@ export const emailTemplates = {
           <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
             <div style="background: white; border-radius: 12px; padding: 40px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
               <div style="text-align: center; margin-bottom: 30px;">
-                <div style="display: inline-block; background: linear-gradient(135deg, #ED0D79, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
+                <div style="display: inline-block; background: linear-gradient(135deg, #000000, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
                   ALS
                 </div>
                 <h1 style="color: #1f2937; margin: 0; font-size: 28px; font-weight: 700;">
@@ -473,7 +473,7 @@ export const emailTemplates = {
                   ${data.projectName} is now live!
                 </h2>
                 <p style="color: #6b7280; margin: 0; font-size: 16px;">
-                  Your project has been approved and is now visible on AI Launch Space.
+                  Your project has been approved and is now visible on Directory Hunt.
                 </p>
               </div>
 
@@ -489,7 +489,7 @@ export const emailTemplates = {
 
               <div style="text-align: center; margin: 30px 0;">
                 <a href="${process.env.NEXT_PUBLIC_APP_URL}/project/${data.slug}" 
-                   style="display: inline-block; background: #ED0D79; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 12px;">
+                   style="display: inline-block; background: #000000; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 12px;">
                   View Your Project
                 </a>
                 <a href="${process.env.NEXT_PUBLIC_APP_URL}/dashboard" 
@@ -501,7 +501,7 @@ export const emailTemplates = {
               <div style="border-top: 1px solid #e5e7eb; padding-top: 20px; text-align: center;">
                 <p style="color: #6b7280; font-size: 14px; margin: 0;">
                   Best of luck with your launch!<br>
-                  The AI Launch Space Team
+                  The Directory Hunt Team
                 </p>
               </div>
             </div>
@@ -525,7 +525,7 @@ export const emailTemplates = {
           <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
             <div style="background: white; border-radius: 12px; padding: 40px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
               <div style="text-align: center; margin-bottom: 30px;">
-                <div style="display: inline-block; background: linear-gradient(135deg, #ED0D79, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
+                <div style="display: inline-block; background: linear-gradient(135deg, #000000, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
                   ALS
                 </div>
                 <h1 style="color: #1f2937; margin: 0; font-size: 28px; font-weight: 700;">
@@ -561,7 +561,7 @@ export const emailTemplates = {
 
               <div style="text-align: center; margin: 30px 0;">
                 <a href="${process.env.NEXT_PUBLIC_APP_URL}/submit" 
-                   style="display: inline-block; background: #ED0D79; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 12px;">
+                   style="display: inline-block; background: #000000; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 12px;">
                   Submit Again
                 </a>
                 <a href="mailto:hello@ailaunch.space" 
@@ -573,7 +573,7 @@ export const emailTemplates = {
               <div style="border-top: 1px solid #e5e7eb; padding-top: 20px; text-align: center;">
                 <p style="color: #6b7280; font-size: 14px; margin: 0;">
                   We're here to help you succeed!<br>
-                  The AI Launch Space Team
+                  The Directory Hunt Team
                 </p>
               </div>
             </div>
@@ -598,7 +598,7 @@ export const emailTemplates = {
           <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
             <div style="background: white; border-radius: 12px; padding: 40px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
               <div style="text-align: center; margin-bottom: 30px;">
-                <div style="display: inline-block; background: linear-gradient(135deg, #ED0D79, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
+                <div style="display: inline-block; background: linear-gradient(135deg, #000000, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
                   ALS
                 </div>
                 <div style="font-size: 48px; margin-bottom: 10px;">📋</div>
@@ -638,7 +638,7 @@ export const emailTemplates = {
 
               <div style="text-align: center; margin: 30px 0;">
                 <a href="${process.env.NEXT_PUBLIC_APP_URL}/dashboard" 
-                   style="display: inline-block; background: #ED0D79; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 12px;">
+                   style="display: inline-block; background: #000000; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 12px;">
                   View Dashboard
                 </a>
                 <a href="${process.env.NEXT_PUBLIC_APP_URL}/projects" 
@@ -650,7 +650,7 @@ export const emailTemplates = {
               <div style="border-top: 1px solid #e5e7eb; padding-top: 20px; text-align: center;">
                 <p style="color: #6b7280; font-size: 14px; margin: 0;">
                   Questions? Contact us at hello@ailaunch.space<br>
-                  The AI Launch Space Team
+                  The Directory Hunt Team
                 </p>
               </div>
             </div>
@@ -675,7 +675,7 @@ export const emailTemplates = {
           <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
             <div style="background: white; border-radius: 12px; padding: 40px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
               <div style="text-align: center; margin-bottom: 30px;">
-                <div style="display: inline-block; background: linear-gradient(135deg, #ED0D79, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
+                <div style="display: inline-block; background: linear-gradient(135deg, #000000, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
                   ALS
                 </div>
                 <div style="font-size: 48px; margin-bottom: 10px;">🚀</div>
@@ -727,7 +727,7 @@ export const emailTemplates = {
 
               <div style="text-align: center; margin: 30px 0;">
                 <a href="${process.env.NEXT_PUBLIC_APP_URL}/project/${data.slug}" 
-                   style="display: inline-block; background: #ED0D79; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 12px;">
+                   style="display: inline-block; background: #000000; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 12px;">
                   View Your Project
                 </a>
                 <a href="${process.env.NEXT_PUBLIC_APP_URL}/dashboard" 
@@ -739,7 +739,7 @@ export const emailTemplates = {
               <div style="border-top: 1px solid #e5e7eb; padding-top: 20px; text-align: center;">
                 <p style="color: #6b7280; font-size: 14px; margin: 0;">
                   Good luck with your launch!<br>
-                  The AI Launch Space Team
+                  The Directory Hunt Team
                 </p>
               </div>
             </div>
@@ -751,7 +751,7 @@ export const emailTemplates = {
 
   // Competition week start notification (promo email)
   competitionWeekStart: {
-    subject: () => `🏆 New competition week started - Discover premium AI launches!`,
+    subject: () => `🏆 New competition week started - Discover premium launches!`,
     html: (data) => `
       <!DOCTYPE html>
       <html>
@@ -764,7 +764,7 @@ export const emailTemplates = {
           <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
             <div style="background: white; border-radius: 12px; padding: 40px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
               <div style="text-align: center; margin-bottom: 30px;">
-                <div style="display: inline-block; background: linear-gradient(135deg, #ED0D79, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
+                <div style="display: inline-block; background: linear-gradient(135deg, #000000, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
                   ALS
                 </div>
                 <div style="font-size: 48px; margin-bottom: 10px;">🏆</div>
@@ -802,7 +802,7 @@ export const emailTemplates = {
                   ${data.featuredProjects && data.featuredProjects.length > 0 ? data.featuredProjects.map(project => `
                     <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #e5e7eb;">
                       <h4 style="margin: 0 0 5px 0; color: #1f2937; font-size: 16px;">
-                        <a href="${process.env.NEXT_PUBLIC_APP_URL}/project/${project.slug}" style="color: #ED0D79; text-decoration: none;">${project.name}</a>
+                        <a href="${process.env.NEXT_PUBLIC_APP_URL}/project/${project.slug}" style="color: #000000; text-decoration: none;">${project.name}</a>
                         ${project.premium_badge ? '<span style="background: #8b5cf6; color: white; padding: 2px 6px; border-radius: 4px; font-size: 12px; margin-left: 8px;">PREMIUM</span>' : ''}
                       </h4>
                       <p style="margin: 0; color: #6b7280; font-size: 14px;">${project.short_description}</p>
@@ -823,7 +823,7 @@ export const emailTemplates = {
 
               <div style="text-align: center; margin: 30px 0;">
                 <a href="${process.env.NEXT_PUBLIC_APP_URL}/projects" 
-                   style="display: inline-block; background: #ED0D79; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 12px;">
+                   style="display: inline-block; background: #000000; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 12px;">
                   Browse All Projects
                 </a>
                 <a href="${process.env.NEXT_PUBLIC_APP_URL}/submit" 
@@ -835,7 +835,7 @@ export const emailTemplates = {
               <div style="border-top: 1px solid #e5e7eb; padding-top: 20px; text-align: center;">
                 <p style="color: #6b7280; font-size: 14px; margin: 0;">
                   Happy voting and good luck to all participants!<br>
-                  The AI Launch Space Team
+                  The Directory Hunt Team
                 </p>
               </div>
             </div>
@@ -860,7 +860,7 @@ export const emailTemplates = {
           <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
             <div style="background: white; border-radius: 12px; padding: 40px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
               <div style="text-align: center; margin-bottom: 30px;">
-                <div style="display: inline-block; background: linear-gradient(135deg, #ED0D79, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
+                <div style="display: inline-block; background: linear-gradient(135deg, #000000, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
                   ALS
                 </div>
                 <div style="font-size: 48px; margin-bottom: 10px;">🎉</div>
@@ -906,7 +906,7 @@ export const emailTemplates = {
                           ${index + 1}
                         </div>
                         <h4 style="margin: 0; color: #1f2937; font-size: 18px;">
-                          <a href="${process.env.NEXT_PUBLIC_APP_URL}/project/${winner.slug}" style="color: #ED0D79; text-decoration: none;">${winner.name}</a>
+                          <a href="${process.env.NEXT_PUBLIC_APP_URL}/project/${winner.slug}" style="color: #000000; text-decoration: none;">${winner.name}</a>
                         </h4>
                       </div>
                       <p style="margin: 0 0 8px 0; color: #6b7280; font-size: 14px;">${winner.short_description}</p>
@@ -929,7 +929,7 @@ export const emailTemplates = {
 
               <div style="text-align: center; margin: 30px 0;">
                 <a href="${process.env.NEXT_PUBLIC_APP_URL}/projects" 
-                   style="display: inline-block; background: #ED0D79; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 12px;">
+                   style="display: inline-block; background: #000000; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 12px;">
                   View All Projects
                 </a>
                 <a href="${process.env.NEXT_PUBLIC_APP_URL}/submit" 
@@ -941,7 +941,7 @@ export const emailTemplates = {
               <div style="border-top: 1px solid #e5e7eb; padding-top: 20px; text-align: center;">
                 <p style="color: #6b7280; font-size: 14px; margin: 0;">
                   Thank you for participating!<br>
-                  The AI Launch Space Team
+                  The Directory Hunt Team
                 </p>
               </div>
             </div>
@@ -966,7 +966,7 @@ export const emailTemplates = {
           <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
             <div style="background: white; border-radius: 12px; padding: 40px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
               <div style="text-align: center; margin-bottom: 30px;">
-                <div style="display: inline-block; background: linear-gradient(135deg, #ED0D79, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
+                <div style="display: inline-block; background: linear-gradient(135deg, #000000, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
                   ALS
                 </div>
                 <div style="font-size: 48px; margin-bottom: 10px;">🔗</div>
@@ -1025,7 +1025,7 @@ export const emailTemplates = {
               <div style="border-top: 1px solid #e5e7eb; padding-top: 20px; text-align: center;">
                 <p style="color: #6b7280; font-size: 14px; margin: 0;">
                   Need help? Contact us immediately at hello@ailaunch.space<br>
-                  The AI Launch Space Team
+                  The Directory Hunt Team
                 </p>
               </div>
             </div>
@@ -1037,20 +1037,20 @@ export const emailTemplates = {
 
   // Newsletter notifications
   newsletterWelcome: {
-    subject: () => `Welcome to AI Launch Space Newsletter! 🎉`,
+    subject: () => `Welcome to Directory Hunt Newsletter! 🎉`,
     html: (data) => `
       <!DOCTYPE html>
       <html>
         <head>
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1">
-          <title>Welcome to AI Launch Space Newsletter</title>
+          <title>Welcome to Directory Hunt Newsletter</title>
         </head>
         <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #f8fafc;">
           <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
             <div style="background: white; border-radius: 12px; padding: 40px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
               <div style="text-align: center; margin-bottom: 30px;">
-                <div style="display: inline-block; background: linear-gradient(135deg, #ED0D79, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
+                <div style="display: inline-block; background: linear-gradient(135deg, #000000, #8b5cf6); color: white; padding: 12px; border-radius: 12px; font-weight: bold; font-size: 18px; margin-bottom: 20px;">
                   ALS
                 </div>
                 <div style="font-size: 48px; margin-bottom: 10px;">📧</div>
@@ -1061,7 +1061,7 @@ export const emailTemplates = {
               
               <div style="text-align: center; margin-bottom: 30px;">
                 <p style="color: #6b7280; margin: 0; font-size: 16px;">
-                  ${data.isResubscription ? 'Welcome back! You\'ve been resubscribed to our newsletter.' : 'Thank you for subscribing to AI Launch Space\'s newsletter!'}
+                  ${data.isResubscription ? 'Welcome back! You\'ve been resubscribed to our newsletter.' : 'Thank you for subscribing to Directory Hunt\'s newsletter!'}
                 </p>
               </div>
 
@@ -1093,7 +1093,7 @@ export const emailTemplates = {
 
               <div style="text-align: center; margin: 30px 0;">
                 <a href="${process.env.NEXT_PUBLIC_APP_URL}/dashboard" 
-                   style="display: inline-block; background: #ED0D79; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 12px;">
+                   style="display: inline-block; background: #000000; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-right: 12px;">
                   Create Account
                 </a>
                 <a href="${process.env.NEXT_PUBLIC_APP_URL}/settings" 
@@ -1112,8 +1112,8 @@ export const emailTemplates = {
 
               <div style="border-top: 1px solid #e5e7eb; padding-top: 20px; text-align: center;">
                 <p style="color: #6b7280; font-size: 14px; margin: 0;">
-                  Questions? Reply to this email or contact us at hello@ailaunch.space<br>
-                  The AI Launch Space Team
+                  Questions? Reply to this email or contact us at hello@directoryhunt.org<br>
+                  The Directory Hunt Team
                 </p>
                 <p style="color: #9ca3af; font-size: 12px; margin: 10px 0 0 0;">
                   <a href="${process.env.NEXT_PUBLIC_APP_URL}/api/newsletter?email=${encodeURIComponent(data.email)}" style="color: #9ca3af;">Unsubscribe</a> | 
@@ -1149,7 +1149,7 @@ export const newsletterAudience = {
       }
 
       // Look for existing newsletter audience (try multiple possible names)
-      const possibleNames = ['AI Launch Space Newsletter', 'General', 'Newsletter'];
+      const possibleNames = ['Directory Hunt Newsletter', 'General', 'Newsletter'];
       const existingAudience = audiences.data?.find(audience => 
         possibleNames.includes(audience.name)
       );
@@ -1161,7 +1161,7 @@ export const newsletterAudience = {
 
       // Create new audience if none exists
       const { data: newAudience, error: createError } = await resendClient.audiences.create({
-        name: 'AI Launch Space Newsletter',
+        name: 'Directory Hunt Newsletter',
       });
 
       if (createError) {
@@ -1275,8 +1275,8 @@ export const sendEmail = async (to, template, data, options = {}) => {
 
     // Use development-friendly from address for localhost
     const fromAddress = process.env.NODE_ENV === 'development' 
-      ? 'AI Launch Space <onboarding@resend.dev>'
-      : 'AI Launch Space <noreply@ailaunch.space>';
+      ? 'Directory Hunt <onboarding@resend.dev>'
+      : 'Directory Hunt <noreply@directoryhunt.org>';
 
     const result = await resendClient.emails.send({
       from: fromAddress,

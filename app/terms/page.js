@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Terms of Service - AI Launch Space",
-  description: "Terms and conditions for using AI Launch Space platform and services.",
+  title: "Terms of Service - Directory Hunt",
+  description: "Terms and conditions for using Directory Hunt platform and services.",
 };
 
 export default function TermsPage() {
@@ -19,19 +19,19 @@ export default function TermsPage() {
             
             <h2 className="text-2xl font-semibold mb-4">Legal Entity</h2>
             <p className="text-base-content/70 mb-4">
-              AI Launch Space is operated by Aleksandr Borisov, an individual entrepreneur registered in Georgia (Registration No. 011-90274).
+              Directory Hunt is operated by Aleksandr Borisov, an individual entrepreneur registered in Georgia (Registration No. 011-90274).
             </p>
 
             <h2 className="text-2xl font-semibold mb-4">1. Agreement to Terms</h2>
             <p className="text-base-content/70 mb-4">
-              By accessing and using AI Launch Space ("the Platform"), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
+              By accessing and using Directory Hunt ("the Platform"), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
             </p>
           </section>
 
           <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4">2. Description of Service</h2>
             <p className="text-base-content/70 mb-4">
-              AI Launch Space is a discovery and launch platform connecting creators with early adopters. Inspired by Product Hunt and Uneed.best, it features a curated directory where entrepreneurs, developers, and makers showcase digital products, SaaS tools, and creative projects. Our services include:
+              Directory Hunt is a discovery and launch platform connecting creators with early adopters. Inspired by Product Hunt and Uneed.best, it features a curated directory where entrepreneurs, developers, and makers showcase digital products, SaaS tools, and creative projects. Our services include:
             </p>
             <ul className="list-disc list-inside space-y-2 text-base-content/70 mb-4">
               <li>Project submission and listing services</li>
@@ -123,8 +123,8 @@ export default function TermsPage() {
             </ul>
             <p className="text-base-content/70 mb-4">
               <strong>Refund Process:</strong> To request a refund, contact us at{" "}
-              <a href="mailto:support@ailaunchspace.com" className="link link-primary">
-                support@ailaunchspace.com
+              <a href="mailto:support@directoryhunt.org" className="link link-primary">
+                support@directoryhunt.org
               </a>
               {" "}with your payment details and reason for the refund request. Refunds will be processed within 5-10 business days and returned to your original payment method.
             </p>
@@ -144,7 +144,7 @@ export default function TermsPage() {
 
             <h3 className="text-xl font-semibold mb-3">6.2 Platform Content</h3>
             <p className="text-base-content/70 mb-4">
-              The Platform and its original content, features, and functionality are owned by AI Launch Space and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.
+              The Platform and its original content, features, and functionality are owned by Directory Hunt and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.
             </p>
           </section>
 
@@ -186,12 +186,12 @@ export default function TermsPage() {
 
             <h3 className="text-xl font-semibold mb-3">9.2 Third-Party Content</h3>
             <p className="text-base-content/70 mb-4">
-              The Platform may contain links to third-party websites or services that are not owned or controlled by AI Launch Space. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party websites or services.
+              The Platform may contain links to third-party websites or services that are not owned or controlled by Directory Hunt. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party websites or services.
             </p>
 
             <h3 className="text-xl font-semibold mb-3">9.3 Limitation of Liability</h3>
             <p className="text-base-content/70 mb-4">
-              In no event shall AI Launch Space, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your use of the Platform.
+              In no event shall Directory Hunt, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your use of the Platform.
             </p>
           </section>
 
@@ -225,10 +225,10 @@ export default function TermsPage() {
               </Link>
               {" "}or email us at{" "}
               <a
-                href="mailto:hello@ailaunchspace.com"
+                href="mailto:hello@directoryhunt.org"
                 className="link link-primary"
               >
-                hello@ailaunchspace.com
+                hello@directoryhunt.org
               </a>
               .
             </p>

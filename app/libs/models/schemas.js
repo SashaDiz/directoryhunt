@@ -467,7 +467,7 @@ export const BacklinkSchema = z.object({
   app_id: z.string(),
   
   // Link details
-  source_url: z.string().url(), // AI Launch Space URL
+  source_url: z.string().url(), // Directory Hunt URL
   target_url: z.string().url(), // Project's URL
   anchor_text: z.string().optional(),
   link_type: z.enum(["homepage", "top3", "premium"]),

@@ -25,7 +25,7 @@ import { WinnerEmbedButton } from "../components/WinnerEmbed";
 function StatsCard({ icon: Icon, title, value, description, className = "" }) {
   return (
     <div
-      className={`bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:border-[#ED0D79] transition duration-300 ease-in-out ${className}`}
+      className={`bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:border-[#000000] transition duration-300 ease-in-out ${className}`}
     >
       <div className="flex items-center justify-between">
         <div>
@@ -35,8 +35,8 @@ function StatsCard({ icon: Icon, title, value, description, className = "" }) {
             <p className="text-xs text-gray-500 mt-1">{description}</p>
           )}
         </div>
-        <div className="w-12 h-12 bg-[#ED0D79]/10 rounded-xl flex items-center justify-center">
-          <Icon className="w-6 h-6 text-[#ED0D79]" />
+        <div className="w-12 h-12 bg-[#000000]/10 rounded-xl flex items-center justify-center">
+          <Icon className="w-6 h-6 text-[#000000]" />
         </div>
       </div>
     </div>
@@ -200,7 +200,7 @@ function ProjectCard({ project, onResumeDraft }) {
   return (
     <div className="block h-full">
       <div
-        className="w-full h-full bg-white rounded-2xl border border-gray-200 p-4 group cursor-pointer transition duration-300 ease-in-out hover:border-[#ED0D79] hover:scale-[1.01] flex flex-col"
+        className="w-full h-full bg-white rounded-2xl border border-gray-200 p-4 group cursor-pointer transition duration-300 ease-in-out hover:border-[#000000] hover:scale-[1.01] flex flex-col"
         onClick={handleCardClick}
       >
         {/* Top section: Logo with badges and Actions */}
@@ -223,7 +223,7 @@ function ProjectCard({ project, onResumeDraft }) {
 
               {/* Premium Badge */}
               {project.premium_badge && (
-                <span className="inline-flex leading-none items-center gap-1 px-1 py-0.5 text-[11px] font-medium text-white rounded-sm" style={{backgroundColor: '#ED0D79'}}>
+                <span className="inline-flex leading-none items-center gap-1 px-1 py-0.5 text-[11px] font-medium text-white rounded-sm" style={{backgroundColor: '#000000'}}>
                   <Crown className="w-4 h-4" strokeWidth={1.5} />
                   <span className="mt-0.5">Premium</span>
                 </span>
@@ -312,7 +312,7 @@ function ProjectCard({ project, onResumeDraft }) {
         {/* Stats Grid */}
         <div className="grid grid-cols-3 gap-4 mb-3">
           <div className="text-center">
-            <div className="flex items-center justify-center text-[#ED0D79] mb-1">
+            <div className="flex items-center justify-center text-[#000000] mb-1">
               <ThumbsUp className="w-4 h-4 mr-1" />
               <span className="font-semibold text-gray-900">
                 {formatNumber(project.upvotes || 0)}
@@ -321,7 +321,7 @@ function ProjectCard({ project, onResumeDraft }) {
             <p className="text-xs text-gray-500">Votes</p>
           </div>
           <div className="text-center">
-            <div className="flex items-center justify-center text-[#ED0D79] mb-1">
+            <div className="flex items-center justify-center text-[#000000] mb-1">
               <Eye className="w-4 h-4 mr-1" />
               <span className="font-semibold text-gray-900">
                 {formatNumber(project.views || 0)}
@@ -330,7 +330,7 @@ function ProjectCard({ project, onResumeDraft }) {
             <p className="text-xs text-gray-500">Views</p>
           </div>
           <div className="text-center">
-            <div className="flex items-center justify-center text-[#ED0D79] mb-1">
+            <div className="flex items-center justify-center text-[#000000] mb-1">
               <OpenNewWindow className="w-4 h-4 mr-1" />
               <span className="font-semibold text-gray-900">
                 {formatNumber(project.clicks || 0)}
@@ -370,7 +370,7 @@ function ProjectCard({ project, onResumeDraft }) {
                   <div className="mt-2 flex space-x-2">
                     <button
                       onClick={handleResumeDraft}
-                      className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#ED0D79] text-white font-semibold rounded-lg hover:bg-[#ED0D79]/90 transition duration-300 ease-in-out hover:scale-[1.02] shadow-sm text-sm"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#000000] text-white font-semibold rounded-lg hover:bg-[#000000]/90 transition duration-300 ease-in-out hover:scale-[1.02] shadow-sm text-sm"
                     >
                       Resume Draft
                     </button>
@@ -418,8 +418,8 @@ function SubmitCard() {
         href="/submit" 
         className="w-full h-full bg-[#ed0d7924] rounded-2xl border border-[#ed0d79a6] p-6 group cursor-pointer transition duration-300 ease-in-out hover:scale-[1.01] flex flex-col items-center justify-center text-center hover:bg-[#ed0d7924]/20"
       >
-          <Rocket className="w-8 h-8 text-[#ED0D79] mb-2" />
-        <h3 className="text-lg font-semibold text-[#ED0D79]">
+          <Rocket className="w-8 h-8 text-[#000000] mb-2" />
+        <h3 className="text-lg font-semibold text-[#000000]">
           Submit Your AI Project
         </h3>
       </Link>
@@ -546,7 +546,7 @@ function DashboardContent() {
               onClick={() => setActiveTab("overview")}
               className={`py-2 px-1 border-b-2 font-medium text-sm transition-colors ${
                 activeTab === "overview"
-                  ? "border-[#ED0D79] text-[#ED0D79]"
+                  ? "border-[#000000] text-[#000000]"
                   : "border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300"
               }`}
             >
@@ -666,7 +666,7 @@ function DashboardContent() {
                         start building your audience and getting valuable backlinks.
                       </p>
                       <div className="flex flex-col sm:flex-row gap-3 items-center justify-center">
-                        <Link href="/projects" className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-700 font-semibold rounded-lg border border-gray-200 hover:border-[#ED0D79] hover:bg-gray-50 transition duration-300 ease-in-out hover:scale-[1.02] shadow-sm">
+                        <Link href="/projects" className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-700 font-semibold rounded-lg border border-gray-200 hover:border-[#000000] hover:bg-gray-50 transition duration-300 ease-in-out hover:scale-[1.02] shadow-sm">
                           Browse Examples
                         </Link>
                       </div>

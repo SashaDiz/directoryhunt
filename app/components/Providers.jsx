@@ -37,9 +37,9 @@ export function Providers({ children }) {
           },
           loading: {
             style: {
-              background: "#ED0D79",
+              background: "#000000",
               color: "#ffffff",
-              border: "1px solid #ED0D79",
+              border: "1px solid #000000",
             },
           },
         }}

@@ -13,42 +13,25 @@ export default function CountdownTimer({ competitionData }) {
   const [isExpired, setIsExpired] = useState(false);
   const [isBeforeStart, setIsBeforeStart] = useState(false);
   const timerRef = useRef(null);
-  const targetTimeRef = useRef(null);
 
-  // Helper function to get timezone offset in minutes
-  const getTimezoneOffset = (timezone) => {
-    const timezoneMap = {
-      PST: -8 * 60, // Pacific Standard Time (UTC-8)
-      PDT: -7 * 60, // Pacific Daylight Time (UTC-7)
-      EST: -5 * 60, // Eastern Standard Time (UTC-5)
-      EDT: -4 * 60, // Eastern Daylight Time (UTC-4)
-      UTC: 0,
-    };
-    return timezoneMap[timezone?.toUpperCase()] || 0;
-  };
-
-  // Convert date string to proper timezone-aware timestamp
-  const getTimezoneAwareTime = (dateString, timezone) => {
+  // Convert date string to timestamp
+  // Dates from database are already in UTC format (e.g., "2025-10-27 11:00:00+00")
+  const getTimeStamp = (dateString) => {
     if (!dateString) return null;
     
-    // Parse the date string (should be ISO format from database)
+    // Parse the date string (ISO format from database)
+    // Database stores times in UTC, so just parse directly
     const date = new Date(dateString);
     
-    // Get the timezone offset
-    const tzOffset = getTimezoneOffset(timezone);
-    
-    // Adjust for timezone (convert to UTC)
-    const adjustedDate = new Date(date.getTime() - (tzOffset * 60 * 1000));
-    
-    return adjustedDate.getTime();
+    return date.getTime();
   };
 
   // Calculate time remaining
-  const calculateTimeLeft = () => {
-    if (!targetTimeRef.current) return null;
+  const calculateTimeLeft = (targetTime) => {
+    if (!targetTime) return null;
 
     const now = new Date().getTime();
-    const difference = targetTimeRef.current - now;
+    const difference = targetTime - now;
 
     if (difference <= 0) {
       return {
@@ -69,57 +52,59 @@ export default function CountdownTimer({ competitionData }) {
     };
   };
 
-  // Initialize the countdown with competition data
+  // Update countdown every second
   useEffect(() => {
     if (!competitionData) return;
 
-    const timezone = competitionData.timezone || "PST";
-    const now = new Date().getTime();
-    
-    // Get timezone-aware timestamps
-    const startTime = getTimezoneAwareTime(competitionData.start_date, timezone);
-    const endTime = getTimezoneAwareTime(competitionData.end_date, timezone);
-    
-    // Determine if we're before start or during competition
-    if (startTime && now < startTime) {
-      // Competition hasn't started yet - countdown to start
-      targetTimeRef.current = startTime;
-      setIsBeforeStart(true);
-      setIsExpired(false);
-    } else if (endTime) {
-      // Competition is active or ended - countdown to end
-      targetTimeRef.current = endTime;
-      setIsBeforeStart(false);
-      setIsExpired(now >= endTime);
-    }
+    // Calculate which time to countdown to
+    const getTargetTime = () => {
+      const now = new Date().getTime();
+      
+      // Get timestamps (dates from database are already in UTC)
+      const startTime = getTimeStamp(competitionData.start_date);
+      const endTime = getTimeStamp(competitionData.end_date);
+      
+      // Determine if we're before start or during competition
+      if (startTime && now < startTime) {
+        // Competition hasn't started yet - countdown to start
+        setIsBeforeStart(true);
+        setIsExpired(false);
+        return startTime;
+      } else if (endTime) {
+        // Competition is active or ended - countdown to end
+        setIsBeforeStart(false);
+        setIsExpired(now >= endTime);
+        return endTime;
+      }
+      
+      return null;
+    };
 
-    // Calculate initial time
-    const initial = calculateTimeLeft();
-    if (initial) {
-      setTimeLeft(initial);
-      if (targetTimeRef.current && now >= targetTimeRef.current) {
-        setIsExpired(true);
+    // Initial setup
+    const targetTime = getTargetTime();
+    if (targetTime) {
+      const initial = calculateTimeLeft(targetTime);
+      if (initial) {
+        setTimeLeft(initial);
       }
     }
-  }, [competitionData]);
 
-  // Update countdown every second
-  useEffect(() => {
-    if (!targetTimeRef.current) return;
-
+    // Set up interval to update every second
     const interval = setInterval(() => {
-      const newTimeLeft = calculateTimeLeft();
-      if (newTimeLeft) {
-        setTimeLeft(newTimeLeft);
-        if (newTimeLeft.totalMs <= 0) {
-          setIsExpired(true);
-          clearInterval(interval);
+      const targetTime = getTargetTime();
+      if (targetTime) {
+        const newTimeLeft = calculateTimeLeft(targetTime);
+        if (newTimeLeft) {
+          setTimeLeft(newTimeLeft);
+          if (newTimeLeft.totalMs <= 0) {
+            setIsExpired(true);
+          }
         }
       }
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [competitionData]);
 
   // Determine heading text
   const getHeading = () => {
@@ -133,14 +118,14 @@ export default function CountdownTimer({ competitionData }) {
   };
 
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-between p-4 sm:p-6 bg-[#ed0d7912] rounded-2xl mb-8 gap-4 sm:gap-0">
+    <div className="flex flex-col sm:flex-row items-center justify-between p-4 sm:p-6 bg-gray-100 rounded-2xl mb-8 gap-4 sm:gap-0">
       <div className="text-center sm:text-left">
         <h2 className="text-lg sm:text-xl font-medium mb-1 text-base-content/80">
           {getHeading()}
         </h2>
         <p className="text-sm text-base-content/60">
           Top 3 weekly products win badges and get dofollow backlinks.{" "}
-          <Link href="/faq" className="link" style={{ color: '#ed0d79' }}>
+          <Link href="/faq" className="link" style={{ color: 'black' }}>
             More details.
           </Link>
         </p>
@@ -161,7 +146,7 @@ export default function CountdownTimer({ competitionData }) {
         ) : (
           <>
             <div className="text-center">
-              <div className="text-xl font-semibold leading-none timer-digit text-[#ed0d79]">
+              <div className="text-xl font-semibold leading-none timer-digit text-black">
                 {String(timeLeft.days).padStart(2, "0")}
               </div>
               <div className="text-xs text-base-content/60">days</div>
@@ -170,7 +155,7 @@ export default function CountdownTimer({ competitionData }) {
               :
             </span>
             <div className="text-center">
-              <div className="text-xl font-semibold leading-none timer-digit text-[#ed0d79]">
+              <div className="text-xl font-semibold leading-none timer-digit text-black">
                 {String(timeLeft.hours).padStart(2, "0")}
               </div>
               <div className="text-xs text-base-content/60">hours</div>
@@ -179,7 +164,7 @@ export default function CountdownTimer({ competitionData }) {
               :
             </span>
             <div className="text-center">
-              <div className="text-xl font-semibold leading-none timer-digit text-[#ed0d79]">
+              <div className="text-xl font-semibold leading-none timer-digit text-black">
                 {String(timeLeft.minutes).padStart(2, "0")}
               </div>
               <div className="text-xs text-base-content/60">mins</div>
@@ -188,7 +173,7 @@ export default function CountdownTimer({ competitionData }) {
               :
             </span>
             <div className="text-center">
-              <div className="text-xl font-semibold leading-none timer-digit text-[#ed0d79]">
+              <div className="text-xl font-semibold leading-none timer-digit text-black">
                 {String(timeLeft.seconds).padStart(2, "0")}
               </div>
               <div className="text-xs text-base-content/60">secs</div>

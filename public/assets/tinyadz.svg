@@ -1,0 +1,13 @@
+<svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6181_338)">
+<rect width="600" height="600" fill="#000614"/>
+<ellipse cx="155.933" cy="38.2312" rx="155.933" ry="38.2312" transform="matrix(0.97916 0.203091 -0.189709 0.98184 146.011 165.026)" fill="white"/>
+<ellipse cx="91.5233" cy="150.252" rx="91.5233" ry="150.252" transform="matrix(-0.461374 0.887206 0.887206 0.461374 198.471 248.471)" fill="white"/>
+<ellipse cx="289.362" cy="131.915" rx="148.936" ry="21.2766" fill="#F2F2F2"/>
+</g>
+<defs>
+<clipPath id="clip0_6181_338">
+<rect width="600" height="600" fill="white"/>
+</clipPath>
+</defs>
+</svg>

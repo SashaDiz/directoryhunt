@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Cookie Policy - AI Launch Space",
-  description: "Learn about how we use cookies on AI Launch Space.",
+  title: "Cookie Policy - Directory Hunt",
+  description: "Learn about how we use cookies on Directory Hunt.",
 };
 
 export default function CookiesPage() {
@@ -287,10 +287,10 @@ export default function CookiesPage() {
               </li>
               <li>By email at{" "}
                 <a
-                  href="mailto:privacy@ailaunchspace.com"
+                  href="mailto:privacy@directoryhunt.org"
                   className="link link-primary"
                 >
-                  privacy@ailaunchspace.com
+                  privacy@directoryhunt.org
                 </a>
               </li>
             </ul>

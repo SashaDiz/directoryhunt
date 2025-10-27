@@ -22,7 +22,7 @@ function StatCard({
   color = "primary",
 }) {
   return (
-    <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:border-[#ED0D79] transition duration-300 ease-in-out">
+    <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:border-[#000000] transition duration-300 ease-in-out">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-gray-600 text-sm font-medium">{title}</p>
@@ -31,8 +31,8 @@ function StatCard({
             <p className="text-xs text-gray-500 mt-1">{description}</p>
           )}
         </div>
-        <div className="w-12 h-12 bg-[#ED0D79]/10 rounded-xl flex items-center justify-center">
-          <Icon className="w-6 h-6 text-[#ED0D79]" />
+        <div className="w-12 h-12 bg-[#000000]/10 rounded-xl flex items-center justify-center">
+          <Icon className="w-6 h-6 text-[#000000]" />
         </div>
       </div>
     </div>
@@ -190,10 +190,10 @@ export default function AdminPage() {
             <div>
               <h2 className="text-2xl font-bold mb-6 text-gray-900">Review & Approve</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:border-[#ED0D79] hover:shadow-md transition-all duration-300 ease-in-out">
+                <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:border-[#000000] hover:shadow-md transition-all duration-300 ease-in-out">
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-[#ED0D79]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <EditPencil className="w-6 h-6 text-[#ED0D79]" />
+                    <div className="w-12 h-12 bg-[#000000]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <EditPencil className="w-6 h-6 text-[#000000]" />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
@@ -209,7 +209,7 @@ export default function AdminPage() {
                       </p>
                       <Link
                         href="/admin/projects"
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-[#ED0D79] text-white font-semibold rounded-lg hover:bg-[#ED0D79]/90 transition duration-300 ease-in-out hover:scale-[1.02] shadow-sm text-sm"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-[#000000] text-white font-semibold rounded-lg hover:bg-[#000000]/90 transition duration-300 ease-in-out hover:scale-[1.02] shadow-sm text-sm"
                       >
                         {stats.pendingProjects > 0 
                           ? `Review ${stats.pendingProjects} Pending` 
@@ -220,7 +220,7 @@ export default function AdminPage() {
                   </div>
                 </div>
 
-                <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:border-[#ED0D79] hover:shadow-md transition-all duration-300 ease-in-out">
+                <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:border-[#000000] hover:shadow-md transition-all duration-300 ease-in-out">
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
                       <Trophy className="w-6 h-6 text-amber-600" />

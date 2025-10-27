@@ -36,7 +36,7 @@ export default {
     themes: [
       {
         light: {
-          'primary': '#ED0D79',
+          'primary': '#000000',
           'secondary': '#7c3aed',
           'accent': '#06b6d4',
           'neutral': '#1f2937', // Darker for better contrast
@@ -50,7 +50,7 @@ export default {
           'error': '#dc2626', // Darker red for better contrast
         },
         dark: {
-          'primary': '#ED0D79',
+          'primary': '#000000',
           'secondary': '#8b5cf6',
           'accent': '#06b6d4',
           'neutral': '#e5e7eb', // Lighter for better contrast on dark
@@ -64,7 +64,7 @@ export default {
           'error': '#f87171', // Lighter red for better contrast
         },
         abyss: {
-          'primary': '#ED0D79',
+          'primary': '#000000',
           'secondary': '#64748b',
           'accent': '#0ea5e9',
           'neutral': '#334155',

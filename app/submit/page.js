@@ -53,8 +53,8 @@ const ProjectInfoSchema = z.object({
   // Basic Info
   name: z
     .string()
-    .min(1, "AI project name is required")
-    .max(100, "AI project name must be 100 characters or less"),
+    .min(1, "Project name is required")
+    .max(100, "Project name must be 100 characters or less"),
   website_url: z.string().url("Please enter a valid website URL"),
   short_description: z
     .string()
@@ -119,28 +119,27 @@ const PLANS = {
       { text: "Standard launch queue", icon: Clock },
     ],
     limitations: [],
-    popular: true, // Make standard popular since it's the only visible option
+    popular: false, // Premium is now the popular option
   },
-  // Premium plan temporarily hidden - keeping for future use
-  // premium: {
-  //   id: "premium",
-  //   name: "Premium Launch",
-  //   price: 15,
-  //   currency: "USD",
-  //   description: "Maximum exposure for established AI projects",
-  //   icon: Medal,
-  //   features: [
-  //     { text: "Live on homepage for a week", icon: Home },
-  //     { text: "10 extra premium slots weekly", icon: Crown },
-  //     { text: "Badge for top 3 ranking products", icon: Trophy },
-  //     { text: "3+ Guaranteed high authority lifetime backlink", icon: LinkIcon },
-  //     { text: "Skip the queue", icon: Clock },
-  //     { text: "Social media promotion", icon: Megaphone },
-  //     { text: "Premium badge", icon: Star },
-  //   ],
-  //   limitations: [],
-  //   popular: true,
-  // },
+  premium: {
+    id: "premium",
+    name: "Premium Launch",
+    price: 15,
+    currency: "USD",
+    description: "Maximum exposure for established AI projects",
+    icon: Medal,
+    features: [
+      { text: "Live on homepage for a week", icon: Home },
+      { text: "10 extra premium slots weekly", icon: Crown },
+      { text: "Badge for top 3 ranking products", icon: Trophy },
+      { text: "3+ Guaranteed high authority lifetime backlink", icon: LinkIcon },
+      { text: "Skip the queue", icon: Clock },
+      { text: "Social media promotion", icon: Megaphone },
+      { text: "Premium badge", icon: Star },
+    ],
+    limitations: [],
+    popular: true,
+  },
 };
 
 function StepIndicator({ currentStep, steps }) {
@@ -163,7 +162,7 @@ function StepIndicator({ currentStep, steps }) {
                     ? "text-white"
                     : "border-base-300 text-base-content/60"
                 }`}
-                style={isActive ? { backgroundColor: '#ED0D79', borderColor: '#ED0D79' } : {}}
+                style={isActive ? { backgroundColor: '#000000', borderColor: '#000000' } : {}}
               >
                 {displayStepNumber}
               </div>
@@ -191,10 +190,10 @@ function StepIndicator({ currentStep, steps }) {
                   style={
                     steps.length === STEPS.length 
                       ? step.id < currentStep 
-                        ? { backgroundColor: '#ED0D79' }
+                        ? { backgroundColor: '#000000' }
                         : {}
                       : (step.id === 2 && currentStep > 2) || (step.id === 3 && currentStep > 3)
-                        ? { backgroundColor: '#ED0D79' }
+                        ? { backgroundColor: '#000000' }
                         : {}
                   }
                 />
@@ -213,8 +212,8 @@ function ProjectInfoStep({ formData, setFormData, errors, checkingDuplicate, che
     <div className="space-y-8">
       {/* Basic Information Section */}
       <div>
-        <h3 className="text-lg font-semibold mb-6 pb-3 border-b-2 border-[#ED0D79]/20 text-base-content flex items-center gap-2">
-          <div className="w-1 h-6 bg-[#ED0D79] rounded-full"></div>
+        <h3 className="text-lg font-semibold mb-6 pb-3 border-b-2 border-[#000000]/20 text-base-content flex items-center gap-2">
+          <div className="w-1 h-6 bg-[#000000] rounded-full"></div>
           Basic Information
         </h3>
         <div className="space-y-6">
@@ -232,7 +231,7 @@ function ProjectInfoStep({ formData, setFormData, errors, checkingDuplicate, che
               <input
                 type="text"
                 placeholder="e.g. AI Content Generator"
-                className={`input input-bordered w-full transition-all duration-200 focus-visible:border-[#ED0D79] focus-visible:ring-2 focus-visible:ring-[#ED0D79]/20 focus-visible:outline-none ${
+                className={`input input-bordered w-full transition-all duration-200 focus-visible:border-[#000000] focus-visible:ring-2 focus-visible:ring-[#000000]/20 focus-visible:outline-none ${
                   errors.name ? "input-error border-error" : "border-base-300"
                 }`}
                 style={{
@@ -266,7 +265,7 @@ function ProjectInfoStep({ formData, setFormData, errors, checkingDuplicate, che
               <input
                 type="url"
                 placeholder="https://your-ai-project.com"
-                className={`input input-bordered w-full transition-all duration-200 focus-visible:border-[#ED0D79] focus-visible:ring-2 focus-visible:ring-[#ED0D79]/20 focus-visible:outline-none ${
+                className={`input input-bordered w-full transition-all duration-200 focus-visible:border-[#000000] focus-visible:ring-2 focus-visible:ring-[#000000]/20 focus-visible:outline-none ${
                   errors.website_url ? "input-error border-error" : "border-base-300"
                 }`}
                 style={{
@@ -298,7 +297,7 @@ function ProjectInfoStep({ formData, setFormData, errors, checkingDuplicate, che
               </div>
               <input
                 type="text"
-                className={`input input-bordered w-full transition-all duration-200 focus-visible:border-[#ED0D79] focus-visible:ring-2 focus-visible:ring-[#ED0D79]/20 focus-visible:outline-none ${
+                className={`input input-bordered w-full transition-all duration-200 focus-visible:border-[#000000] focus-visible:ring-2 focus-visible:ring-[#000000]/20 focus-visible:outline-none ${
                   errors.short_description ? "input-error border-error" : "border-base-300"
                 }`}
                 style={{
@@ -335,7 +334,7 @@ function ProjectInfoStep({ formData, setFormData, errors, checkingDuplicate, che
                 <input
                   type="text"
                   placeholder="username"
-                  className="input input-bordered w-full rounded-l-none transition-all duration-200 focus-visible:border-[#ED0D79] focus-visible:ring-2 focus-visible:ring-[#ED0D79]/20 focus-visible:outline-none border-base-300"
+                  className="input input-bordered w-full rounded-l-none transition-all duration-200 focus-visible:border-[#000000] focus-visible:ring-2 focus-visible:ring-[#000000]/20 focus-visible:outline-none border-base-300"
                   value={formData.maker_twitter?.replace("@", "") || ""}
                   onChange={(e) =>
                     setFormData({
@@ -352,8 +351,8 @@ function ProjectInfoStep({ formData, setFormData, errors, checkingDuplicate, che
 
       {/* Details Section */}
       <div>
-        <h3 className="text-lg font-semibold mb-6 pb-3 border-b-2 border-[#ED0D79]/20 text-base-content flex items-center gap-2">
-          <div className="w-1 h-6 bg-[#ED0D79] rounded-full"></div>
+        <h3 className="text-lg font-semibold mb-6 pb-3 border-b-2 border-[#000000]/20 text-base-content flex items-center gap-2">
+          <div className="w-1 h-6 bg-[#000000] rounded-full"></div>
           Additional Details
         </h3>
         <div className="space-y-6">
@@ -363,7 +362,7 @@ function ProjectInfoStep({ formData, setFormData, errors, checkingDuplicate, che
                 <span className="label-text font-semibold text-base-content">Full Description</span>
               </div>
               <textarea
-                className="textarea textarea-bordered h-32 w-full resize-none transition-all duration-200 focus-visible:border-[#ED0D79] focus-visible:ring-2 focus-visible:ring-[#ED0D79]/20 focus-visible:outline-none border-base-300"
+                className="textarea textarea-bordered h-32 w-full resize-none transition-all duration-200 focus-visible:border-[#000000] focus-visible:ring-2 focus-visible:ring-[#000000]/20 focus-visible:outline-none border-base-300"
                 placeholder="Provide a detailed description of your AI project, its features, and what makes it unique..."
                 value={formData.full_description || ""}
                 onChange={(e) =>
@@ -399,7 +398,7 @@ function ProjectInfoStep({ formData, setFormData, errors, checkingDuplicate, che
                         : formData.pricing === "Freemium" 
                         ? "translateX(100%)" 
                         : "translateX(200%)",
-                      backgroundColor: formData.pricing ? "#ED0D79" : "#ED0D79"
+                      backgroundColor: formData.pricing ? "#000000" : "#000000"
                     }}
                   />
                   {["Free", "Freemium", "Paid"].map((option) => (
@@ -441,8 +440,8 @@ function ProjectInfoStep({ formData, setFormData, errors, checkingDuplicate, che
 
       {/* Media Section */}
       <div>
-        <h3 className="text-lg font-semibold mb-6 pb-3 border-b-2 border-[#ED0D79]/20 text-base-content flex items-center gap-2">
-          <div className="w-1 h-6 bg-[#ED0D79] rounded-full"></div>
+        <h3 className="text-lg font-semibold mb-6 pb-3 border-b-2 border-[#000000]/20 text-base-content flex items-center gap-2">
+          <div className="w-1 h-6 bg-[#000000] rounded-full"></div>
           Media & Assets
         </h3>
         <div className="space-y-6">
@@ -509,7 +508,7 @@ function PlanStep({ formData, setFormData, errors = {}, isEditingDraft = false }
                   type="radio"
                   name="plan"
                   className="radio radio-primary mr-3"
-                  style={{ accentColor: '#ED0D79' }}
+                  style={{ accentColor: '#000000' }}
                   checked={formData.plan === planKey}
                   onChange={() => setFormData({ ...formData, plan: planKey })}
                 />
@@ -517,7 +516,7 @@ function PlanStep({ formData, setFormData, errors = {}, isEditingDraft = false }
                   <div className="flex items-center gap-2">
                     <h3 className="text-lg font-semibold">{plan.name}</h3>
                     {plan.popular && (
-                      <span className="badge text-xs px-2 py-1" style={{ backgroundColor: '#ED0D79', color: 'white' }}>
+                      <span className="badge text-xs px-2 py-1" style={{ backgroundColor: '#000000', color: 'white' }}>
                         Most Popular
                       </span>
                     )}
@@ -685,7 +684,7 @@ function WeekSelectionStep({ formData, setFormData, errors }) {
     <div className="space-y-6">
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold mb-3 flex items-center justify-center gap-3">
-          <div className="w-2 h-8 bg-[#ED0D79] rounded-full"></div>
+          <div className="w-2 h-8 bg-[#000000] rounded-full"></div>
           Choose Your Launch Week
         </h2>
         <p className="text-base-content/70 text-lg mb-4">
@@ -696,7 +695,7 @@ function WeekSelectionStep({ formData, setFormData, errors }) {
         {formData.plan === "premium" && (
           <div className="flex items-center justify-center gap-6 mt-4 text-sm">
             <div className="flex items-center gap-2">
-              <div className="w-4 h-3 bg-[#ED0D79] rounded"></div>
+              <div className="w-4 h-3 bg-[#000000] rounded"></div>
               <span className="text-base-content/70 font-medium">Shared slots (0-15)</span>
             </div>
             <div className="flex items-center gap-2">
@@ -726,9 +725,9 @@ function WeekSelectionStep({ formData, setFormData, errors }) {
               key={week.competition_id}
               className={`card cursor-pointer transition-all duration-200 border-2 ${
                 isSelected
-                  ? "border-[#ED0D79] bg-[#ED0D79]/5 shadow-lg shadow-[#ED0D79]/10"
+                  ? "border-[#000000] bg-[#000000]/5 shadow-lg shadow-[#000000]/10"
                   : available
-                  ? "border-base-300 hover:border-[#ED0D79]/50 hover:shadow-md hover:shadow-[#ED0D79]/5"
+                  ? "border-base-300 hover:border-[#000000]/50 hover:shadow-md hover:shadow-[#000000]/5"
                   : "border-base-300 opacity-50 cursor-not-allowed"
               }`}
               onClick={() => {
@@ -747,7 +746,7 @@ function WeekSelectionStep({ formData, setFormData, errors }) {
                     name="launch_week"
                     className="radio mr-3"
                     style={{
-                      accentColor: '#ED0D79'
+                      accentColor: '#000000'
                     }}
                     checked={isSelected}
                     disabled={!available}
@@ -780,7 +779,7 @@ function WeekSelectionStep({ formData, setFormData, errors }) {
                         available
                           ? formData.plan === "premium"
                             ? "text-success"
-                            : "text-[#ED0D79]"
+                            : "text-[#000000]"
                           : "text-error"
                       }`}
                     >
@@ -798,7 +797,7 @@ function WeekSelectionStep({ formData, setFormData, errors }) {
                           className="absolute left-0 top-0 h-full transition-all"
                           style={{
                             width: `${Math.min(60, (week.total_submissions || 0) / 25 * 100)}%`, // 15/25 = 60%
-                            backgroundColor: '#ED0D79'
+                            backgroundColor: '#000000'
                           }}
                         ></div>
                         {/* Premium-only portion (15-25) */}
@@ -819,7 +818,7 @@ function WeekSelectionStep({ formData, setFormData, errors }) {
                           className="absolute left-0 top-0 h-full transition-all"
                           style={{
                             width: `${Math.min(100, (week.total_submissions || 0) / 15 * 100)}%`,
-                            backgroundColor: '#ED0D79'
+                            backgroundColor: '#000000'
                           }}
                         ></div>
                       </div>
@@ -875,12 +874,12 @@ function WeekSelectionStep({ formData, setFormData, errors }) {
         </div>
       )}
 
-      <div className="alert border-2 border-[#ED0D79]/20 bg-[#ED0D79]/5">
+      <div className="alert border-2 border-[#000000]/20 bg-[#000000]/5">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          className="stroke-[#ED0D79] shrink-0 w-6 h-6"
+          className="stroke-[#000000] shrink-0 w-6 h-6"
         >
           <path
             strokeLinecap="round"
@@ -890,7 +889,7 @@ function WeekSelectionStep({ formData, setFormData, errors }) {
           ></path>
         </svg>
             <div>
-              <h3 className="font-bold text-[#ED0D79]">Launch Schedule</h3>
+              <h3 className="font-bold text-[#000000]">Launch Schedule</h3>
               <div className="text-sm text-base-content/80">
                 • AI projects launch every Monday at 12:00 AM PST
                 <br />
@@ -1837,7 +1836,7 @@ function SubmitPageContent() {
                     window.open(checkoutResult.data.checkoutUrl, "_blank"),
                   style: {
                     cursor: "pointer",
-                    background: "#ED0D79",
+                    background: "#000000",
                     color: "#ffffff",
                   },
                 }
@@ -2208,7 +2207,7 @@ function SubmitPageContent() {
                     type="button"
                     onClick={handleNext}
                     disabled={isSubmitting}
-                    className="bg-[#ED0D79] text-white rounded-lg px-6 py-3 font-semibold text-sm no-underline transition duration-300 hover:scale-105 flex items-center justify-center gap-2 disabled:hover:scale-100 disabled:opacity-70"
+                    className="bg-[#000000] text-white rounded-lg px-6 py-3 font-semibold text-sm no-underline transition duration-300 hover:scale-105 flex items-center justify-center gap-2 disabled:hover:scale-100 disabled:opacity-70"
                   >
                     {isSubmitting && (
                       <span className="loading loading-spinner loading-sm"></span>
@@ -2221,7 +2220,7 @@ function SubmitPageContent() {
                     type="button"
                     onClick={handleSubmit}
                     disabled={isSubmitting}
-                    className="bg-[#ED0D79] text-white rounded-lg px-6 py-3 font-semibold text-sm no-underline transition duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center gap-2"
+                    className="bg-[#000000] text-white rounded-lg px-6 py-3 font-semibold text-sm no-underline transition duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center gap-2"
                   >
                     {isSubmitting ? (
                       <span className="loading loading-spinner loading-sm"></span>

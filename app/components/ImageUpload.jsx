@@ -192,10 +192,10 @@ export default function ImageUpload({
         <div
           className={`relative border-2 border-dashed rounded-lg transition-all ${
             dragActive
-              ? "border-[#ED0D79] bg-[#ED0D79]/5"
+              ? "border-black bg-black/5"
               : error
               ? "border-error"
-              : "border-base-300 hover:border-[#ED0D79]/50"
+              : "border-base-300 hover:border-black/50"
           } ${uploading ? "opacity-50 pointer-events-none" : "cursor-pointer"}`}
           onDragEnter={handleDrag}
           onDragLeave={handleDrag}
@@ -215,7 +215,7 @@ export default function ImageUpload({
           <div className="flex flex-col items-center justify-center p-8 text-center">
             <CloudUpload
               className={`w-8 h-8 mb-4 ${
-                dragActive ? "text-[#ED0D79]" : "text-base-content/40"
+                dragActive ? "text-black" : "text-base-content/40"
               }`}
             />
 
@@ -235,7 +235,7 @@ export default function ImageUpload({
                 <button
                   type="button"
                   className="btn btn-sm text-white transition-all duration-200 hover:opacity-90"
-                  style={{ backgroundColor: '#ED0D79', boxShadow: 'none' }}
+                  style={{ backgroundColor: 'black', boxShadow: 'none' }}
                   onClick={(e) => {
                     e.stopPropagation();
                     handleClick();
@@ -261,11 +261,11 @@ export default function ImageUpload({
           <input
             type="url"
             placeholder="https://example.com/logo.png"
-            className={`input input-bordered w-full transition-all duration-200 focus-visible:border-[#ED0D79] focus-visible:ring-2 focus-visible:ring-[#ED0D79]/20 focus-visible:outline-none ${
+            className={`input input-bordered w-full transition-all duration-200 focus-visible:border-black focus-visible:ring-2 focus-visible:ring-black/20 focus-visible:outline-none ${
               error ? "input-error border-error" : "border-base-300"
             }`}
             style={{
-              boxShadow: error ? '0 0 0 2px rgba(248, 113, 113, 0.2)' : 'none'
+              boxShadow: error ? '0 0 0 2px rgba(0, 0, 0, 0.2)' : 'none'
             }}
             value={preview}
             onChange={(e) => {

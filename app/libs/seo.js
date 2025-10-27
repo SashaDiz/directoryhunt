@@ -1,16 +1,16 @@
-// SEO utilities and helpers for AI Launch Space
+// SEO utilities and helpers for Directory Hunt
 
 export const seoConfig = {
-  siteName: "AI Launch Space",
-  siteUrl: process.env.NEXT_PUBLIC_APP_URL || "https://ailaunch.space",
-  defaultTitle: "AI Launch Space - Weekly Competition Platform for AI Projects",
-  defaultDescription: "Submit your AI project to weekly competitions and get high authority backlinks. Join the community of successful AI builders and innovators.",
-  defaultKeywords: ["AI", "artificial intelligence", "AI tools", "AI launch", "backlinks", "SEO", "AI projects", "product hunt for AI", "AI project", "machine learning"],
-  twitterHandle: "@ailaunchspace",
-  author: "AI Launch Space",
+  siteName: "Directory Hunt",
+  siteUrl: process.env.NEXT_PUBLIC_APP_URL || "https://directoryhunt.org",
+  defaultTitle: "Directory Hunt - Launchpad for Directories and Tiny Projects",
+  defaultDescription: "Submit your directory or tiny project to our launchpad and get discovered. Join the community of successful builders and innovators.",
+  defaultKeywords: ["directory", "tiny projects", "launchpad", "backlinks", "SEO", "project launch", "product hunt for directories", "project directory", "startup launch"],
+  twitterHandle: "@directoryhunt",
+  author: "Directory Hunt",
   language: "en",
   locale: "en_US",
-  themeColor: "#ED0D79",
+  themeColor: "#000000",
 };
 
 // Generate meta tags for pages

@@ -298,7 +298,7 @@ export default function SettingsPage() {
         <div className="mb-8">
           <Link 
             href="/dashboard" 
-            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 hover:text-[#ED0D79] transition-colors duration-200 mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 hover:text-[#000000] transition-colors duration-200 mb-6"
           >
             <NavArrowLeft className="w-4 h-4" />
             Back to Dashboard
@@ -318,8 +318,8 @@ export default function SettingsPage() {
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm mb-8">
           <div className="p-6">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-[#ED0D79]/10 rounded-xl flex items-center justify-center">
-                <Bell className="w-5 h-5 text-[#ED0D79]" />
+              <div className="w-10 h-10 bg-[#000000]/10 rounded-xl flex items-center justify-center">
+                <Bell className="w-5 h-5 text-[#000000]" />
               </div>
               <div>
                 <h2 className="text-xl font-bold text-gray-900">Email Notifications</h2>
@@ -333,11 +333,11 @@ export default function SettingsPage() {
               {/* Competition Notifications */}
               <div>
                 <h3 className="font-semibold text-lg text-gray-900 mb-4 flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#ED0D79] rounded-full"></div>
+                  <div className="w-2 h-2 bg-[#000000] rounded-full"></div>
                   Competition Updates
                 </h3>
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-200 hover:border-[#ED0D79]/30 transition-colors">
+                  <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-200 hover:border-[#000000]/30 transition-colors">
                     <div className="flex-1">
                       <h4 className="font-medium text-gray-900">Weekly Competition Entry</h4>
                       <p className="text-sm text-gray-600 mt-1">When your project enters a weekly competition</p>
@@ -350,7 +350,7 @@ export default function SettingsPage() {
                         onChange={() => toggleNotificationPreference('weekly_competition_entry')}
                       />
                       <div className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                        notificationPreferences.weekly_competition_entry ? 'bg-[#ED0D79]' : 'bg-gray-300'
+                        notificationPreferences.weekly_competition_entry ? 'bg-[#000000]' : 'bg-gray-300'
                       }`}>
                         <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
                           notificationPreferences.weekly_competition_entry ? 'translate-x-6' : 'translate-x-1'
@@ -359,7 +359,7 @@ export default function SettingsPage() {
                     </label>
                   </div>
                   
-                  <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-200 hover:border-[#ED0D79]/30 transition-colors">
+                  <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-200 hover:border-[#000000]/30 transition-colors">
                     <div className="flex-1">
                       <h4 className="font-medium text-gray-900">Competition Winners</h4>
                       <p className="text-sm text-gray-600 mt-1">When you win a position in competitions</p>
@@ -372,7 +372,7 @@ export default function SettingsPage() {
                         onChange={() => toggleNotificationPreference('competition_winners')}
                       />
                       <div className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                        notificationPreferences.competition_winners ? 'bg-[#ED0D79]' : 'bg-gray-300'
+                        notificationPreferences.competition_winners ? 'bg-[#000000]' : 'bg-gray-300'
                       }`}>
                         <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
                           notificationPreferences.competition_winners ? 'translate-x-6' : 'translate-x-1'
@@ -381,7 +381,7 @@ export default function SettingsPage() {
                     </label>
                   </div>
                   
-                  <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-200 hover:border-[#ED0D79]/30 transition-colors">
+                  <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-200 hover:border-[#000000]/30 transition-colors">
                     <div className="flex-1">
                       <h4 className="font-medium text-gray-900">Winner Badge Reminder</h4>
                       <p className="text-sm text-gray-600 mt-1">Reminders to add winner badges for dofollow links</p>
@@ -394,7 +394,7 @@ export default function SettingsPage() {
                         onChange={() => toggleNotificationPreference('winner_reminder')}
                       />
                       <div className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                        notificationPreferences.winner_reminder ? 'bg-[#ED0D79]' : 'bg-gray-300'
+                        notificationPreferences.winner_reminder ? 'bg-[#000000]' : 'bg-gray-300'
                       }`}>
                         <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
                           notificationPreferences.winner_reminder ? 'translate-x-6' : 'translate-x-1'
@@ -412,10 +412,10 @@ export default function SettingsPage() {
                   Optional Updates
                 </h3>
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-200 hover:border-[#ED0D79]/30 transition-colors">
+                  <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-200 hover:border-[#000000]/30 transition-colors">
                     <div className="flex-1">
                       <h4 className="font-medium text-gray-900">Weekly Digest</h4>
-                      <p className="text-sm text-gray-600 mt-1">Weekly summary of AI Launch Space activity</p>
+                      <p className="text-sm text-gray-600 mt-1">Weekly summary of Directory Hunt activity</p>
                     </div>
                     <label className="flex items-center cursor-pointer">
                       <input
@@ -425,7 +425,7 @@ export default function SettingsPage() {
                         onChange={() => toggleNotificationPreference('weekly_digest')}
                       />
                       <div className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                        notificationPreferences.weekly_digest ? 'bg-[#ED0D79]' : 'bg-gray-300'
+                        notificationPreferences.weekly_digest ? 'bg-[#000000]' : 'bg-gray-300'
                       }`}>
                         <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
                           notificationPreferences.weekly_digest ? 'translate-x-6' : 'translate-x-1'
@@ -434,7 +434,7 @@ export default function SettingsPage() {
                     </label>
                   </div>
                   
-                  <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-200 hover:border-[#ED0D79]/30 transition-colors">
+                  <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-200 hover:border-[#000000]/30 transition-colors">
                     <div className="flex-1">
                       <h4 className="font-medium text-gray-900">Marketing Emails</h4>
                       <p className="text-sm text-gray-600 mt-1">Product updates and promotional content</p>
@@ -447,7 +447,7 @@ export default function SettingsPage() {
                         onChange={() => toggleNotificationPreference('marketing_emails')}
                       />
                       <div className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                        notificationPreferences.marketing_emails ? 'bg-[#ED0D79]' : 'bg-gray-300'
+                        notificationPreferences.marketing_emails ? 'bg-[#000000]' : 'bg-gray-300'
                       }`}>
                         <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
                           notificationPreferences.marketing_emails ? 'translate-x-6' : 'translate-x-1'
@@ -462,7 +462,7 @@ export default function SettingsPage() {
                 <button
                   onClick={updateNotificationPreferences}
                   disabled={isUpdatingNotifications}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#ED0D79] text-white font-semibold text-sm rounded-lg hover:bg-[#ED0D79]/90 transition duration-300 ease-in-out hover:scale-[1.02] shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#000000] text-white font-semibold text-sm rounded-lg hover:bg-[#000000]/90 transition duration-300 ease-in-out hover:scale-[1.02] shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isUpdatingNotifications ? (
                     <>
@@ -485,8 +485,8 @@ export default function SettingsPage() {
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm mb-8">
           <div className="p-6">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-[#ED0D79]/10 rounded-xl flex items-center justify-center">
-                <LinkIcon className="w-5 h-5 text-[#ED0D79]" />
+              <div className="w-10 h-10 bg-[#000000]/10 rounded-xl flex items-center justify-center">
+                <LinkIcon className="w-5 h-5 text-[#000000]" />
               </div>
               <div>
                 <h2 className="text-xl font-bold text-gray-900">Connected Accounts</h2>
@@ -498,7 +498,7 @@ export default function SettingsPage() {
 
             <div className="space-y-4">
               {/* Google */}
-              <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-200 hover:border-[#ED0D79]/30 transition-colors">
+              <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-200 hover:border-[#000000]/30 transition-colors">
                 <div className="flex items-center space-x-4">
                   <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center border border-gray-200">
                     {getProviderIcon("google")}
@@ -534,7 +534,7 @@ export default function SettingsPage() {
                   <button
                     onClick={() => handleLinkProvider("google")}
                     disabled={isLinking.google}
-                    className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#ED0D79] bg-[#ED0D79]/10 border border-[#ED0D79]/20 rounded-lg hover:bg-[#ED0D79]/20 hover:border-[#ED0D79]/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#000000] bg-[#000000]/10 border border-[#000000]/20 rounded-lg hover:bg-[#000000]/20 hover:border-[#000000]/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isLinking.google ? (
                       <>
@@ -549,7 +549,7 @@ export default function SettingsPage() {
               </div>
 
               {/* GitHub */}
-              <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-200 hover:border-[#ED0D79]/30 transition-colors">
+              <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-200 hover:border-[#000000]/30 transition-colors">
                 <div className="flex items-center space-x-4">
                   <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center border border-gray-200">
                     {getProviderIcon("github")}
@@ -585,7 +585,7 @@ export default function SettingsPage() {
                   <button
                     onClick={() => handleLinkProvider("github")}
                     disabled={isLinking.github}
-                    className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#ED0D79] bg-[#ED0D79]/10 border border-[#ED0D79]/20 rounded-lg hover:bg-[#ED0D79]/20 hover:border-[#ED0D79]/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#000000] bg-[#000000]/10 border border-[#000000]/20 rounded-lg hover:bg-[#000000]/20 hover:border-[#000000]/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isLinking.github ? (
                       <>

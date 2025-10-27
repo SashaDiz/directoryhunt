@@ -4,9 +4,9 @@ import React, { useState } from "react";
 
 const faqs = [
   {
-    question: "What is AI Launch Space and how does it work?",
+    question: "What is Directory Hunt and how does it work?",
     answer:
-      "AI Launch Space is a weekly competition platform for AI projects. Submit your AI tool, get valuable backlinks, and compete for weekly recognition. Think Product Hunt but specifically for AI projects and tools. Your submission goes live on the homepage for 7 days where the community can vote for it.",
+      "Directory Hunt is a launchpad for directories and tiny projects. Submit your directory or project, get valuable backlinks, and compete for weekly recognition. Think Product Hunt but specifically for directories and tiny projects. Your submission goes live on the homepage for 7 days where the community can vote for it.",
   },
   {
     question: "What are the different launch plans available?",
@@ -89,7 +89,7 @@ export default function FAQPage() {
               name="faq-accordion"
               checked={openIndex === index}
               onChange={() => toggleFAQ(index)}
-              style={{ accentColor: '#ED0D79' }}
+              style={{ accentColor: '#000000' }}
             />
             <div className="collapse-title text-xl font-medium">
               {faq.question}
@@ -107,7 +107,7 @@ export default function FAQPage() {
           Contact us directly and we'll be happy to help
         </p>
         <a
-          href="mailto:hello@ailaunchspace.com"
+          href="mailto:hello@directoryhunt.org"
           className="btn btn-primary btn-lg"
         >
           Contact Us

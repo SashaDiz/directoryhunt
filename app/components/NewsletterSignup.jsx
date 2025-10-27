@@ -85,7 +85,7 @@ export function NewsletterSignup({
     return (
       <div className={`flex flex-col sm:flex-row gap-2 ${className}`}>
         <div className="relative flex-1">
-          <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-[#ED0D79]" />
+          <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-white" />
           <input
             type="email"
             value={email}
@@ -101,7 +101,7 @@ export function NewsletterSignup({
           className={`text-center ${
             status === "success" 
               ? "bg-green-500 text-white" 
-              : "bg-[#ED0D79] text-white"
+              : "bg-black text-white"
           } rounded-lg px-4 py-3 font-semibold text-sm no-underline transition duration-300 hover:scale-105 min-w-[120px] flex items-center justify-center gap-2 disabled:hover:scale-100 disabled:opacity-70`}
         >
           {status === "loading" && (
@@ -119,7 +119,7 @@ export function NewsletterSignup({
     return (
       <div className={`${className}`}>
         <div className="flex items-center space-x-2 mb-3">
-          <Mail className="w-6 h-6 mb-[2px] text-[#ED0D79]" />
+          <Mail className="w-6 h-6 mb-[2px] text-white" />
           <h3 className="font-semibold text-lg leading-none text-white">Stay Updated</h3>
         </div>
         <p className="text-white/70 text-sm mb-4">
@@ -143,7 +143,7 @@ export function NewsletterSignup({
             className={`text-center w-full ${
               status === "success" 
                 ? "bg-green-500 text-white" 
-                : "bg-[#ED0D79] text-white"
+                : "bg-white text-black"
             } rounded-lg px-4 py-3 font-semibold text-sm no-underline transition duration-300 hover:scale-105 flex items-center justify-center gap-2 disabled:hover:scale-100 disabled:opacity-70`}
           >
             {status === "loading" && (
@@ -166,7 +166,7 @@ export function NewsletterSignup({
       <div className="card-body p-6">
         <div className="flex items-center space-x-3 mb-4">
           <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-            <Mail className="w-6 h-6 text-[#ED0D79]" />
+            <Mail className="w-6 h-6 text-white" />
           </div>
           <div>
             <h3 className="text-lg font-semibold leading-none">
@@ -205,7 +205,7 @@ export function NewsletterSignup({
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="form-control">
             <div className="relative">
-              <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-[#ED0D79]" />
+              <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-white" />
               <input
                 type="email"
                 value={email}
@@ -228,7 +228,7 @@ export function NewsletterSignup({
             className={`text-center w-full ${
               status === "success" 
                 ? "bg-green-500 text-white" 
-                : "bg-[#ED0D79] text-white"
+                : "bg-black text-white"
             } rounded-lg px-4 py-3 font-semibold text-sm no-underline transition duration-300 hover:scale-105 flex items-center justify-center gap-2 disabled:hover:scale-100 disabled:opacity-70`}
           >
             {status === "loading" && (
@@ -286,7 +286,7 @@ export function NewsletterPopup({
         <div className="card-body p-6">
           <div className="text-center mb-6">
             <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
-              <Mail className="w-8 h-8 text-[#ED0D79]" />
+              <Mail className="w-8 h-8 text-white" />
             </div>
             <h2 className="text-2xl font-bold mb-2">Don't Miss Out!</h2>
             <p className="text-white/70">

@@ -30,7 +30,7 @@ const AdminNav = () => {
           <div className="flex items-center space-x-1">
             <Link 
               href="/dashboard" 
-              className="inline-flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#ED0D79] transition-colors"
+              className="inline-flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#000000] transition-colors"
             >
               <NavArrowLeft className="w-4 h-4" />
               <span className="hidden sm:inline">Back to Dashboard</span>
@@ -53,8 +53,8 @@ const AdminNav = () => {
                   href={item.href}
                   className={`inline-flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
                     item.current
-                      ? "bg-[#ED0D79] text-white"
-                      : "text-gray-600 hover:text-[#ED0D79] hover:bg-[#ED0D79]/10"
+                      ? "bg-[#000000] text-white"
+                      : "text-gray-600 hover:text-[#000000] hover:bg-[#000000]/10"
                   }`}
                 >
                   <Icon className="w-4 h-4" />

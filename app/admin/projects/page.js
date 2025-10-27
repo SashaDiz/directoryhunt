@@ -28,7 +28,7 @@ import CustomDropdown from "../../components/CustomDropdown";
 const generateProjectLink = (project) => {
   // Add ref parameter as per CLAUDE.md spec
   const url = new URL(project.website_url);
-  url.searchParams.set('ref', 'ailaunchspace');
+  url.searchParams.set('ref', 'directoryhunt');
   
   // Use link_type field from database
   // - "dofollow": Premium plans, weekly winners, or manually upgraded
@@ -73,7 +73,7 @@ function ProjectRow({ project, onStatusUpdate }) {
       case "scheduled":
         return <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Scheduled</span>;
       case "approved":
-        return <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-[#ED0D79]/10 text-[#ED0D79]">Approved</span>;
+        return <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-[#000000]/10 text-[#000000]">Approved</span>;
       case "archived":
         return <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">Archived</span>;
       default:
@@ -293,7 +293,7 @@ function ProjectRow({ project, onStatusUpdate }) {
               onClick={() => handleWinnerBadgeUpdate(1)}
               disabled={updatingWinnerBadge}
               className={`inline-flex items-center px-2 py-1 rounded text-xs font-medium transition-colors ${
-                currentWinnerPosition === 1 ? "bg-[#ED0D79] text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                currentWinnerPosition === 1 ? "bg-[#000000] text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
               title="Set as 1st place winner"
             >
@@ -303,7 +303,7 @@ function ProjectRow({ project, onStatusUpdate }) {
               onClick={() => handleWinnerBadgeUpdate(2)}
               disabled={updatingWinnerBadge}
               className={`inline-flex items-center px-2 py-1 rounded text-xs font-medium transition-colors ${
-                currentWinnerPosition === 2 ? "bg-[#ED0D79] text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                currentWinnerPosition === 2 ? "bg-[#000000] text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
               title="Set as 2nd place winner"
             >
@@ -313,7 +313,7 @@ function ProjectRow({ project, onStatusUpdate }) {
               onClick={() => handleWinnerBadgeUpdate(3)}
               disabled={updatingWinnerBadge}
               className={`inline-flex items-center px-2 py-1 rounded text-xs font-medium transition-colors ${
-                currentWinnerPosition === 3 ? "bg-[#ED0D79] text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                currentWinnerPosition === 3 ? "bg-[#000000] text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
               title="Set as 3rd place winner"
             >
@@ -422,7 +422,7 @@ function ProjectMobileCard({ project, onStatusUpdate }) {
       case "scheduled":
         return <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Scheduled</span>;
       case "approved":
-        return <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-[#ED0D79]/10 text-[#ED0D79]">Approved</span>;
+        return <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-[#000000]/10 text-[#000000]">Approved</span>;
       case "archived":
         return <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">Archived</span>;
       default:
@@ -788,7 +788,7 @@ export default function AdminProjectsPage() {
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Search projects..."
-                    className="w-full pl-7 pr-7 py-2 text-sm border border-gray-300 rounded-lg focus-visible:border-[#ED0D79] focus-visible:ring-1 focus-visible:ring-[#ED0D79]/20 focus-visible:outline-none"
+                    className="w-full pl-7 pr-7 py-2 text-sm border border-gray-300 rounded-lg focus-visible:border-[#000000] focus-visible:ring-1 focus-visible:ring-[#000000]/20 focus-visible:outline-none"
                   />
                   {search && (
                     <button
@@ -807,7 +807,7 @@ export default function AdminProjectsPage() {
                 <select
                   value={statusFilter}
                   onChange={(e) => setStatusFilter(e.target.value)}
-                  className="py-2 pl-2 pr-6 text-sm border border-gray-300 rounded-lg focus-visible:border-[#ED0D79] focus-visible:ring-1 focus-visible:ring-[#ED0D79]/20 focus-visible:outline-none appearance-none cursor-pointer min-w-[120px]"
+                  className="py-2 pl-2 pr-6 text-sm border border-gray-300 rounded-lg focus-visible:border-[#000000] focus-visible:ring-1 focus-visible:ring-[#000000]/20 focus-visible:outline-none appearance-none cursor-pointer min-w-[120px]"
                 >
                   <option value="all">All Statuses</option>
                   <option value="pending">Pending</option>
@@ -822,7 +822,7 @@ export default function AdminProjectsPage() {
                 <select
                   value={planFilter}
                   onChange={(e) => setPlanFilter(e.target.value)}
-                  className="py-2 pl-2 pr-6 text-sm border border-gray-300 rounded-lg focus-visible:border-[#ED0D79] focus-visible:ring-1 focus-visible:ring-[#ED0D79]/20 focus-visible:outline-none appearance-none cursor-pointer min-w-[100px]"
+                  className="py-2 pl-2 pr-6 text-sm border border-gray-300 rounded-lg focus-visible:border-[#000000] focus-visible:ring-1 focus-visible:ring-[#000000]/20 focus-visible:outline-none appearance-none cursor-pointer min-w-[100px]"
                 >
                   <option value="all">All Plans</option>
                   <option value="standard">Standard</option>
@@ -843,7 +843,7 @@ export default function AdminProjectsPage() {
                       router.push("/admin/projects");
                     }
                   }}
-                  className="py-2 pl-2 pr-6 text-sm border border-gray-300 rounded-lg focus-visible:border-[#ED0D79] focus-visible:ring-1 focus-visible:ring-[#ED0D79]/20 focus-visible:outline-none appearance-none cursor-pointer min-w-[120px]"
+                  className="py-2 pl-2 pr-6 text-sm border border-gray-300 rounded-lg focus-visible:border-[#000000] focus-visible:ring-1 focus-visible:ring-[#000000]/20 focus-visible:outline-none appearance-none cursor-pointer min-w-[120px]"
                 >
                   <option value="all">All Projects</option>
                   <option value="winners">Winners Only</option>
@@ -854,7 +854,7 @@ export default function AdminProjectsPage() {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => fetchProjects()}
-                  className="inline-flex items-center gap-1 px-3 py-2 bg-[#ED0D79] text-white text-sm font-medium rounded-lg hover:bg-[#ED0D79]/90"
+                  className="inline-flex items-center gap-1 px-3 py-2 bg-[#000000] text-white text-sm font-medium rounded-lg hover:bg-[#000000]/90"
                 >
                   <FilterAlt className="w-3 h-3" />
                   Apply
@@ -885,14 +885,14 @@ export default function AdminProjectsPage() {
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="text-sm font-medium text-gray-700">Active filters:</span>
                   {search && (
-                    <span className="inline-flex items-center gap-1 px-3 py-1 bg-[#ED0D79]/10 text-[#ED0D79] rounded-full text-sm font-medium">
+                    <span className="inline-flex items-center gap-1 px-3 py-1 bg-[#000000]/10 text-[#000000] rounded-full text-sm font-medium">
                       Search: "{search}"
                       <button
                         onClick={() => {
                           setSearch("");
                           setDebouncedSearch("");
                         }}
-                        className="ml-1 hover:bg-[#ED0D79]/20 rounded-full p-0.5"
+                        className="ml-1 hover:bg-[#000000]/20 rounded-full p-0.5"
                       >
                         <XmarkCircle className="w-3 h-3" />
                       </button>
@@ -1078,7 +1078,7 @@ export default function AdminProjectsPage() {
                                 onClick={() => handlePageChange(page)}
                                 className={`inline-flex items-center px-3 py-2 text-sm font-medium rounded-lg ${
                                   page === pagination.page
-                                    ? "bg-[#ED0D79] text-white"
+                                    ? "bg-[#000000] text-white"
                                     : "text-gray-500 bg-white border border-gray-300 hover:bg-gray-50 hover:text-gray-700"
                                 }`}
                               >

@@ -143,7 +143,7 @@ function FilterSidebar({
           {selectedCategories.length > 0 && (
             <button
               onClick={clearAllCategories}
-              className="text-xs text-[#ED0D79] hover:text-[#ED0D79]/80 font-medium"
+              className="text-xs text-[#000000] hover:text-[#000000]/80 font-medium"
             >
               Clear all
             </button>
@@ -151,8 +151,8 @@ function FilterSidebar({
         </div>
         
         {selectedCategories.length > 0 && (
-          <div className="mb-3 p-3 bg-[#ED0D79]/10 rounded-lg border border-[#ED0D79]/20">
-            <div className="text-xs text-[#ED0D79] font-medium mb-2">
+          <div className="mb-3 p-3 bg-[#000000]/10 rounded-lg border border-[#000000]/20">
+            <div className="text-xs text-[#000000] font-medium mb-2">
               {selectedCategories.length} selected
             </div>
             <div className="flex flex-wrap gap-1">
@@ -163,7 +163,7 @@ function FilterSidebar({
                 return (
                   <span
                     key={categorySlug}
-                    className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium text-white bg-[#ED0D79] rounded-md"
+                    className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium text-white bg-[#000000] rounded-md"
                   >
                     {category?.name || categorySlug}
                     <button
@@ -198,7 +198,7 @@ function FilterSidebar({
                     >
                       <input
                         type="checkbox"
-                        className="w-4 h-4 text-[#ED0D79] bg-gray-100 border-gray-300 rounded focus-visible:ring-[#ED0D79] focus-visible:ring-2"
+                        className="w-4 h-4 text-[#000000] bg-gray-100 border-gray-300 rounded focus-visible:ring-[#000000] focus-visible:ring-2"
                         checked={selectedCategories.includes(category.slug)}
                         onChange={() => handleCategoryToggle(category.slug)}
                       />
@@ -224,7 +224,7 @@ function FilterSidebar({
                 >
                   <input
                     type="checkbox"
-                    className="w-4 h-4 text-[#ED0D79] bg-gray-100 border-gray-300 rounded focus-visible:ring-[#ED0D79] focus-visible:ring-2"
+                    className="w-4 h-4 text-[#000000] bg-gray-100 border-gray-300 rounded focus-visible:ring-[#000000] focus-visible:ring-2"
                     checked={selectedCategories.includes(category.slug)}
                     onChange={() => handleCategoryToggle(category.slug)}
                   />
@@ -256,7 +256,7 @@ function FilterSidebar({
               <input
                 type="radio"
                 name="pricing"
-                className="w-4 h-4 text-[#ED0D79] bg-gray-100 border-gray-300 focus-visible:ring-[#ED0D79] focus-visible:ring-2"
+                className="w-4 h-4 text-[#000000] bg-gray-100 border-gray-300 focus-visible:ring-[#000000] focus-visible:ring-2"
                 checked={selectedPricing === "all"}
                 onChange={() => setSelectedPricing("all")}
               />
@@ -271,7 +271,7 @@ function FilterSidebar({
                 <input
                   type="radio"
                   name="pricing"
-                  className="w-4 h-4 text-[#ED0D79] bg-gray-100 border-gray-300 focus-visible:ring-[#ED0D79] focus-visible:ring-2"
+                  className="w-4 h-4 text-[#000000] bg-gray-100 border-gray-300 focus-visible:ring-[#000000] focus-visible:ring-2"
                   checked={selectedPricing === pricing.value}
                   onChange={() => setSelectedPricing(pricing.value)}
                 />
@@ -465,7 +465,7 @@ function ProjectsPageContent() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search AI projects..."
-                  className="w-full pl-10 pr-4 py-3 text-sm border border-gray-300 rounded-lg bg-white focus-visible:ring-2 focus-visible:ring-[#ED0D79] focus-visible:border-[#ED0D79] transition-colors"
+                  className="w-full pl-10 pr-4 py-3 text-sm border border-gray-300 rounded-lg bg-white focus-visible:ring-2 focus-visible:ring-[#000000] focus-visible:border-[#000000] transition-colors"
                 />
               </div>
             </form>
@@ -477,7 +477,7 @@ function ProjectsPageContent() {
                 <div
                   tabIndex={0}
                   role="button"
-                  className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-[#ED0D79] focus-visible:border-[#ED0D79] transition-colors"
+                  className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-[#000000] focus-visible:border-[#000000] transition-colors"
                 >
                   {React.createElement(
                     SORT_OPTIONS.find((opt) => opt.value === sortBy)?.icon ||
@@ -496,7 +496,7 @@ function ProjectsPageContent() {
                       <button
                         onClick={() => setSortBy(option.value)}
                         className={`flex items-center px-3 py-2 text-sm hover:bg-gray-50 rounded-md transition-colors ${
-                          sortBy === option.value ? "bg-[#ED0D79]/10 text-[#ED0D79]" : "text-gray-700"
+                          sortBy === option.value ? "bg-[#000000]/10 text-[#000000]" : "text-gray-700"
                         }`}
                       >
                         {React.createElement(option.icon, {
@@ -517,7 +517,7 @@ function ProjectsPageContent() {
                     onClick={() => setViewMode(mode.value)}
                     className={`px-3 py-2 text-sm font-medium transition-colors ${
                       viewMode === mode.value 
-                        ? "bg-[#ED0D79] text-white" 
+                        ? "bg-[#000000] text-white" 
                         : "bg-white text-gray-700 hover:bg-gray-50"
                     }`}
                   >
@@ -529,7 +529,7 @@ function ProjectsPageContent() {
               {/* Filter Toggle (Mobile) */}
               <button
                 onClick={() => setShowFilters(!showFilters)}
-                className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-[#ED0D79] focus-visible:border-[#ED0D79] transition-colors lg:hidden"
+                className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus-visible:ring-2 focus-visible:ring-[#000000] focus-visible:border-[#000000] transition-colors lg:hidden"
               >
                 <FilterAlt className="w-4 h-4 mr-2" />
                 Filters
@@ -645,7 +645,7 @@ function ProjectsPageContent() {
                               onClick={() => handlePageChange(pageNum)}
                               className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
                                 pageNum === pagination.page
-                                  ? "bg-[#ED0D79] text-white"
+                                  ? "bg-[#000000] text-white"
                                   : "text-gray-700 bg-white border border-gray-300 hover:bg-gray-50"
                               }`}
                             >

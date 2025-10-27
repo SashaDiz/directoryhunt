@@ -7,7 +7,7 @@ import { SocialFollow } from "./SocialShare";
 
 export function Footer() {
   return (
-    <footer className="bg-slate-900">
+    <footer className="bg-black">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
@@ -15,7 +15,7 @@ export function Footer() {
             <Link href="/">
               <Image
                 src="/assets/logo-white.svg"
-                alt="AI Launch Space"
+                alt="Directory Hunt"
                 height={44}
                 width={140}
                 priority
@@ -23,7 +23,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-white/70 text-sm">
-              The ultimate weekly competition platform for AI builders to launch, compete,
+              The ultimate launchpad for directories and tiny projects to launch, compete,
               and grow their audience.
             </p>
             <SocialFollow
@@ -40,29 +40,27 @@ export function Footer() {
               <li>
                 <Link
                   href="/projects"
-                  className="text-white/70 hover:text-[#ED0D79] transition-colors"
+                  className="text-white/70 hover:text-white transition-colors"
                 >
-                  Browse AI Projects
+                  Browse Directories & Projects
                 </Link>
               </li>
               <li>
                 <Link
                   href="/submit"
-                  className="text-white/70 hover:text-[#ED0D79] transition-colors"
+                  className="text-white/70 hover:text-white transition-colors"
                 >
-                  Submit AI Project
+                  Submit Directory/Project
                 </Link>
               </li>
-              {/* temporarily hidden
               <li>
                 <Link
                   href="/pricing"
-                  className="text-white/70 hover:text-[#ED0D79] transition-colors"
+                  className="text-white/70 hover:text-white transition-colors"
                 >
                   Pricing
                 </Link>
               </li>
-              */}
             </ul>
           </div>
 
@@ -73,7 +71,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/blog"
-                  className="text-white/70 hover:text-[#ED0D79] transition-colors"
+                  className="text-white/70 hover:text-white transition-colors"
                 >
                   Blog
                 </Link>
@@ -81,7 +79,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/faq"
-                  className="text-white/70 hover:text-[#ED0D79] transition-colors"
+                  className="text-white/70 hover:text-white transition-colors"
                 >
                   FAQs
                 </Link>
@@ -90,7 +88,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/changelog"
-                  className="text-white/70 hover:text-[#ED0D79] transition-colors"
+                  className="text-white/70 hover:text-white transition-colors"
                 >
                   Changelog
                 </Link>
@@ -113,30 +111,30 @@ export function Footer() {
         <div className="border-t border-base-300 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-white/70 text-sm">
-              © 2025 AI Launch Space. All rights reserved.
+              © 2025 Directory Hunt. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
               <Link
                 href="/terms"
-                className="text-white/70 hover:text-[#ED0D79] transition-colors"
+                className="text-white/70 hover:text-white transition-colors"
               >
                 Terms
               </Link>
               <Link
                 href="/privacy"
-                className="text-white/70 hover:text-[#ED0D79] transition-colors"
+                className="text-white/70 hover:text-white transition-colors"
               >
                 Privacy
               </Link>
               <Link
                 href="/cookies"
-                className="text-white/70 hover:text-[#ED0D79] transition-colors"
+                className="text-white/70 hover:text-white transition-colors"
               >
                 Cookies
               </Link>
               <Link
                 href="/contact"
-                className="text-white/70 hover:text-[#ED0D79] transition-colors"
+                className="text-white/70 hover:text-white transition-colors"
               >
                 Contact
               </Link>

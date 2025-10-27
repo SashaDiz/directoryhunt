@@ -13,7 +13,7 @@ export default function SponsorCard({
       rel="noopener noreferrer"
       className="w-full"
     >
-      <div className="relative flex items-start gap-4 border rounded-2xl p-5 w-full bg-white transition duration-300 hover:border-[#ED0D79] cursor-pointer group">
+      <div className="relative flex items-start gap-4 border rounded-2xl p-5 w-full bg-white transition duration-300 hover:border-black hover:-translate-y-1 hover:shadow-[0_4px_0_rgba(0,0,0,1)] cursor-pointer group">
 
         <div className="flex-shrink-0">
           <Image
@@ -35,13 +35,13 @@ export default function SponsorCard({
         
         {/* Arrow icon that appears on hover */}
         <ArrowUpRight 
-          className="absolute top-3 right-3 w-5 h-5 text-[#ED0D79] opacity-0 translate-x-0 translate-y-0 group-hover:opacity-100 group-hover:translate-x-1 group-hover:translate-y-[-4px] transition-all duration-300 ease-out"
+          className="absolute top-3 right-3 w-5 h-5 text-black opacity-0 translate-x-0 translate-y-0 group-hover:opacity-100 group-hover:translate-x-1 group-hover:translate-y-[-4px] transition-all duration-300 ease-out"
         />
       </div>
     </a>
   ) : (
     <a href={becomePartnerUrl} className="w-full">
-      <div className="flex flex-col items-center justify-center border rounded-2xl p-8 w-full bg-gray-50 text-gray-900 transition duration-300 hover:border-gray-900 cursor-pointer min-h-[120px]">
+      <div className="flex flex-col items-center justify-center border rounded-2xl p-8 w-full bg-gray-50 text-gray-900 transition duration-300 hover:border-black hover:-translate-y-1 hover:shadow-[0_4px_0_rgba(0,0,0,1)] cursor-pointer min-h-[120px]">
         <span className="text-3xl mb-2 font-light">+</span>
         <span className="font-medium text-lg">Become a Partner</span>
       </div>

@@ -32,7 +32,7 @@ export default function UserProfileLink({
   return (
     <Link 
       href={`/user/${userId}`}
-      className={`inline-flex items-center gap-2 text-gray-600 hover:text-[#ED0D79] transition-colors ${sizeClasses[size]} ${className}`}
+      className={`inline-flex items-center gap-2 text-gray-600 hover:text-black transition-colors ${sizeClasses[size]} ${className}`}
     >
       {showAvatar && (
         <div className={`${avatarSizes[size].className} rounded-full overflow-hidden flex-shrink-0`}>
@@ -48,7 +48,7 @@ export default function UserProfileLink({
                 const parent = e.target.parentElement;
                 if (parent) {
                   parent.innerHTML = `
-                    <div class="bg-[#ED0D79] text-white w-full h-full flex items-center justify-center text-xs font-bold">
+                    <div class="bg-black text-white w-full h-full flex items-center justify-center text-xs font-bold">
                       ${userName[0]?.toUpperCase() || "U"}
                     </div>
                   `;
@@ -56,7 +56,7 @@ export default function UserProfileLink({
               }}
             />
           ) : (
-            <div className="bg-[#ED0D79] text-white w-full h-full flex items-center justify-center text-xs font-bold">
+            <div className="bg-black text-white w-full h-full flex items-center justify-center text-xs font-bold">
               {userName[0]?.toUpperCase() || "U"}
             </div>
           )}

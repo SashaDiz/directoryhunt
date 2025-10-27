@@ -280,7 +280,7 @@ export default function ProfilePage() {
             <div className="flex items-center space-x-4 mb-4 sm:mb-0">
               <Link 
                 href="/dashboard" 
-                className="inline-flex items-center gap-2 px-4 py-2 bg-white text-gray-700 font-medium rounded-lg border border-gray-200 hover:border-[#ED0D79] hover:bg-gray-50 transition duration-300 ease-in-out hover:scale-[1.02] shadow-sm"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-white text-gray-700 font-medium rounded-lg border border-gray-200 hover:border-[#000000] hover:bg-gray-50 transition duration-300 ease-in-out hover:scale-[1.02] shadow-sm"
               >
                 <NavArrowLeft className="w-4 h-4" />
                 Back to Dashboard
@@ -290,7 +290,7 @@ export default function ProfilePage() {
               {!isEditing ? (
                 <button
                   onClick={() => setIsEditing(true)}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#ED0D79] text-white font-semibold rounded-lg hover:bg-[#ED0D79]/90 transition duration-300 ease-in-out hover:scale-[1.02] shadow-sm"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#000000] text-white font-semibold rounded-lg hover:bg-[#000000]/90 transition duration-300 ease-in-out hover:scale-[1.02] shadow-sm"
                 >
                   <EditPencil className="w-4 h-4" />
                   Edit Profile
@@ -307,7 +307,7 @@ export default function ProfilePage() {
                   <button
                     onClick={handleSave}
                     disabled={isSaving}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#ED0D79] text-white font-semibold rounded-lg hover:bg-[#ED0D79]/90 transition duration-300 ease-in-out hover:scale-[1.02] shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#000000] text-white font-semibold rounded-lg hover:bg-[#000000]/90 transition duration-300 ease-in-out hover:scale-[1.02] shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSaving ? (
                       <span className="loading loading-spinner loading-sm"></span>
@@ -350,7 +350,7 @@ export default function ProfilePage() {
                           const parent = e.target.parentElement;
                           if (parent) {
                             parent.innerHTML = `
-                              <div class="bg-[#ED0D79] text-white w-full h-full flex items-center justify-center text-xl font-bold">
+                              <div class="bg-[#000000] text-white w-full h-full flex items-center justify-center text-xl font-bold">
                                 ${(user.user_metadata?.full_name?.[0] || user.email?.[0] || "U").toUpperCase()}
                               </div>
                             `;
@@ -358,7 +358,7 @@ export default function ProfilePage() {
                         }}
                       />
                     ) : (
-                      <div className="bg-[#ED0D79] text-white w-full h-full flex items-center justify-center text-xl font-bold">
+                      <div className="bg-[#000000] text-white w-full h-full flex items-center justify-center text-xl font-bold">
                         {(user.user_metadata?.full_name?.[0] || user.email?.[0] || "U").toUpperCase()}
                       </div>
                     )}
@@ -414,7 +414,7 @@ export default function ProfilePage() {
 
                 <div className="grid grid-cols-2 gap-4 text-center w-full">
                   <div>
-                    <div className="text-xl font-bold text-[#ED0D79] mb-1">
+                    <div className="text-xl font-bold text-[#000000] mb-1">
                       {userStats.loading ? (
                         <span className="loading loading-spinner loading-sm"></span>
                       ) : (
@@ -431,7 +431,7 @@ export default function ProfilePage() {
                     )}
                   </div>
                   <div>
-                    <div className="text-xl font-bold text-[#ED0D79] mb-1">
+                    <div className="text-xl font-bold text-[#000000] mb-1">
                       {userStats.loading ? (
                         <span className="loading loading-spinner loading-sm"></span>
                       ) : (
@@ -473,7 +473,7 @@ export default function ProfilePage() {
                         type="text"
                         value={profile.name}
                         onChange={(e) => setProfile({ ...profile, name: e.target.value })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ED0D79] focus:border-transparent"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#000000] focus:border-transparent"
                         placeholder="Enter your display name"
                       />
                     </div>
@@ -494,7 +494,7 @@ export default function ProfilePage() {
                         id="bio"
                         value={profile.bio}
                         onChange={(e) => setProfile({ ...profile, bio: e.target.value })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ED0D79] focus:border-transparent"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#000000] focus:border-transparent"
                         placeholder="Tell us about yourself"
                         rows={3}
                       />
@@ -513,7 +513,7 @@ export default function ProfilePage() {
                         type="text"
                         value={profile.twitter}
                         onChange={(e) => setProfile({ ...profile, twitter: e.target.value })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ED0D79] focus:border-transparent"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#000000] focus:border-transparent"
                         placeholder="@username"
                       />
                     </div>
@@ -531,7 +531,7 @@ export default function ProfilePage() {
                         type="url"
                         value={profile.website}
                         onChange={(e) => setProfile({ ...profile, website: e.target.value })}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ED0D79] focus:border-transparent"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#000000] focus:border-transparent"
                         placeholder="https://yourwebsite.com"
                       />
                     </div>
@@ -573,7 +573,7 @@ export default function ProfilePage() {
                           href={`https://twitter.com/${profile.twitter.replace('@', '')}`}
                           target="_blank"
                           rel="noopener noreferrer nofollow"
-                          className="text-[#ED0D79] hover:text-[#ED0D79]/80 transition-colors font-medium text-sm"
+                          className="text-[#000000] hover:text-[#000000]/80 transition-colors font-medium text-sm"
                         >
                           @{profile.twitter.replace('@', '')}
                         </a>
@@ -591,7 +591,7 @@ export default function ProfilePage() {
                           href={profile.website.startsWith('http') ? profile.website : `https://${profile.website}`}
                           target="_blank"
                           rel="noopener noreferrer nofollow"
-                          className="text-[#ED0D79] hover:text-[#ED0D79]/80 transition-colors font-medium text-sm break-all"
+                          className="text-[#000000] hover:text-[#000000]/80 transition-colors font-medium text-sm break-all"
                         >
                           {profile.website}
                         </a>
@@ -619,7 +619,7 @@ export default function ProfilePage() {
               <p className="text-gray-500 text-sm">No projects submitted yet</p>
               <Link 
                 href="/submit" 
-                className="inline-flex items-center gap-2 mt-3 px-4 py-2 bg-[#ED0D79] text-white text-sm font-medium rounded-lg hover:bg-[#ED0D79]/90 transition-colors"
+                className="inline-flex items-center gap-2 mt-3 px-4 py-2 bg-[#000000] text-white text-sm font-medium rounded-lg hover:bg-[#000000]/90 transition-colors"
               >
                 <EditPencil className="w-4 h-4" />
                 Submit Project
@@ -634,7 +634,7 @@ export default function ProfilePage() {
                   
                   try {
                     const url = new URL(project.website_url);
-                    url.searchParams.set('ref', 'ailaunchspace');
+                    url.searchParams.set('ref', 'directoryhunt');
                     
                     // Use link_type field from database
                     const isDofollow = project.link_type === "dofollow";
@@ -653,7 +653,7 @@ export default function ProfilePage() {
                 return (
                   <div
                     key={project.id}
-                    className="relative block p-4 rounded-lg border border-gray-200 hover:border-[#ED0D79] hover:bg-gray-50 transition-all duration-200 group"
+                    className="relative block p-4 rounded-lg border border-gray-200 hover:border-[#000000] hover:bg-gray-50 transition-all duration-200 group"
                   >
                     {/* Project Link - Main Clickable Area */}
                     <Link
@@ -694,7 +694,7 @@ export default function ProfilePage() {
                       href={websiteLink.url}
                       target="_blank"
                       rel={websiteLink.rel}
-                      className="absolute top-3 right-3 p-1 text-gray-400 hover:text-[#ED0D79] transition-colors z-10"
+                      className="absolute top-3 right-3 p-1 text-gray-400 hover:text-[#000000] transition-colors z-10"
                       onClick={(e) => e.stopPropagation()}
                     >
                       <OpenNewWindow className="w-4 h-4" />

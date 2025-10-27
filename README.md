@@ -1,31 +1,31 @@
-# AI Launch Space 🚀
+# Directory Hunt 🚀
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 [![Next.js](https://img.shields.io/badge/Next.js-15-black)](https://nextjs.org/)
 [![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-blue)](https://supabase.com/)
 [![React](https://img.shields.io/badge/React-19-blue)](https://reactjs.org/)
 
-A weekly competition platform for AI projects where AI builders can submit their tools, get valuable backlinks, and compete for weekly recognition. Think Product Hunt but specifically for AI projects and tools.
+A launchpad for directories and tiny projects where builders can submit their projects, get valuable backlinks, and compete for weekly recognition. Think Product Hunt but specifically for directories and tiny projects.
 
 ## 🌟 Live Demo
 
-Visit the live application at [https://ailaunch.space](https://ailaunch.space)
+Visit the live application at [https://directoryhunt.org](https://directoryhunt.org)
 
-## 🎯 What is AI Launch Space?
+## 🎯 What is Directory Hunt?
 
-AI Launch Space is a community-driven platform that helps AI builders:
+Directory Hunt is a community-driven platform that helps builders:
 - **Launch their projects** with weekly competitions
 - **Get valuable backlinks** from high-authority domains
 - **Build audience** through community voting
 - **Compete for recognition** with weekly winner badges
 
-Perfect for AI startups, indie developers, and anyone building AI tools who wants to get their project in front of the right audience.
+Perfect for directory creators, indie developers, and anyone building tiny projects who wants to get their project in front of the right audience.
 
 ## 🚀 Features
 
 ### Core Features
 - **Supabase Authentication** - Email (Magic Link), Google OAuth, GitHub OAuth
-- **AI Project Submissions** - Multi-step form with FREE and Premium plans
+- **Project Submissions** - Multi-step form with FREE and Premium plans
 - **Real-time Voting** - Community-driven upvoting system
 - **Weekly Competitions** - Top 3 FREE submissions win dofollow backlinks
 - **User Dashboard** - Track submissions, views, and votes
@@ -172,8 +172,8 @@ Test authentication by:
 
 ```bash
 # Clone the repository
-git clone https://github.com/SashaDiz/ailaunch-space.git
-cd ailaunch-space
+git clone https://github.com/SashaDiz/directory-hunt.git
+cd directory-hunt
 
 # Install dependencies
 pnpm install
@@ -187,8 +187,8 @@ For a complete development setup, follow the [Development Setup](#-development-s
 ```bash
 # 1. Fork the repository on GitHub
 # 2. Clone your fork
-git clone https://github.com/YOUR_USERNAME/ailaunch-space.git
-cd ailaunch-space
+git clone https://github.com/YOUR_USERNAME/directory-hunt.git
+cd directory-hunt
 
 # 3. Install dependencies
 pnpm install
@@ -696,7 +696,7 @@ Users can manage their notification preferences in the Settings page (`/settings
 
 **Setup Requirements:**
 1. **API Key**: Set `RESEND_API_KEY` in environment variables
-2. **From Address**: Configured as `AI Launch Space <noreply@ailaunch.space>`
+2. **From Address**: Configured as `Directory Hunt <noreply@directoryhunt.org>`
 3. **Development Mode**: Uses `onboarding@resend.dev` for testing
 
 **Do You Need Resend Webhooks?**
@@ -718,7 +718,7 @@ The notification system is integrated into:
 ## 📁 Project Structure
 
 ```
-ailaunchspace/
+directoryhunt/
 ├── app/
 │   ├── api/                 # Next.js API routes
 │   │   ├── admin/          # Admin endpoints
@@ -795,8 +795,8 @@ This section provides a complete guide for setting up the development environmen
 
 1. **Clone and Install**
    ```bash
-   git clone https://github.com/SashaDiz/ailaunch-space.git
-   cd ailaunch-space
+   git clone https://github.com/SashaDiz/directory-hunt.git
+   cd directory-hunt
    pnpm install
    ```
 
@@ -1126,15 +1126,15 @@ All tables have RLS policies enabled:
 
 ## 🤝 Contributing
 
-We welcome contributions from the community! Whether you're fixing bugs, adding features, or improving documentation, your help makes AI Launch Space better for everyone.
+We welcome contributions from the community! Whether you're fixing bugs, adding features, or improving documentation, your help makes Directory Hunt better for everyone.
 
 ### How to Contribute
 
 1. **Fork the repository** on GitHub
 2. **Clone your fork** locally:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/ailaunch-space.git
-   cd ailaunch-space
+   git clone https://github.com/YOUR_USERNAME/directory-hunt.git
+   cd directory-hunt
    ```
 3. **Create a feature branch**:
    ```bash
@@ -1197,7 +1197,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 👥 Contributors
 
-We appreciate all contributors who help make AI Launch Space better! 
+We appreciate all contributors who help make Directory Hunt better! 
 
 ### How to become a contributor:
 
@@ -1215,12 +1215,12 @@ We appreciate all contributors who help make AI Launch Space better!
 
 ---
 
-**Made with ❤️ by the AI Launch Space community**
+**Made with ❤️ by the Directory Hunt community**
 
-[![GitHub stars](https://img.shields.io/github/stars/SashaDiz/ailaunch-space?style=social)](https://github.com/SashaDiz/ailaunch-space)
-[![GitHub forks](https://img.shields.io/github/forks/SashaDiz/ailaunch-space?style=social)](https://github.com/SashaDiz/ailaunch-space)
-[![GitHub issues](https://img.shields.io/github/issues/SashaDiz/ailaunch-space)](https://github.com/SashaDiz/ailaunch-space/issues)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/SashaDiz/ailaunch-space)](https://github.com/SashaDiz/ailaunch-space/pulls)
+[![GitHub stars](https://img.shields.io/github/stars/SashaDiz/directory-hunt?style=social)](https://github.com/SashaDiz/directory-hunt)
+[![GitHub forks](https://img.shields.io/github/forks/SashaDiz/directory-hunt?style=social)](https://github.com/SashaDiz/directory-hunt)
+[![GitHub issues](https://img.shields.io/github/issues/SashaDiz/directory-hunt)](https://github.com/SashaDiz/directory-hunt/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/SashaDiz/directory-hunt)](https://github.com/SashaDiz/directory-hunt/pulls)
 
 ## 🆘 Troubleshooting
 

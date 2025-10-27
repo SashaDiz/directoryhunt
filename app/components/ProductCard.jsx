@@ -22,7 +22,7 @@ const generateProjectLink = (project) => {
   try {
     // Add ref parameter as per CLAUDE.md spec
     const url = new URL(project.website_url);
-    url.searchParams.set('ref', 'ailaunchspace');
+    url.searchParams.set('ref', 'directoryhunt');
     
     // Use the link_type field from database
     // - "dofollow": Premium plans, weekly winners, or manually upgraded
@@ -193,7 +193,7 @@ export function ProductCard({
     return (
       <div className="block">
         <div
-          className="w-full bg-white rounded-2xl border border-gray-200 p-3 sm:p-4 group cursor-pointer transition duration-300 ease-in-out hover:border-[#ED0D79] hover:scale-[1.01]"
+          className="w-full bg-white rounded-2xl border border-gray-200 p-3 sm:p-4 group cursor-pointer transition duration-300 ease-in-out hover:border-black hover:scale-[1.01]"
           onClick={handleCardClick}
         >
           {/* Top section: Logo with badges and Vote Button */}
@@ -217,7 +217,7 @@ export function ProductCard({
 
                 {/* Premium Badge */}
                 {project.plan === "premium" && (
-                  <span className="inline-flex leading-none items-center gap-1 px-1 py-0.5 text-[10px] sm:text-[11px] font-medium text-white rounded-sm" style={{backgroundColor: '#ED0D79'}}>
+                  <span className="inline-flex leading-none items-center gap-1 px-1 py-0.5 text-[10px] sm:text-[11px] font-medium text-white rounded-sm" style={{backgroundColor: 'black'}}>
                     <Crown className="w-3 h-3 sm:w-4 sm:h-4" strokeWidth={1.5} />
                     <span className="mt-0.5">Premium</span>
                   </span>
@@ -229,13 +229,13 @@ export function ProductCard({
               onClick={handleVote}
               disabled={isVoting || !isVotingAllowed()}
               title={!isVotingAllowed() ? getVotingDisabledReason() : ""}
-              className={`inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3.5 py-2 sm:py-4 rounded-lg min-w-16 sm:min-w-20 text-sm sm:text-md font-semibold transition duration-300 ease-in-out
+              className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl min-w-16 text-sm font-semibold transition duration-300 ease-in-out -translate-y-0.5
                           ${
                             !isVotingAllowed()
-                              ? "bg-gray-400 text-white border-1 border-gray-300 pointer-events-none cursor-not-allowed opacity-60"
+                              ? "bg-gray-200 text-gray-500 border-2 border-gray-300 cursor-not-allowed opacity-60"
                               : userVoted
-                              ? "bg-[#ED0D79] text-white translate-0"
-                              : "bg-white text-black border border-gray-200 hover:border-[#ED0D79] hover:outline hover:outline-4 hover:outline-[#ed0d7912]"
+                              ? "bg-black text-white translate-0"
+                              : "bg-white text-black shadow-[0_4px_0_rgba(0,0,0,1)] border-2 border-black hover:shadow-[0_2px_0_rgba(0,0,0,1)] hover:translate-y-0"
                           }
                           ${
                             isVoting
@@ -326,7 +326,7 @@ export function ProductCard({
   return (
     <div className="block mb-4">
       <div
-        className="w-full bg-white rounded-2xl border border-gray-200 flex flex-row items-center p-4 group cursor-pointer transition duration-300 ease-in-out hover:border-[#ED0D79] hover:scale-[1.01]"
+        className="w-full bg-white rounded-2xl border border-gray-200 flex flex-row items-center p-4 group cursor-pointer transition duration-300 ease-in-out hover:border-black hover:scale-[1.01]"
         onClick={handleCardClick}
       >
         <div className="flex items-start space-x-3 flex-1">
@@ -356,7 +356,7 @@ export function ProductCard({
 
                 {/* Premium Badge */}
                 {project.plan === "premium" && (
-                  <span className="inline-flex leading-none items-center gap-1 px-1 py-0.5 text-[11px] font-medium text-white rounded-sm" style={{backgroundColor: '#ED0D79'}}>
+                  <span className="inline-flex leading-none items-center gap-1 px-1 py-0.5 text-[11px] font-medium text-white rounded-sm" style={{backgroundColor: 'black'}}>
                     <Crown className="w-4 h-4" strokeWidth={1.5} />
                     <span className="mt-0.5">Premium</span>
                   </span>
@@ -418,10 +418,10 @@ export function ProductCard({
             className={`inline-flex items-center gap-1.5 px-3.5 py-4 rounded-lg min-w-20 text-md font-semibold transition duration-300 ease-in-out
                         ${
                           !isVotingAllowed()
-                            ? "bg-gray-400 text-white pointer-events-none cursor-not-allowed opacity-60"
+                            ? "bg-gray-200 text-gray-500 border-2 border-gray-300 cursor-not-allowed opacity-60"
                             : userVoted
-                            ? "bg-[#ED0D79] text-white translate-0"
-                            : "bg-white text-black border border-gray-200 hover:border-[#ED0D79] hover:outline hover:outline-4 hover:outline-[#ed0d7912]"
+                            ? "bg-black text-white translate-0"
+                            : "bg-white text-black shadow-[0_4px_0_rgba(0,0,0,1)] border-2 border-black hover:shadow-[0_2px_0_rgba(0,0,0,1)] hover:translate-y-0"
                         }
                         ${
                           isVoting

@@ -10,9 +10,9 @@ import SponsorCard from "./components/SponsorCard";
 import CountdownTimer from "./components/CountdownTimer";
 
 // Import assets
-import alexIcon from "/public/assets/alex-icon.png";
-import codefastLogo from "/public/assets/codefa.st.png";
-import datafastLogo from "/public/assets/datafa.st.png";
+import johnIcon from "/public/assets/johnrush.svg";
+import seobotLogo from "/public/assets/seobot.svg";
+import tinyadzLogo from "/public/assets/tinyadz.svg";
 import { Rocket } from "iconoir-react";
 
 
@@ -25,47 +25,53 @@ function RightSidePanel() {
     <div className="right-side w-full lg:max-w-96 lg:w-full lg:sticky lg:top-16 mt-6 lg:mt-0">
       <aside className="space-y-6 lg:space-y-8 py-4 lg:py-8">
         <div className="flex flex-col items-start gap-4">
+        <h2 className="text-sm lg:text-lg font-medium text-gray-900 uppercase">
+          Directory guide
+        </h2>
           <GuidePromoCard
-            imageSrc={alexIcon}
-            name="Alexander Borisov"
-            subtitle="Creator of AI Launch Space"
-            title="Hey there!"
-            description="I'm an aspiring solopreneur building my first startups with AI. 🚀
-Follow my journey as I share lessons, wins, and experiments along the way!"
-            buttonText="Follow me on X"
-            buttonLink="https://x.com/alexanderOsso"
+            imageSrc={johnIcon}
+            name="John Rush"
+            subtitle="Creator of MarsX (uniting AI, NoCode, and Code)"
+            title="Want to build your own directory?"
+            description="I'll teach you everything about Directories. Everything I learned the hard way over the years of building one of the most successful directories on the internet."
+            buttonText="Get Directory Guide Now"
+            buttonLink="https://johnrush.me/directory-guide/?ref=directoryhunt"
           />
         </div>
         <div className="flex flex-col items-start gap-4">
-          <h2 className="text-sm lg:text-md font-medium text-gray-900 uppercase">
-            Secret weapons
+          <h2 className="text-sm lg:text-lg font-medium text-gray-900 uppercase">
+            Our partners
           </h2>
           <div className="flex flex-col gap-4 w-full">
             <SponsorCard
               sponsor={{
-                logo: codefastLogo,
-                name: "Codefa.st",
+                logo: seobotLogo,
+                name: "SEObot",
                 description:
-                  "This course by Marc Lou helped me to build this launchpad. I strongly recommend it for begginers.",
-                url: "https://codefa.st/?via=ailaunch",
+                  "SEO Bot is a tool that helps you to improve your SEO with AI agents.",
+                url: "https://seobotai.com/?ref=directoryhunt.org",
               }}
             />
             <SponsorCard
               sponsor={{
-                logo: datafastLogo,
-                name: "Datafa.st",
+                logo: tinyadzLogo,
+                name: "TinyAdz",
                 description:
-                  "Beautiful and useful analytics tool for your projects. Great for tracking your growth and performance.",
-                url: "https://datafa.st/?via=ailaunch",
+                  "Promote your product or monetize your site. TinyAdz helps you reach niche audiences or earn from yours.",
+                url: "https://tinyadz.com/?ref=directoryhunt.org",
               }}
             />
           </div>
         </div>
         <div className="flex flex-col items-center gap-4">
-          <a href="https://frogdr.com/ailaunch.space?utm_source=ailaunch.space" target="_blank">
+          <a
+            href="https://frogdr.com/directoryhunt.org?utm_source=directoryhunt.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
-              src="https://frogdr.com/ailaunch.space/badge-white.svg"
               alt="Monitor your Domain Rating with FrogDR"
+              src="https://frogdr.com/directoryhunt.org/badge-white.svg"
               width="200"
               height="43"
               className="w-full max-w-[200px] h-auto"
@@ -84,18 +90,18 @@ export default function HomePage() {
   const [isClient, setIsClient] = useState(false);
 
   // Schema.org structured data for the homepage
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://ailaunch.space";
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://directoryhunt.org";
 
   const homepageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "AI Launch Space - Weekly Competition Platform for AI Projects",
-    "description": "Submit your AI project to the weekly competition and get high authority backlinks. Join the community of successful AI builders and innovators.",
+    "name": "Directory Hunt - Launchpad for Directories and Tiny Projects",
+    "description": "Submit your directory or tiny project to our launchpad and get discovered. Join the community of successful builders and innovators.",
     "url": baseUrl,
     "mainEntity": {
       "@type": "Organization",
-      "name": "AI Launch Space",
-      "description": "Weekly Competition Platform for AI Projects",
+      "name": "Directory Hunt",
+      "description": "Launchpad for Directories and Tiny Projects",
       "url": baseUrl,
       "logo": `${baseUrl}/assets/logo.svg`
     },
@@ -283,10 +289,10 @@ export default function HomePage() {
               className="text-center lg:text-left pt-4 sm:pt-8 pb-4 sm:pb-8 max-w-xl lg:mr-auto"
             >
               <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-tight font-semibold text-gray-900 mb-4">
-                Launch Your AI Project &amp;&nbsp;Get Discovered
+                Launch Your Directory &amp;&nbsp;Get Discovered
               </h1>
               <p className="text-base sm:text-lg font-normal text-gray-900 mb-4 sm:mb-6 max-w-xl mx-auto lg:mx-0">
-                Submit your AI project and get early exposure, reach other AI builders and innovators, and showcase your innovation to the community.
+                Submit your directory or tiny project and get early exposure, reach other builders and innovators, and showcase your innovation to the community.
               </p>
             </section>
 
@@ -342,11 +348,11 @@ export default function HomePage() {
               ) : (
                 <div className="flex flex-col items-center text-center py-12 gap-6">
                   <Rocket className="w-12 h-12 text-gray-600" strokeWidth={1} />
-                  <p className="text-gray-700 text-md font-medium">No AI projects found for this competition.</p>
+                  <p className="text-gray-700 text-md font-medium">No directories or projects found for this competition.</p>
                   <Link
                     href="/submit?plan=standard"
-                    className="block text-center bg-white text-gray-900 border border-gray-200 rounded-lg py-3 font-semibold text-sm no-underline transition duration-300 outline outline-4 outline-transparent hover:border-[#ED0D79] hover:bg-[#ED0D79] hover:text-white hover:outline-[#ed0d7924] min-h-[48px] min-w-[200px]"
-                    aria-label="Submit your AI project to be the first in this competition"
+                    className="block text-center bg-white text-gray-900 border border-gray-200 rounded-lg py-3 font-semibold text-sm no-underline transition duration-300 outline outline-4 outline-transparent hover:border-[#000000] hover:bg-[#000000] hover:text-white hover:outline-[#ed0d7924] min-h-[48px] min-w-[200px]"
+                    aria-label="Submit your directory or project to be the first in this competition"
                   >
                     Be the first to submit!
                   </Link>
@@ -360,58 +366,86 @@ export default function HomePage() {
               <h2 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-center lg:text-left">Featured on</h2>
               <ul className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
                 <li>
-                  <a href="https://launchigniter.com/product/ai-launch-space?ref=badge-ai-launch-space" target="_blank">
-                    <img src="https://launchigniter.com/api/badge/ai-launch-space?theme=neutral" alt="Featured on LaunchIgniter" width="140" height="32" />
+                  <a href="https://startupfa.me/s/directory-launchpad?utm_source=directoryhunt.org" target="_blank" rel="noopener noreferrer" className="no-underline">
+                    <div className="flex justify-center items-center gap-2 p-3 pr-4 border border-gray-200 rounded-xl transition-all duration-300 ease-in-out text-sm hover:border-black hover:shadow-[0_4px_0_black] hover:-translate-y-1">
+                      <img className="w-auto h-6" src="https://unicorn-images.b-cdn.net/d2c943f6-8bfc-474e-aa54-f287f7e42683?optimizer=gif" alt="Featured on Startup Fame" />
+                      <p className="m-0 no-underline font-semibold text-black">Startup Fame</p>
+                    </div>
                   </a>
                 </li>
                 <li>
-                  <a href="https://auraplusplus.com/projects/ai-launch-space" target="_blank" rel="noopener">
-                    <img src="https://auraplusplus.com/images/badges/featured-on-light.svg" alt="Featured on Aura++" width="120" height="24" />
+                  <a href="https://yo.directory/" target="_blank" rel="noopener noreferrer" className="no-underline">
+                    <div className="flex justify-center items-center gap-2 p-3 pr-4 border border-gray-200 rounded-xl transition-all duration-300 ease-in-out text-sm hover:border-black hover:shadow-[0_4px_0_black] hover:-translate-y-1">
+                      <img className="w-auto h-6" src="https://unicorn-images.b-cdn.net/c4b078aa-ef88-43c5-81dc-1b41fbe466c2?optimizer=gif" alt="Featured on yo.directory" />
+                      <p className="m-0 no-underline font-semibold text-black">Yo.directory</p>
+                    </div>
                   </a>
                 </li>
                 <li>
-                  <a href="https://turbo0.com/item/ai-launch-space" target="_blank" rel="noopener noreferrer">
-                    <img src="https://img.turbo0.com/badge-listed-light.svg" alt="Listed on Turbo0" width="110" height="22" />
+                  <a href="https://twelve.tools/" target="_blank" rel="noopener noreferrer" className="no-underline">
+                    <div className="flex justify-center items-center gap-2 p-3 pr-4 border border-gray-200 rounded-xl transition-all duration-300 ease-in-out text-sm hover:border-black hover:shadow-[0_4px_0_black] hover:-translate-y-1">
+                      <img className="w-auto h-6" src="https://unicorn-images.b-cdn.net/184089eb-0ff0-4ba7-ac01-6621a87ef823?optimizer=gif" alt="Featured on twelve.tools" />
+                      <p className="m-0 no-underline font-semibold text-black">Twelve.tools</p>
+                    </div>
                   </a>
                 </li>
                 <li>
-                  <a href="https://fazier.com/launches/www.ailaunch.space" target="_blank">
-                    <img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&theme=neutral" width="160" height="32" alt="Fazier badge" />
+                  <a href="https://launchboard.dev/?via=launchboardBadge" target="_blank" rel="noopener noreferrer" className="no-underline">
+                    <div className="flex justify-center items-center gap-2 p-3 pr-4 border border-gray-200 rounded-xl transition-all duration-300 ease-in-out text-sm hover:border-black hover:shadow-[0_4px_0_black] hover:-translate-y-1">
+                      <img className="w-auto h-6" src="https://unicorn-images.b-cdn.net/98be5d82-b1b0-4349-9dde-36227509bc11?optimizer=gif" alt="See us on LaunchBoard" />
+                      <p className="m-0 no-underline font-semibold text-black">LaunchBoard.dev</p>
+                    </div>
                   </a>
                 </li>
                 <li>
-                  <a href="https://launchboard.dev" target="_blank" rel="noopener noreferrer">
-                    <img src="https://launchboard.dev/launchboard-badge.png" alt="Launched on LaunchBoard - Product Launch Platform" width="90" height="24" />
+                  <a href="https://fazier.com/launches/directoryhunt.org" target="_blank" rel="noopener noreferrer" className="no-underline">
+                    <div className="flex justify-center items-center gap-2 p-3 pr-4 border border-gray-200 rounded-xl transition-all duration-300 ease-in-out text-sm hover:border-black hover:shadow-[0_4px_0_black] hover:-translate-y-1">
+                      <img className="w-auto h-6" src="https://unicorn-images.b-cdn.net/14643c8d-f055-4dd9-b014-f828ed4836a0?badge_type=featured&theme=light" alt="Fazier badge" />
+                      <p className="m-0 no-underline font-semibold text-black">Fazier.com</p>
+                    </div>
                   </a>
                 </li>
+
                 <li>
-                  <a href="https://auraplusplus.com/projects/directory-hunt" target="_blank" title="Aura++ Top 2 Daily Winner">
-                    <img
-                      src="https://auraplusplus.com/images/badges/top2-light.svg"
-                      alt="Aura++ Top 2 Daily Winner"
-                      width="160"
-                      height="24"
-                    />
+                  <a href="https://firsto.co/projects/directory-hunt" title="Directory Hunt - Featured on Firsto.co" rel="noopener noreferrer" className="no-underline">
+                    <div className="flex justify-center items-center gap-2 p-3 pr-4 border border-gray-200 rounded-xl transition-all duration-300 ease-in-out text-sm hover:border-black hover:shadow-[0_4px_0_black] hover:-translate-y-1">
+                      <img className="w-auto h-6" src="https://unicorn-images.b-cdn.net/3672bb1a-5906-4d41-ac0d-17afcc3bdeb9" alt="Firsto" />
+                      <p className="m-0 no-underline font-semibold text-black">Firsto</p>
+                    </div>
                   </a>
                 </li>
+
                 <li>
-                  <a href="https://twelve.tools" target="_blank">
-                    <img src="https://twelve.tools/badge0-white.svg" alt="Featured on Twelve Tools" width="140" height="24" />
+                  <a href="https://turbo0.com/item/directory-hunt" target="_blank" rel="noopener noreferrer" className="no-underline">
+                    <div className="flex justify-center items-center gap-2 p-3 pr-4 border border-gray-200 rounded-xl transition-all duration-300 ease-in-out text-sm hover:border-black hover:shadow-[0_4px_0_black] hover:-translate-y-1">
+                      <img className="w-auto h-6" src="https://unicorn-images.b-cdn.net/5389b934-9d70-4553-8071-281e3cecf299" alt="Turbo0" />
+                      <p className="m-0 no-underline font-semibold text-black">Turbo0</p>
+                    </div>
                   </a>
                 </li>
+
                 <li>
-                  <a href="https://uno.directory" target="_blank" rel="noopener noreferrer">
-                    <img src="https://uno.directory/badges/uno-directory.svg" alt="Uno Directory" width="140" height="24" />
+                  <a href="https://devhub.best/projects/directory-hunt" target="_blank" title="DevHub Top 2 Daily Winner" rel="noopener noreferrer" className="no-underline">
+                    <div className="flex justify-center items-center gap-2 p-3 pr-4 border border-gray-200 rounded-xl transition-all duration-300 ease-in-out text-sm hover:border-black hover:shadow-[0_4px_0_black] hover:-translate-y-1">
+                      <img className="w-auto h-6" src="https://unicorn-images.b-cdn.net/7fccfc81-efce-499f-821c-d784e0ac43c1" alt="DevHub" />
+                    </div>
                   </a>
                 </li>
+
                 <li>
-                  <a href="https://yo.directory/" target="_blank" >
-                    <img src="https://cdn.prod.website-files.com/65c1546fa73ea974db789e3d/65e1e171f89ebfa7bd0129ac_yodirectory-featured.png" alt="yo.directory" width="150" height="54" />
+                  <a href="https://saashunt.best/projects/directory-hunt" target="_blank" title="SaasHunt Top 1 Daily Winner" rel="noopener noreferrer" className="no-underline">
+                    <div className="flex justify-center items-center gap-2 p-3 pr-4 border border-gray-200 rounded-xl transition-all duration-300 ease-in-out text-sm hover:border-black hover:shadow-[0_4px_0_black] hover:-translate-y-1">
+                      <img className="w-auto h-6" src="https://unicorn-images.b-cdn.net/f91e1cd4-f33e-464c-9626-a281a405a94a" alt="SaaSHunt" />
+                    </div>
                   </a>
                 </li>
+
+
                 <li>
-                  <a href="https://www.aidirectori.es" target="_blank">
-                    <img src="https://cdn.aidirectori.es/ai-tools/badges/dark-mode.png" alt="AI Directories Badge" width="140" height="24" />
+                  <a href="https://www.ailaunch.space/" target="_blank" title="AI Launch Space" rel="noopener noreferrer" className="no-underline">
+                    <div className="flex justify-center items-center gap-2 p-3 pr-4 border border-gray-200 rounded-xl transition-all duration-300 ease-in-out text-sm hover:border-black hover:shadow-[0_4px_0_black] hover:-translate-y-1">
+                      <img className="w-auto h-6" src="https://unicorn-images.b-cdn.net/af95f76e-ecd5-43dd-b3c7-8160cfe15a86" alt="AI Launch Space" />
+                    </div>
                   </a>
                 </li>
               </ul>

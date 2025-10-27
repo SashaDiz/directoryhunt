@@ -338,7 +338,7 @@ export default function AdminChangelogPage() {
                       checked={formData.published}
                       onChange={handleInputChange}
                       className="checkbox checkbox-primary"
-                      style={{ accentColor: '#ED0D79' }}
+                      style={{ accentColor: '#000000' }}
                     />
                     <span className="label-text ml-2">Published</span>
                   </label>
@@ -349,7 +349,7 @@ export default function AdminChangelogPage() {
                       checked={formData.featured}
                       onChange={handleInputChange}
                       className="checkbox checkbox-secondary"
-                      style={{ accentColor: '#ED0D79' }}
+                      style={{ accentColor: '#000000' }}
                     />
                     <span className="label-text ml-2">Featured</span>
                   </label>
