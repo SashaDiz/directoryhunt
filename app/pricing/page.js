@@ -66,7 +66,7 @@ function PricingCard({ plan, index }) {
     <div
       className={`card bg-white border transition-all ${
         plan.popular
-          ? "border-pink-500 border-2"
+          ? "border-black border-2"
           : "border-gray-200"
       }`}
     >
@@ -117,10 +117,10 @@ function PricingCard({ plan, index }) {
         </div>
 
         <Link href={`/submit?plan=${plan.id}`} className="w-full mt-auto">
-          <button className={`w-full py-4 px-6 rounded-lg font-semibold text-base transition duration-300 outline outline-4 outline-transparent ${
+          <button className={`w-full py-3 px-6 rounded-lg font-semibold text-sm transition duration-300 border-2 hover:-translate-y-1 hover:shadow-[0_4px_0_rgba(0,0,0,1)] ${
             plan.popular 
-              ? "bg-[#000000] hover:bg-[#000000]/90 text-white border-[#000000] hover:scale-105" 
-              : "bg-white hover:bg-[#000000] text-black border border-gray-200 hover:text-white hover:border-[#000000] hover:outline-[#ed0d7924]"
+              ? "bg-black text-white border-black hover:shadow-[0_4px_0_rgba(0,0,0,1)]" 
+              : "bg-white text-gray-900 border-gray-900 hover:shadow-[0_4px_0_rgba(0,0,0,1)]"
           }`}>
             {plan.cta}
           </button>

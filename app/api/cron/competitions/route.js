@@ -139,9 +139,9 @@ async function createUpcomingWeeklyCompetitions() {
       weekStart.setDate(baseMonday.getDate() + (i * 7));
     }
     
-    // End is the following Monday at 07:59:59 UTC (23:59:59 Sunday PST)
+    // End is the following Sunday at 07:59:59 UTC (23:59:59 Sunday PST)
     const weekEnd = new Date(weekStart);
-    weekEnd.setDate(weekStart.getDate() + 7);
+    weekEnd.setUTCDate(weekStart.getUTCDate() + 7); // Add 7 days (Monday 12 AM to Sunday 11:59 PM PST)
     weekEnd.setUTCHours(7, 59, 59, 999);
     
     const competitionId = getCompetitionId(weekStart);

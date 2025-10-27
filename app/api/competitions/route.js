@@ -23,7 +23,9 @@ export async function GET(request) {
 
     // If requesting current competitions, get active ones
     if (current) {
-      // First, update expired competitions to completed status
+      // First, fix any existing competitions with incorrect durations
+      await fixCompetitionWeekDurations();
+      // Then, update expired competitions to completed status
       await updateExpiredCompetitions();
       
       // For homepage, we want the current active competition to show time remaining
@@ -217,7 +219,7 @@ function getNextMondayStart() {
   }
   
   // Set to 12:00 AM PST (Pacific Standard Time = UTC-8)
-  nextMonday.setHours(8, 0, 0, 0); // 8 AM UTC = 12 AM PST
+  nextMonday.setUTCHours(8, 0, 0, 0); // 8 AM UTC = 12 AM PST
   
   return nextMonday;
 }
@@ -229,6 +231,68 @@ function getISOWeekNumber(date) {
   d.setUTCDate(d.getUTCDate() + 4 - dayNum);
   const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
   return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+}
+
+// Helper function to fix incorrect week durations for existing competitions
+async function fixCompetitionWeekDurations() {
+  const now = new Date();
+  
+  try {
+    // Find all active and upcoming weekly competitions
+    const competitionsToFix = await db.find("competitions", {
+      type: "weekly",
+      status: { $in: ["active", "upcoming"] },
+      end_date: { $gt: now }
+    });
+    
+    let fixedCount = 0;
+    
+    for (const competition of competitionsToFix) {
+      const startDate = new Date(competition.start_date);
+      const endDate = new Date(competition.end_date);
+      
+      // Ensure start date is at the correct time (Monday 12 AM PST = 8:00 UTC)
+      const expectedStartDate = new Date(startDate);
+      expectedStartDate.setUTCHours(8, 0, 0, 0);
+      
+      // Calculate the expected end date (7 days after start, ending Sunday 11:59 PM PST)
+      const expectedEndDate = new Date(expectedStartDate);
+      expectedEndDate.setUTCDate(expectedEndDate.getUTCDate() + 7);
+      expectedEndDate.setUTCHours(7, 59, 59, 999);
+      
+      // Check if dates need correction
+      const startNeedsFix = expectedStartDate.getTime() !== startDate.getTime();
+      const daysDiff = (endDate - startDate) / (1000 * 60 * 60 * 24);
+      const endNeedsFix = Math.abs(daysDiff - 7) > 0.5;
+      
+      if (startNeedsFix || endNeedsFix) {
+        const updateData = {};
+        if (startNeedsFix) {
+          updateData.start_date = expectedStartDate;
+        }
+        if (endNeedsFix) {
+          updateData.end_date = expectedEndDate;
+        }
+        
+        await db.updateOne(
+          "competitions",
+          { id: competition.id },
+          {
+            $set: updateData
+          }
+        );
+        
+        fixedCount++;
+        console.log(`Fixed competition ${competition.competition_id}: start ${startNeedsFix ? 'updated' : 'ok'}, end ${endNeedsFix ? 'updated' : 'ok'}`);
+      }
+    }
+    
+    if (fixedCount > 0) {
+      console.log(`Fixed ${fixedCount} competition(s) with incorrect week durations`);
+    }
+  } catch (error) {
+    console.error("Error fixing competition week durations:", error);
+  }
 }
 
 // Helper function to cleanup problematic competitions
@@ -318,8 +382,8 @@ async function createUpcomingWeeks() {
     }
     
     const weekEnd = new Date(weekStart);
-    weekEnd.setDate(weekEnd.getDate() + 6); // Add 6 days to end date (Monday to Sunday)
-    weekEnd.setHours(7, 59, 59, 999); // End at 11:59:59 PM Sunday PST (7:59 AM Monday UTC)
+    weekEnd.setUTCDate(weekEnd.getUTCDate() + 7); // Add 7 days to end date (Monday 12 AM to Sunday 11:59 PM PST)
+    weekEnd.setUTCHours(7, 59, 59, 999); // End at 11:59:59 PM Sunday PST (7:59 AM Monday UTC)
     
     // Generate week number using ISO week numbering for consistency
     const year = weekStart.getFullYear();
