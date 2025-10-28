@@ -230,18 +230,24 @@ export default function HomePage() {
   }, [isClient, projects, loading]);
 
   const fetchData = async () => {
+    console.log('Homepage: Starting to fetch data...');
     setLoading(true);
     try {
       // Fetch projects for current weekly competition
+      console.log('Homepage: Fetching projects...');
       const projectsResponse = await fetch(
         `/api/projects?competition=weekly&limit=15&sort=upvotes`
       );
       if (projectsResponse.ok) {
         const projectsData = await projectsResponse.json();
+        console.log('Homepage: Projects fetched successfully:', projectsData.data.projects?.length || 0);
         setProjects(projectsData.data.projects || []);
+      } else {
+        console.error('Homepage: Failed to fetch projects:', projectsResponse.status);
       }
 
       // Fetch current competition data
+      console.log('Homepage: Fetching competitions...');
       const competitionsResponse = await fetch(
         "/api/competitions?current=true"
       );
@@ -250,15 +256,19 @@ export default function HomePage() {
         const weeklyComp = competitionsData.data.competitions.find(
           (c) => c.type === "weekly"
         );
+        console.log('Homepage: Competition fetched successfully:', !!weeklyComp);
         setCompetition(weeklyComp || null);
+      } else {
+        console.error('Homepage: Failed to fetch competitions:', competitionsResponse.status);
       }
     } catch (error) {
-      console.error("Failed to fetch homepage data:", error);
+      console.error("Homepage: Failed to fetch homepage data:", error);
       // Fallback to empty state
       setProjects([]);
       setCompetition(null);
     } finally {
       setLoading(false);
+      console.log('Homepage: Data fetching completed');
     }
   };
 

@@ -8,7 +8,7 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
-const BUCKET_NAME = "avatars";
+const BUCKET_NAME = "dh-storage";
 const MAX_FILE_SIZE = 1 * 1024 * 1024; // 1MB
 const ALLOWED_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
 
@@ -57,7 +57,7 @@ export async function POST(request) {
     // Generate unique filename
     const fileExtension = file.name.split(".").pop();
     const fileName = `${uuidv4()}.${fileExtension}`;
-    const filePath = `profile-images/${fileName}`;
+    const filePath = `logos/${fileName}`;
 
     // Upload to Supabase Storage
     const { data, error } = await supabase.storage

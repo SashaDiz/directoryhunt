@@ -68,6 +68,8 @@ export async function GET(request) {
       }
 
       console.log('Successfully authenticated user:', data.user?.email);
+      console.log('Session established:', !!data.session);
+      console.log('Redirecting to:', next);
       
       // Note: User creation in public.users is now handled automatically by 
       // the database trigger (on_auth_user_created). No need to manually sync here.

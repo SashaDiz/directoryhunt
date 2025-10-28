@@ -16,8 +16,11 @@ export function SupabaseProvider({ children }) {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((event, session) => {
-      // Refresh the page to sync server and client
-      if (event === 'SIGNED_IN' || event === 'SIGNED_OUT') {
+      console.log('Auth state changed:', event, session?.user?.email);
+      
+      // Only refresh on sign out to clear any cached data
+      // For sign in, let the client-side state update naturally
+      if (event === 'SIGNED_OUT') {
         router.refresh();
       }
     });
@@ -25,7 +28,7 @@ export function SupabaseProvider({ children }) {
     return () => {
       subscription.unsubscribe();
     };
-  }, [router, supabase, pathname]);
+  }, [router, supabase]);
 
   return (
     <SupabaseContext.Provider value={{ supabase }}>

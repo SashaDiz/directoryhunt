@@ -13,7 +13,7 @@ const s3Client = new S3Client({
   forcePathStyle: true, // Required for Supabase S3
 });
 
-const BUCKET_NAME = process.env.SUPABASE_S3_BUCKET || "logos";
+const BUCKET_NAME = process.env.SUPABASE_S3_BUCKET || "dh-storage";
 const MAX_FILE_SIZE = 1 * 1024 * 1024; // 1MB
 const ALLOWED_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
 
