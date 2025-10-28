@@ -20,6 +20,9 @@
 -- Enable necessary extensions
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE EXTENSION IF NOT EXISTS "pg_trgm"; -- For text search
+CREATE EXTENSION IF NOT EXISTS "pg_cron"; -- For scheduled jobs
+CREATE EXTENSION IF NOT EXISTS "pg_graphql"; -- For GraphQL support
+CREATE EXTENSION IF NOT EXISTS "supabase_vault"; -- For Supabase Vault
 
 -- ============================================================================
 -- USERS TABLE
@@ -40,7 +43,7 @@ CREATE TABLE IF NOT EXISTS public.users (
   github TEXT,
   linkedin TEXT,
   location TEXT,
-  avatar_url TEXT,
+  avatar_url TEXT, -- URL of the user profile image stored in Supabase Storage
   
   -- Platform-specific fields
   total_submissions INTEGER DEFAULT 0,
@@ -56,6 +59,10 @@ CREATE TABLE IF NOT EXISTS public.users (
   is_active BOOLEAN DEFAULT true,
   is_banned BOOLEAN DEFAULT false,
   banned_until TIMESTAMP WITH TIME ZONE,
+  is_admin BOOLEAN DEFAULT false,
+  
+  -- Notification preferences
+  notification_preferences JSONB DEFAULT '{"weekly_digest": false, "winner_reminder": true, "account_creation": true, "account_deletion": true, "marketing_emails": false, "submission_decline": true, "competition_winners": true, "submission_approval": true, "weekly_competition_entry": true}'::jsonb,
   
   -- Timestamps
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
@@ -85,6 +92,7 @@ CREATE TABLE IF NOT EXISTS public.categories (
   app_count INTEGER DEFAULT 0,
   featured BOOLEAN DEFAULT false,
   sort_order INTEGER DEFAULT 0,
+  sphere TEXT,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
@@ -123,7 +131,7 @@ CREATE TABLE IF NOT EXISTS public.competitions (
   -- - Standard can submit: total_submissions < 15
   -- - Premium can submit: total_submissions < 25
   max_standard_slots INTEGER DEFAULT 15, -- Shared slots for both plans
-  max_premium_slots INTEGER DEFAULT 25, -- Total slots available for premium (15 shared + 10 extra)
+  max_premium_slots INTEGER DEFAULT 10, -- Total slots available for premium plans only (25 = 15 shared + 10 extra)
   
   -- Results
   total_votes INTEGER DEFAULT 0,
@@ -210,10 +218,16 @@ CREATE TABLE IF NOT EXISTS public.apps (
   
   -- Status and Moderation
   status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'approved', 'rejected', 'live', 'archived', 'scheduled', 'draft')),
-  is_draft BOOLEAN DEFAULT false,
+  is_draft BOOLEAN DEFAULT false, -- Indicates if the app is a draft (premium apps are drafts until payment confirmed)
   rejection_reason TEXT,
   featured BOOLEAN DEFAULT false,
   homepage_featured BOOLEAN DEFAULT false,
+  
+  -- Payment tracking
+  checkout_session_id TEXT, -- LemonSqueezy checkout session ID for payment tracking
+  payment_initiated_at TIMESTAMP WITH TIME ZONE, -- When the payment checkout was initiated
+  order_id TEXT, -- LemonSqueezy order ID after successful payment
+  payment_date TIMESTAMP WITH TIME ZONE, -- When the payment was completed
   
   -- Competition tracking
   weekly_competition_id UUID REFERENCES public.competitions(id) ON DELETE SET NULL,
@@ -221,9 +235,9 @@ CREATE TABLE IF NOT EXISTS public.apps (
   
   -- Engagement Metrics
   views INTEGER DEFAULT 0,
-  upvotes INTEGER DEFAULT 0,
-  clicks INTEGER DEFAULT 0,
-  total_engagement INTEGER DEFAULT 0,
+  upvotes INTEGER DEFAULT 0, -- Total upvotes received (primary ranking metric)
+  clicks INTEGER DEFAULT 0, -- Total clicks on the app
+  total_engagement INTEGER DEFAULT 0, -- Total engagement score (upvotes + clicks)
   
   -- Ranking and Competition
   -- TODO: Implement advanced ranking system
@@ -234,8 +248,8 @@ CREATE TABLE IF NOT EXISTS public.apps (
   weekly_score NUMERIC DEFAULT 0,
   
   -- Competition results
-  weekly_winner BOOLEAN DEFAULT false,
-  weekly_position INTEGER,
+  weekly_winner BOOLEAN DEFAULT false, -- Boolean flag indicating if this app won the weekly competition
+  weekly_position INTEGER, -- Position in weekly competition (1=winner, 2=runner-up, 3=third place)
   
   -- Homepage presence
   homepage_start_date TIMESTAMP WITH TIME ZONE,
@@ -533,6 +547,70 @@ CREATE INDEX idx_link_type_changes_timestamp ON public.link_type_changes(timesta
 CREATE INDEX idx_link_type_changes_changed_by ON public.link_type_changes(changed_by);
 
 -- ============================================================================
+-- CHANGELOG TABLE
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS public.changelog (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  
+  -- Content details
+  title TEXT NOT NULL,
+  version TEXT,
+  description TEXT,
+  content TEXT NOT NULL,
+  type TEXT DEFAULT 'feature' CHECK (type IN ('feature', 'bugfix', 'improvement', 'breaking', 'announcement')),
+  
+  -- Publishing
+  published BOOLEAN DEFAULT false,
+  featured BOOLEAN DEFAULT false,
+  author_id UUID REFERENCES public.users(id) ON DELETE SET NULL,
+  
+  -- Timestamps
+  published_at TIMESTAMP WITH TIME ZONE,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Indexes for changelog
+CREATE INDEX idx_changelog_published ON public.changelog(published);
+CREATE INDEX idx_changelog_featured ON public.changelog(featured);
+CREATE INDEX idx_changelog_type ON public.changelog(type);
+CREATE INDEX idx_changelog_published_at ON public.changelog(published_at DESC);
+
+-- ============================================================================
+-- EMAIL NOTIFICATIONS TABLE
+-- ============================================================================
+
+CREATE TABLE IF NOT EXISTS public.email_notifications (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  user_id UUID NOT NULL REFERENCES public.users(id) ON DELETE CASCADE,
+  
+  -- Notification details
+  email_type TEXT NOT NULL CHECK (email_type IN ('account_creation', 'account_deletion', 'weekly_competition_entry', 'submission_received', 'submission_approval', 'submission_decline', 'launch_week_reminder', 'competition_week_start', 'competition_week_end', 'competition_winners', 'winner_reminder', 'winner_backlink_reminder', 'weekly_digest', 'marketing_emails')),
+  app_id UUID REFERENCES public.apps(id) ON DELETE CASCADE,
+  competition_id UUID REFERENCES public.competitions(id) ON DELETE CASCADE,
+  
+  -- Status tracking
+  status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'sent', 'failed', 'bounced')),
+  sent_at TIMESTAMP WITH TIME ZONE,
+  error_message TEXT,
+  resend_email_id TEXT,
+  
+  -- Metadata
+  metadata JSONB DEFAULT '{}'::jsonb,
+  
+  -- Timestamps
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Indexes for email_notifications
+CREATE INDEX idx_email_notifications_user_id ON public.email_notifications(user_id);
+CREATE INDEX idx_email_notifications_email_type ON public.email_notifications(email_type);
+CREATE INDEX idx_email_notifications_status ON public.email_notifications(status);
+CREATE INDEX idx_email_notifications_created_at ON public.email_notifications(created_at DESC);
+
+-- ============================================================================
 -- EXTERNAL WEBHOOKS TABLE
 -- ============================================================================
 
@@ -599,6 +677,12 @@ CREATE TRIGGER update_backlinks_updated_at BEFORE UPDATE ON public.backlinks
 CREATE TRIGGER update_external_webhooks_updated_at BEFORE UPDATE ON public.external_webhooks
   FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
+CREATE TRIGGER update_changelog_updated_at BEFORE UPDATE ON public.changelog
+  FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+CREATE TRIGGER update_email_notifications_updated_at BEFORE UPDATE ON public.email_notifications
+  FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
 -- ============================================================================
 -- ROW LEVEL SECURITY (RLS) POLICIES
 -- ============================================================================
@@ -616,6 +700,8 @@ ALTER TABLE public.backlinks ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.analytics ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.link_type_changes ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.external_webhooks ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.changelog ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.email_notifications ENABLE ROW LEVEL SECURITY;
 
 -- Users: Users can read their own data, admins can read all
 CREATE POLICY "Users can view own profile" ON public.users
@@ -808,6 +894,33 @@ CREATE POLICY "Only admins can access webhooks" ON public.external_webhooks
     SELECT 1 FROM public.users WHERE id = (SELECT auth.uid()) AND role = 'admin'
   ));
 
+-- Changelog: Public read published, admin write
+CREATE POLICY "Published changelog viewable by everyone" ON public.changelog
+  FOR SELECT
+  USING (published = true);
+
+CREATE POLICY "Admins can view all changelog" ON public.changelog
+  FOR SELECT
+  TO authenticated
+  USING (EXISTS (
+    SELECT 1 FROM public.users WHERE id = (SELECT auth.uid()) AND role = 'admin'
+  ));
+
+CREATE POLICY "Only admins can modify changelog" ON public.changelog
+  FOR ALL
+  TO authenticated
+  USING (EXISTS (
+    SELECT 1 FROM public.users WHERE id = (SELECT auth.uid()) AND role = 'admin'
+  ));
+
+-- Email notifications: Admin only
+CREATE POLICY "Only admins can access email notifications" ON public.email_notifications
+  FOR ALL
+  TO authenticated
+  USING (EXISTS (
+    SELECT 1 FROM public.users WHERE id = (SELECT auth.uid()) AND role = 'admin'
+  ));
+
 -- ============================================================================
 -- SEED DATA
 -- ============================================================================
@@ -902,6 +1015,8 @@ BEGIN
     total_votes,
     reputation,
     is_active,
+    is_admin,
+    notification_preferences,
     created_at,
     updated_at,
     last_login_at
@@ -915,6 +1030,8 @@ BEGIN
     0,
     0,
     true,
+    false,
+    '{"weekly_digest": false, "winner_reminder": true, "account_creation": true, "account_deletion": true, "marketing_emails": false, "submission_decline": true, "competition_winners": true, "submission_approval": true, "weekly_competition_entry": true}'::jsonb,
     NOW(),
     NOW(),
     NOW()

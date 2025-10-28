@@ -24,7 +24,7 @@ Perfect for directory creators, indie developers, and anyone building tiny proje
 ## 🚀 Features
 
 ### Core Features
-- **Supabase Authentication** - Email (Magic Link), Google OAuth, GitHub OAuth
+- **Supabase Authentication** - Email (Magic Link), Google OAuth
 - **Project Submissions** - Multi-step form with FREE and Premium plans
 - **Real-time Voting** - Community-driven upvoting system
 - **Weekly Competitions** - Top 3 FREE submissions win dofollow backlinks
@@ -127,7 +127,7 @@ This application implements **defense-in-depth security** with three layers of p
 Test authentication by:
 1. Visit `http://localhost:3000`
 2. Click "Sign in"
-3. Try any authentication method (Email, Google, or GitHub)
+3. Try any authentication method (Email or Google)
 4. Verify you're signed in (avatar appears in header)
 
 ## 🛠️ Tech Stack
@@ -302,34 +302,6 @@ Go to **Authentication → Providers**:
    - Add Client ID and Client Secret from Google
    - Click **Save**
 
-**GitHub OAuth** (Optional)
-
-1. **Create OAuth App**:
-   - Go to https://github.com/settings/developers
-   - Click "New OAuth App"
-   
-2. **Configure OAuth App**:
-   
-   **For Local Development:**
-   - **Application name**: Your App Name (Local)
-   - **Homepage URL**: `http://localhost:3000`
-   - **Authorization callback URL**: `http://localhost:3000/auth/callback`
-   
-   **For Production:**
-   - **Application name**: Your App Name
-   - **Homepage URL**: `https://yourdomain.com`
-   - **Authorization callback URL**: `https://yourdomain.com/auth/callback`
-   
-3. **Copy Credentials**:
-   - Copy the **Client ID** and **Client Secret**
-   
-4. **Enable in Supabase**:
-   - Go to Authentication → Providers
-   - Find and enable "GitHub"
-   - Enter Client ID and Client Secret
-   - Click **Save**
-
-💡 **Tip**: For production, create **separate** OAuth Apps for each provider to avoid conflicts between development and production environments.
 
 ### 5. Setup Supabase S3 Storage (for image uploads)
 
@@ -376,11 +348,10 @@ Visit `http://localhost:3000` to see your app! 🎉
 
 ### Sign-In Methods
 
-The platform supports three authentication methods:
+The platform supports two authentication methods:
 
 1. **Email (Magic Link)** - Users receive a sign-in link via email
 2. **Google OAuth** - Sign in with Google account
-3. **GitHub OAuth** - Sign in with GitHub account
 
 ### Usage in Code
 
@@ -1037,15 +1008,12 @@ pnpm webhook:simulate
    - Go to Lemon Squeezy → Settings → Webhooks
    - Update endpoint URL to: `https://yourdomain.com/api/webhooks/lemonsqueezy`
    
-   **c) Update OAuth Apps (if using Google/GitHub):**
+   **c) Update OAuth Apps (if using Google):**
    
    For **Google OAuth**:
    - Go to Google Cloud Console → Credentials
    - Add authorized redirect URI: `https://your-project.supabase.co/auth/v1/callback`
    
-   For **GitHub OAuth**:
-   - Go to GitHub → Settings → Developer Settings → OAuth Apps
-   - Update callback URL: `https://yourdomain.com/auth/callback`
 
 ### Deployment Troubleshooting
 
@@ -1243,42 +1211,6 @@ This will show detailed diagnostics and verify all tables are accessible.
 - ✅ Review Supabase Auth logs (Authentication → Logs) for errors
 - ✅ Ensure Site URL is correctly set in Supabase
 
-#### GitHub OAuth: "Unable to exchange external code"
-
-**Symptoms**: Redirected back to main page without authentication
-
-**Solutions**:
-1. **Verify Callback URLs Match Exactly**:
-   - GitHub OAuth App callback: `http://localhost:3000/auth/callback` (dev) or `https://yourdomain.com/auth/callback` (prod)
-   - No trailing slashes
-   - Case-sensitive match required
-
-2. **Check Supabase URL Configuration** (⚠️ MOST COMMON ISSUE):
-   - Site URL must be set to `http://localhost:3000` (dev) or `https://yourdomain.com` (prod)
-   - All redirect URLs must be added to Supabase:
-     - For development: `http://localhost:3000/auth/callback`
-     - For production: `https://yourdomain.com/auth/callback`
-   - Click **Save** after adding each URL
-
-3. **Verify GitHub OAuth App Settings**:
-   - Homepage URL: `http://localhost:3000` (dev) or `https://yourdomain.com` (prod)
-   - Authorization callback URL: `http://localhost:3000/auth/callback` (dev) or `https://yourdomain.com/auth/callback` (prod)
-   - Client ID and Secret correctly entered in Supabase Dashboard
-
-4. **For Production Deployments**:
-   - Create a **separate** GitHub OAuth App for production
-   - Use different credentials for dev and prod environments
-   - Ensure `NEXT_PUBLIC_APP_URL` environment variable is set to production domain in Vercel
-
-5. **Clear Cache and Restart**:
-   ```bash
-   rm -rf .next
-   pnpm dev
-   ```
-
-6. **Test in Incognito Mode**:
-   - Clear browser cookies
-   - Try in private/incognito window
 
 #### Google OAuth: "redirect_uri_mismatch"
 

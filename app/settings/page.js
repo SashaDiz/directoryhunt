@@ -9,7 +9,6 @@ import {
   Trash,
   Link as LinkIcon,
   WarningTriangle,
-  Github,
   Bell,
   Check,
 } from "iconoir-react";
@@ -268,8 +267,6 @@ export default function SettingsPage() {
             />
           </svg>
         );
-      case "github":
-        return <Github className="w-5 h-5" />;
       default:
         return <LinkIcon className="w-5 h-5" />;
     }
@@ -548,56 +545,6 @@ export default function SettingsPage() {
                 )}
               </div>
 
-              {/* GitHub */}
-              <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-200 hover:border-[#000000]/30 transition-colors">
-                <div className="flex items-center space-x-4">
-                  <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center border border-gray-200">
-                    {getProviderIcon("github")}
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">GitHub</h3>
-                    {isProviderConnected("github") ? (
-                      <div className="flex items-center gap-1 mt-1">
-                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                        <p className="text-sm text-green-600 font-medium">Connected</p>
-                      </div>
-                    ) : (
-                      <p className="text-sm text-gray-500 mt-1">Not connected</p>
-                    )}
-                  </div>
-                </div>
-                {isProviderConnected("github") ? (
-                  <button
-                    onClick={() => {
-                      const githubIdentity = connectedProviders.find(
-                        (p) => p.provider === "github"
-                      );
-                      if (githubIdentity) {
-                        handleUnlinkProvider(githubIdentity);
-                      }
-                    }}
-                    className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-red-600 bg-red-50 border border-red-200 rounded-lg hover:bg-red-100 hover:border-red-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                    disabled={connectedProviders.length === 1}
-                  >
-                    Disconnect
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => handleLinkProvider("github")}
-                    disabled={isLinking.github}
-                    className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-[#000000] bg-[#000000]/10 border border-[#000000]/20 rounded-lg hover:bg-[#000000]/20 hover:border-[#000000]/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isLinking.github ? (
-                      <>
-                        <span className="loading loading-spinner loading-sm"></span>
-                        Connecting...
-                      </>
-                    ) : (
-                      "Connect"
-                    )}
-                  </button>
-                )}
-              </div>
             </div>
 
             {connectedProviders.length === 1 && (

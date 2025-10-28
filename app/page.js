@@ -350,7 +350,7 @@ export default function HomePage() {
                   <Rocket className="w-12 h-12 text-gray-600" strokeWidth={1} />
                   <p className="text-gray-700 text-md font-medium">No directories or projects found for this competition.</p>
                   <Link
-                    href="/submit?plan=standard"
+                    href="/submit"
                     className="block text-center bg-white text-gray-900 border border-gray-200 rounded-lg py-3 font-semibold text-sm no-underline transition duration-300 outline outline-4 outline-transparent hover:border-[#000000] hover:bg-[#000000] hover:text-white hover:outline-[#ed0d7924] min-h-[48px] min-w-[200px]"
                     aria-label="Submit your directory or project to be the first in this competition"
                   >

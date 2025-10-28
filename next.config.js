@@ -4,7 +4,6 @@ const nextConfig = {
     unoptimized: true,
     domains: [
       "localhost",
-      "avatars.githubusercontent.com",
       "lh3.googleusercontent.com",
       "sdfzsocizvmgrisnlcvz.storage.supabase.co", // Supabase S3 storage domain
     ],
@@ -16,7 +15,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.rybbit.io; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https:; font-src 'self' data:; connect-src 'self' https://app.rybbit.io; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;",
+            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.rybbit.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' blob: data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://app.rybbit.io; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;",
           },
           {
             key: 'X-Frame-Options',

@@ -286,7 +286,7 @@ export function Header() {
             </nav>
             {/* Launch AI Project Button */}
             <Link
-              href="/submit?plan=standard"
+              href="/submit"
               className="text-center bg-black text-white rounded-lg px-4 py-3 font-semibold text-sm no-underline transition duration-300 hover:scale-105 hidden sm:flex items-center gap-2"
               onMouseEnter={handlePlusIconHover}
               onMouseLeave={handlePlusIconLeave}
@@ -463,7 +463,7 @@ export function Header() {
               {/* Submit Button */}
               <div className="mb-8">
                 <Link
-                  href="/submit?plan=standard"
+                  href="/submit"
                   onClick={closeMobileMenu}
                   className="flex items-center justify-center w-full bg-black text-white rounded-lg px-6 py-4 font-semibold text-lg no-underline transition duration-300 hover:scale-105"
                 >

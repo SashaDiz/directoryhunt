@@ -4,7 +4,7 @@ import React, { Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Github, Mail, NavArrowLeft, FlashOff } from "iconoir-react";
+import { Mail, NavArrowLeft, FlashOff } from "iconoir-react";
 import { useSupabase } from "../../components/SupabaseProvider";
 import { useUser } from "../../hooks/useUser";
 import toast from "react-hot-toast";
@@ -203,19 +203,6 @@ function SignInContent() {
                 Continue with Google
               </button>
 
-              {/* GitHub Sign In */}
-              <button
-                onClick={() => handleSignIn("github")}
-                disabled={isLoading.github}
-                className="btn btn-outline w-full"
-              >
-                {isLoading.github ? (
-                  <span className="loading loading-spinner loading-sm"></span>
-                ) : (
-                  <Github className="w-5 h-5 mr-3" />
-                )}
-                Continue with GitHub
-              </button>
             </div>
 
             {/* Divider */}
